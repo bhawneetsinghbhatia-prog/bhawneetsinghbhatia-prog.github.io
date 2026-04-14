@@ -603,8 +603,10 @@ body.dark .bar-track { background: #3a3a3c; }
     </div>
     <!-- Repayment-specific actions -->
     <div id="repayment-actions" style="display:none;align-items:center;gap:8px;">
+      <span class="sync-badge" id="rpSyncBadge" style="display:none;">☁️ Saved</span>
       <button class="btn btn-ghost" onclick="resetDefaults()">Reset</button>
       <button class="btn btn-primary" onclick="recalculate()">↻ Recalculate</button>
+      <button class="btn btn-primary" onclick="saveRepaymentToCloud(true)" id="btnSaveRP" style="display:none;background:#1a7a35;">💾 Save ☁️</button>
       <button class="btn-pdf" onclick="generatePDF()" title="Export as PDF">📄 Export PDF</button>
     </div>
   </div>
@@ -1132,6 +1134,10 @@ function startApp(user) {
   }, e => {
     if (sb) { sb.textContent = '⚠ Sync Error'; sb.style.color = '#ef4444'; }
   });
+  // Show repayment save button and load saved repayment data
+  const btnSaveRP = document.getElementById('btnSaveRP');
+  if (btnSaveRP) btnSaveRP.style.display = 'inline-flex';
+  loadRepaymentFromCloud(user.uid);
 }
 
 async function saveTask() {
@@ -1555,6 +1561,118 @@ async function autoTrashExpiredRecurring() {
 }
 
 // ═══════════════════════════════════════════════════════════════════
+// REPAYMENT SCHEDULE CLOUD SYNC
+// ═══════════════════════════════════════════════════════════════════
+function getRepaymentSnapshot() {
+  // Collect all current repayment inputs into a plain object for Firestore
+  const roi = parseFloat(document.getElementById('roi').value) || 8.30;
+  const term = parseInt(document.getElementById('term').value) || 132;
+  const mora = parseInt(document.getElementById('mora').value) || 0;
+  const inttPaid = document.getElementById('inttPaid').value;
+  const disbursements = [];
+  document.querySelectorAll('#disb-body .disb-row').forEach(row => {
+    const dateInput = row.querySelector('input[type="date"]');
+    const amtInput = row.querySelector('input[type="number"]');
+    if (dateInput && amtInput) disbursements.push({ date: dateInput.value, amount: parseFloat(amtInput.value) || 0 });
+  });
+  const rateChanges = [];
+  document.querySelectorAll('#rate-body .rate-row').forEach(row => {
+    const dateInput = row.querySelector('input[type="date"]');
+    const roiInput = row.querySelector('input[type="number"]');
+    if (dateInput && roiInput) rateChanges.push({ date: dateInput.value, roi: parseFloat(roiInput.value) || 0 });
+  });
+  return { roi, term, mora, inttPaid, disbursements, rateChanges, savedAt: Date.now() };
+}
+
+async function saveRepaymentToCloud(manual = false) {
+  if (!auth || !auth.currentUser) return;
+  const uid = auth.currentUser.uid;
+  const data = getRepaymentSnapshot();
+  const badge = document.getElementById('rpSyncBadge');
+  try {
+    await db.collection('users').doc(uid).collection('config').doc('repaymentSchedule').set(data);
+    if (badge) { badge.textContent = '☁️ Saved'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
+    if (manual) showToast('Repayment schedule saved to cloud ☁️', '#1a7a35');
+  } catch(e) {
+    if (badge) { badge.textContent = '⚠ Save Error'; badge.style.display = 'inline-flex'; badge.style.color = '#ef4444'; }
+    if (manual) showToast('Cloud save failed: ' + e.message, '#ef4444');
+  }
+}
+
+async function loadRepaymentFromCloud(uid) {
+  const badge = document.getElementById('rpSyncBadge');
+  try {
+    if (badge) { badge.textContent = '⟳ Loading…'; badge.style.display = 'inline-flex'; }
+    const doc = await db.collection('users').doc(uid).collection('config').doc('repaymentSchedule').get();
+    if (!doc.exists) {
+      if (badge) { badge.textContent = '☁️ Not saved yet'; badge.style.display = 'inline-flex'; }
+      return;
+    }
+    const data = doc.data();
+    // Restore basic fields
+    if (data.roi != null) document.getElementById('roi').value = data.roi;
+    if (data.term != null) document.getElementById('term').value = data.term;
+    if (data.mora != null) document.getElementById('mora').value = data.mora;
+    if (data.inttPaid) document.getElementById('inttPaid').value = data.inttPaid;
+    // Restore disbursements
+    if (Array.isArray(data.disbursements) && data.disbursements.length > 0) {
+      // Clear existing rows except row 1
+      document.querySelectorAll('#disb-body .disb-row').forEach((r, idx) => { if (idx > 0) r.remove(); });
+      disbRowCount = 1;
+      data.disbursements.forEach((d, idx) => {
+        if (idx === 0) {
+          const dateEl = document.getElementById('disb-date-1');
+          const amtEl = document.getElementById('disb-amt-1');
+          if (dateEl) dateEl.value = d.date || '';
+          if (amtEl) amtEl.value = d.amount || '';
+        } else {
+          disbRowCount++;
+          const container = document.getElementById('disb-body');
+          const div = document.createElement('div');
+          div.className = 'disb-row'; div.id = `disb-row-${disbRowCount}`;
+          div.innerHTML = `<span class="disb-no">${disbRowCount}</span>
+            <input type="date" id="disb-date-${disbRowCount}" value="${d.date||''}" onchange="recalculate()">
+            <input type="number" id="disb-amt-${disbRowCount}" min="0" step="1" value="${d.amount||''}" placeholder="0" onchange="recalculate()">
+            <div class="disb-del-cell"><button class="btn-remove" onclick="removeDisbRow(${disbRowCount})" title="Remove">×</button></div>`;
+          container.appendChild(div);
+        }
+      });
+    }
+    // Restore rate changes
+    if (Array.isArray(data.rateChanges)) {
+      document.querySelectorAll('#rate-body .rate-row').forEach(r => r.remove());
+      rateRowCount = 0;
+      const emptyMsg = document.getElementById('rate-empty-msg');
+      data.rateChanges.forEach(rc => {
+        if (!rc.date || !rc.roi) return;
+        if (emptyMsg) emptyMsg.remove();
+        rateRowCount++;
+        const container = document.getElementById('rate-body');
+        const div = document.createElement('div');
+        div.className = 'rate-row'; div.id = `rate-row-${rateRowCount}`;
+        div.innerHTML = `<span class="rate-no">${document.querySelectorAll('#rate-body .rate-row').length + 1}</span>
+          <input type="date" id="rate-date-${rateRowCount}" value="${rc.date}" oninput="debouncedRecalc()">
+          <input type="number" id="rate-roi-${rateRowCount}" min="0.01" max="50" step="0.01" value="${rc.roi}" placeholder="e.g. 9.25" oninput="debouncedRecalc()">
+          <span class="rate-unit">% p.a.</span>
+          <div class="rate-del-cell"><button class="btn-remove" onclick="removeRateRow(${rateRowCount})" title="Remove">×</button></div>`;
+        container.appendChild(div);
+      });
+      if (data.rateChanges.length === 0 && !document.getElementById('rate-empty-msg')) {
+        const msg = document.createElement('div'); msg.id = 'rate-empty-msg';
+        msg.style.cssText = 'padding:13px 16px;font-size:13px;color:var(--text-tertiary);font-style:italic;';
+        msg.textContent = 'No rate revisions added yet. Click "+ Add Rate Change" to begin.';
+        document.getElementById('rate-body').appendChild(msg);
+      }
+    }
+    recalculate();
+    if (badge) { badge.textContent = '☁️ Loaded'; badge.style.display = 'inline-flex'; }
+    setTimeout(() => { if (badge) badge.textContent = '☁️ Saved'; }, 2000);
+  } catch(e) {
+    if (badge) { badge.textContent = '⚠ Load Error'; badge.style.display = 'inline-flex'; badge.style.color = '#ef4444'; }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
 // REPAYMENT SCHEDULE JS
 // ═══════════════════════════════════════════════════════════════════
 const TODAY_RP = (() => { const d = new Date(); d.setHours(0,0,0,0); return d; })();
@@ -1920,6 +2038,8 @@ function recalculate() {
       <td style="white-space:normal;min-width:160px">${badges}</td>
     </tr>`);
   });
+  // Auto-save to cloud after every recalculation (debounced via existing debounce)
+  saveRepaymentToCloud(false);
 }
 
 // ═══════════════════════════════════════════════════════════════════
