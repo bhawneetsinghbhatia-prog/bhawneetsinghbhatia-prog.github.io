@@ -1590,17 +1590,21 @@ function getRepaymentSnapshot() {
   return { roi, term, mora, inttPaid, disbursements, rateChanges, savedAt: Date.now() };
 }
 
+let _rpApplying = false; // guard: prevents save-loop when onSnapshot triggers recalculate
+
 async function saveRepaymentToCloud(manual = false) {
   if (!auth || !auth.currentUser) return;
+  if (_rpApplying) return; // fired by onSnapshot apply — skip to avoid infinite loop
   const uid = auth.currentUser.uid;
   const data = getRepaymentSnapshot();
   const badge = document.getElementById('rpSyncBadge');
   try {
     await db.collection('users').doc(uid).collection('config').doc('repaymentSchedule').set(data);
-    if (badge) { badge.textContent = '☁️ Saved'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
+    // Keep badge as Live Sync (already showing) — don't overwrite it
+    if (badge && badge.textContent !== '● Live Sync') { badge.textContent = '● Live Sync'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
     if (manual) showToast('Repayment schedule saved to cloud ☁️', '#1a7a35');
   } catch(e) {
-    if (badge) { badge.textContent = '⚠ Save Error'; badge.style.display = 'inline-flex'; badge.style.color = '#ef4444'; }
+    if (badge) { badge.textContent = '⚠ Sync Error'; badge.style.display = 'inline-flex'; badge.style.color = '#ef4444'; }
     if (manual) showToast('Cloud save failed: ' + e.message, '#ef4444');
   }
 }
@@ -1661,26 +1665,26 @@ function applyRepaymentData(data) {
     }
   }
   recalculate();
+  _rpApplying = false; // allow saves again
 }
 
 function loadRepaymentFromCloud(uid) {
-  // ── Live real-time listener (same pattern as Pendency Tracker tasks) ──
+  // ── Live real-time listener — same Firebase pattern as Pendency Tracker ──
+  // Both use onSnapshot so changes from any device/tab update instantly.
+  // Both save under the same Google account: users/{uid}/...
   if (unsubRepayment) { unsubRepayment(); unsubRepayment = null; }
   const badge = document.getElementById('rpSyncBadge');
   if (badge) { badge.textContent = '⟳ Syncing…'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
-  let firstLoad = true;
   unsubRepayment = db.collection('users').doc(uid).collection('config').doc('repaymentSchedule')
     .onSnapshot(docSnap => {
-      if (!docSnap.exists) {
-        if (badge) { badge.textContent = '● Live Sync'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
-        firstLoad = false;
-        return; // nothing saved yet — keep defaults
-      }
-      // Only apply when data originates from another source (not triggered by our own save)
-      // We always apply on first load; subsequent updates reflect remote changes
-      applyRepaymentData(docSnap.data());
       if (badge) { badge.textContent = '● Live Sync'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
-      firstLoad = false;
+      // Skip if this snapshot was triggered by our own local write (hasPendingWrites = true)
+      // This is Firestore's built-in way to detect local vs. remote updates
+      if (docSnap.metadata.hasPendingWrites) return;
+      if (!docSnap.exists) return; // nothing saved yet — keep defaults
+      _rpApplying = true; // block save inside recalculate during apply
+      applyRepaymentData(docSnap.data());
+      // _rpApplying is set back to false inside applyRepaymentData after recalculate()
     }, err => {
       if (badge) { badge.textContent = '⚠ Sync Error'; badge.style.display = 'inline-flex'; badge.style.color = '#ef4444'; }
     });
