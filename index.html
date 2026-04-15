@@ -1571,9 +1571,13 @@ async function autoTrashExpiredRecurring() {
 // ═══════════════════════════════════════════════════════════════════
 function getRepaymentSnapshot() {
   // Collect all current repayment inputs into a plain object for Firestore
-  const roi = parseFloat(document.getElementById('roi').value) || 8.30;
-  const term = parseInt(document.getElementById('term').value) || 132;
-  const mora = parseInt(document.getElementById('mora').value) || 0;
+  const roiVal = document.getElementById('roi').value;
+  const termVal = document.getElementById('term').value;
+  const moraVal = document.getElementById('mora').value;
+
+  const roi = roiVal !== '' ? parseFloat(roiVal) : '';
+  const term = termVal !== '' ? parseInt(termVal) : '';
+  const mora = moraVal !== '' ? parseInt(moraVal) : '';
   const inttPaid = document.getElementById('inttPaid').value;
   const disbursements = [];
   document.querySelectorAll('#disb-body .disb-row').forEach(row => {
@@ -1590,20 +1594,24 @@ function getRepaymentSnapshot() {
   return { roi, term, mora, inttPaid, disbursements, rateChanges, savedAt: Date.now() };
 }
 
-let _rpApplying = false; // guard: prevents save-loop when onSnapshot triggers recalculate
+let _rpApplying = false;   // guard: prevents save-loop when onSnapshot triggers recalculate
+let _lastRpSavedAt = null; // timestamp of our last save — used to skip our own snapshots on iOS
 
 async function saveRepaymentToCloud(manual = false) {
   if (!auth || !auth.currentUser) return;
   if (_rpApplying) return; // fired by onSnapshot apply — skip to avoid infinite loop
   const uid = auth.currentUser.uid;
+  const ts = Date.now();
+  _lastRpSavedAt = ts;        // stamp BEFORE write so we can match the echo snapshot
   const data = getRepaymentSnapshot();
+  data.savedAt = ts;          // embed into doc so remote devices also see who originated it
   const badge = document.getElementById('rpSyncBadge');
   try {
     await db.collection('users').doc(uid).collection('config').doc('repaymentSchedule').set(data);
-    // Keep badge as Live Sync (already showing) — don't overwrite it
-    if (badge && badge.textContent !== '● Live Sync') { badge.textContent = '● Live Sync'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
+    if (badge) { badge.textContent = '● Live Sync'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
     if (manual) showToast('Repayment schedule saved to cloud ☁️', '#1a7a35');
   } catch(e) {
+    _lastRpSavedAt = null; // clear so next snapshot isn't wrongly skipped
     if (badge) { badge.textContent = '⚠ Sync Error'; badge.style.display = 'inline-flex'; badge.style.color = '#ef4444'; }
     if (manual) showToast('Cloud save failed: ' + e.message, '#ef4444');
   }
@@ -1670,21 +1678,23 @@ function applyRepaymentData(data) {
 
 function loadRepaymentFromCloud(uid) {
   // ── Live real-time listener — same Firebase pattern as Pendency Tracker ──
-  // Both use onSnapshot so changes from any device/tab update instantly.
-  // Both save under the same Google account: users/{uid}/...
+  // Saved under the same Google account: users/{uid}/config/repaymentSchedule
   if (unsubRepayment) { unsubRepayment(); unsubRepayment = null; }
   const badge = document.getElementById('rpSyncBadge');
   if (badge) { badge.textContent = '⟳ Syncing…'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
   unsubRepayment = db.collection('users').doc(uid).collection('config').doc('repaymentSchedule')
     .onSnapshot(docSnap => {
       if (badge) { badge.textContent = '● Live Sync'; badge.style.display = 'inline-flex'; badge.style.color = ''; }
-      // Skip if this snapshot was triggered by our own local write (hasPendingWrites = true)
-      // This is Firestore's built-in way to detect local vs. remote updates
-      if (docSnap.metadata.hasPendingWrites) return;
       if (!docSnap.exists) return; // nothing saved yet — keep defaults
+      const incoming = docSnap.data();
+      // ── iOS fix: skip ANY snapshot that echoes our own last write ──
+      // (Firestore fires twice per local write: once pending, once committed.)
+      // We compare savedAt timestamps — reliable across all browsers including Safari.
+      if (incoming.savedAt && incoming.savedAt === _lastRpSavedAt) return;
+      // This snapshot came from a different device/tab — apply it
       _rpApplying = true; // block save inside recalculate during apply
-      applyRepaymentData(docSnap.data());
-      // _rpApplying is set back to false inside applyRepaymentData after recalculate()
+      applyRepaymentData(incoming);
+      // _rpApplying is cleared inside applyRepaymentData after recalculate()
     }, err => {
       if (badge) { badge.textContent = '⚠ Sync Error'; badge.style.display = 'inline-flex'; badge.style.color = '#ef4444'; }
     });
@@ -1904,11 +1914,19 @@ function getRateChanges() {
   return changes.sort((a, b) => a.date - b.date);
 }
 function resetDefaults() {
-  document.getElementById('roi').value = DEFAULTS.roi; document.getElementById('term').value = DEFAULTS.term;
-  document.getElementById('mora').value = DEFAULTS.mora; document.getElementById('inttPaid').value = DEFAULTS.inttPaid;
-  document.getElementById('disb-date-1').value = DEFAULTS.disbDate1; document.getElementById('disb-amt-1').value = DEFAULTS.disbAmt1;
+  if (!confirm('Reset all values to blank / zero?\n\nThis will also clear the saved cloud data.')) return;
+  // ── Clear all inputs to zero / blank ──
+  document.getElementById('roi').value  = '';
+  document.getElementById('term').value = '';
+  document.getElementById('mora').value = '';
+  document.getElementById('inttPaid').value = 'Y';
+  // First disbursement row — blank out date & amount
+  document.getElementById('disb-date-1').value = '';
+  document.getElementById('disb-amt-1').value  = '';
+  // Remove all extra disbursement rows
   document.querySelectorAll('#disb-body .disb-row').forEach((r, idx) => { if (idx > 0) r.remove(); });
   disbRowCount = 1;
+  // Remove all rate revision rows
   document.querySelectorAll('#rate-body .rate-row').forEach(r => r.remove());
   rateRowCount = 0;
   if (!document.getElementById('rate-empty-msg')) {
@@ -1917,13 +1935,27 @@ function resetDefaults() {
     msg.textContent = 'No rate revisions added yet. Click "+ Add Rate Change" to begin.';
     document.getElementById('rate-body').appendChild(msg);
   }
-  recalculate();
+  // Clear the table and summary displays
+  const tbody = document.getElementById('schedule-body');
+  if (tbody) tbody.innerHTML = '';
+  ['emi-display','monthly-rate-display','total-disb','s-loan','s-loan-sub',
+   's-interest','s-outflow','s-rate','hint-rows','row-count','maturity-display'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = '—';
+  });
+  // Save the cleared state to cloud
+  saveRepaymentToCloud(false);
+  showToast('Repayment schedule cleared 🗑️', '#9ca3af');
 }
 function getInputs() {
-  const roi = parseFloat(document.getElementById('roi').value) || 8.30;
-  const term = Math.max(1, parseInt(document.getElementById('term').value) || 132);
-  const moraRaw = parseInt(document.getElementById('mora').value) || 0;
-  const mora = Math.min(moraRaw, term - 1);
+  const roiVal = document.getElementById('roi').value;
+  const termVal = document.getElementById('term').value;
+  const moraVal = document.getElementById('mora').value;
+
+  const roi = roiVal !== '' ? parseFloat(roiVal) : NaN;
+  const term = termVal !== '' ? Math.max(1, parseInt(termVal)) : NaN;
+  const moraRaw = moraVal !== '' ? parseInt(moraVal) : 0;
+  const mora = isNaN(term) ? moraRaw : Math.min(moraRaw, term - 1);
   const inttPaid = document.getElementById('inttPaid').value;
   const disbursements = [];
   document.querySelectorAll('#disb-body .disb-row').forEach(row => {
@@ -1965,7 +1997,17 @@ function sameMonth(a, b) { return a.getFullYear() === b.getFullYear() && a.getMo
 
 function recalculate() {
   const { roi, term, mora, inttPaid, disbursements } = getInputs();
-  if (disbursements.length === 0) return;
+  if (isNaN(roi) || isNaN(term) || isNaN(mora) || disbursements.length === 0) {
+    const tbody = document.getElementById('schedule-body');
+    if (tbody) tbody.innerHTML = '';
+    ['emi-display','monthly-rate-display','total-disb','s-loan','s-loan-sub',
+     's-interest','s-outflow','s-rate','hint-rows','row-count','maturity-display'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = '—';
+    });
+    saveRepaymentToCloud(false);
+    return;
+  }
   const rateChanges = getRateChanges();
   const initialRate = roi / 100 / 12;
   const primaryDisb = disbursements[0];
