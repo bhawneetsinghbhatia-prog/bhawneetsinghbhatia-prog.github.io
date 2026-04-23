@@ -553,6 +553,20 @@ body.dark .bar-track { background: #3a3a3c; }
 .nt-color-swatch:hover { transform: scale(1.15); }
 .nt-color-swatch.selected { border-color: var(--text-primary); box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--text-primary); }
 
+/* Notes Trash */
+.nt-trash-section { border-radius: var(--radius-lg); border: 1.5px dashed var(--border); overflow: hidden; }
+.nt-trash-header { display: flex; align-items: center; gap: 10px; padding: 12px 18px; cursor: pointer; user-select: none; font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); background: var(--surface2); }
+.nt-trash-header:hover { color: var(--text-primary); }
+.nt-trash-body { display: none; }
+.nt-trash-section.nt-trash-open .nt-trash-body { display: block; }
+.nt-trash-section.nt-trash-open .nt-topic-toggle { transform: rotate(0deg); }
+.nt-trash-row { display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-top: 1px solid var(--border); background: var(--surface); transition: background .15s; }
+.nt-trash-row:hover { background: var(--surface2); }
+.nt-trash-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.nt-trash-label { font-size: 0.65rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600; }
+.nt-trash-title { font-size: 0.86rem; font-weight: 600; color: var(--text-secondary); }
+.nt-trash-sub-count { font-size: 0.68rem; color: var(--text-tertiary); }
+
 @media (max-width: 600px) {
   .nt-hero { padding: 28px 16px 20px; }
   .nt-toolbar, .nt-content { padding-left: 16px; padding-right: 16px; }
@@ -2277,10 +2291,12 @@ function loadNotes(uid) {
           id: d.id,
           title: data.title || '',
           color: data.color || NT_COLORS[5],
+          deleted: data.deleted || false,
           subtopics: (data.subtopics || []).map(s => ({
             id: s.id || ntUid(),
             title: s.title || '',
-            body: s.body || ''
+            body: s.body || '',
+            deleted: s.deleted || false
           })),
           collapsed: prevCollapsed[d.id] !== undefined ? prevCollapsed[d.id] : false
         };
@@ -2304,7 +2320,19 @@ async function ntSaveTopic(topicId, title, color) {
   }
 }
 
-async function ntDeleteTopic(topicId) {
+async function ntTrashTopic(topicId) {
+  if (!auth?.currentUser) return;
+  const uid = auth.currentUser.uid;
+  await db.collection('users').doc(uid).collection('notes').doc(topicId).update({ deleted: true, deletedAt: firebase.firestore.FieldValue.serverTimestamp() });
+}
+
+async function ntRestoreTopic(topicId) {
+  if (!auth?.currentUser) return;
+  const uid = auth.currentUser.uid;
+  await db.collection('users').doc(uid).collection('notes').doc(topicId).update({ deleted: false, deletedAt: null });
+}
+
+async function ntPermanentDeleteTopic(topicId) {
   if (!auth?.currentUser) return;
   const uid = auth.currentUser.uid;
   await db.collection('users').doc(uid).collection('notes').doc(topicId).delete();
@@ -2413,10 +2441,10 @@ function confirmDeleteTopic(topicId) {
   const topic = notesTopics.find(t => t.id === topicId);
   if (!topic) return;
   openNtConfirm(
-    'Delete Topic?',
-    `"${topic.title}" and all ${topic.subtopics.length} subtopic(s) inside it will be permanently deleted.`,
+    'Move to Trash?',
+    `"${topic.title}" and its ${topic.subtopics.filter(s=>!s.deleted).length} subtopic(s) will be moved to Trash. You can restore them later.`,
     async () => {
-      try { await ntDeleteTopic(topicId); showToast('Topic deleted'); }
+      try { await ntTrashTopic(topicId); showToast('Moved to Trash 🗑️'); }
       catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
     }
   );
@@ -2427,14 +2455,50 @@ function confirmDeleteSubtopic(topicId, subtopicId) {
   const sub = topic?.subtopics.find(s => s.id === subtopicId);
   if (!sub) return;
   openNtConfirm(
-    'Delete Subtopic?',
-    `"${sub.title}" will be permanently deleted.`,
+    'Move to Trash?',
+    `"${sub.title}" will be moved to Trash. You can restore it later.`,
     async () => {
-      const updatedSubs = topic.subtopics.filter(s => s.id !== subtopicId);
-      try { await ntSaveSubtopics(topicId, updatedSubs); showToast('Subtopic deleted'); }
+      const updatedSubs = topic.subtopics.map(s => s.id === subtopicId ? { ...s, deleted: true } : s);
+      try { await ntSaveSubtopics(topicId, updatedSubs); showToast('Moved to Trash 🗑️'); }
       catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
     }
   );
+}
+
+function confirmPermanentDeleteTopic(topicId) {
+  const topic = notesTopics.find(t => t.id === topicId);
+  if (!topic) return;
+  openNtConfirm(
+    'Permanently Delete?',
+    `"${topic.title}" will be permanently deleted and cannot be recovered.`,
+    async () => {
+      try { await ntPermanentDeleteTopic(topicId); showToast('Permanently deleted'); }
+      catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
+    }
+  );
+}
+
+function confirmPermanentDeleteSubtopic(topicId, subtopicId) {
+  const topic = notesTopics.find(t => t.id === topicId);
+  const sub = topic?.subtopics.find(s => s.id === subtopicId);
+  if (!sub) return;
+  openNtConfirm(
+    'Permanently Delete?',
+    `"${sub.title}" will be permanently deleted and cannot be recovered.`,
+    async () => {
+      const updatedSubs = topic.subtopics.filter(s => s.id !== subtopicId);
+      try { await ntSaveSubtopics(topicId, updatedSubs); showToast('Permanently deleted'); }
+      catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
+    }
+  );
+}
+
+async function ntRestoreSubtopic(topicId, subtopicId) {
+  const topic = notesTopics.find(t => t.id === topicId);
+  if (!topic) return;
+  const updatedSubs = topic.subtopics.map(s => s.id === subtopicId ? { ...s, deleted: false } : s);
+  try { await ntSaveSubtopics(topicId, updatedSubs); showToast('Subtopic restored ✓'); }
+  catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
 }
 
 // ── Collapse toggle ────────────────────────────────────────────────
@@ -2454,33 +2518,37 @@ function renderNotes() {
   const emptyState = document.getElementById('notesEmptyState');
   if (!container) return;
 
-  // Filter
-  let filtered = notesTopics.map(topic => {
-    if (!query) return { ...topic, _filteredSubs: topic.subtopics };
+  // Split active vs trashed topics
+  const activeTopics = notesTopics.filter(t => !t.deleted);
+  const trashedTopics = notesTopics.filter(t => t.deleted);
+
+  // Filter active topics by search query
+  let filtered = activeTopics.map(topic => {
+    const activeSubs = topic.subtopics.filter(s => !s.deleted);
+    if (!query) return { ...topic, _filteredSubs: activeSubs };
     const titleMatch = topic.title.toLowerCase().includes(query);
-    const filteredSubs = topic.subtopics.filter(s =>
+    const filteredSubs = activeSubs.filter(s =>
       s.title.toLowerCase().includes(query) || s.body.toLowerCase().includes(query)
     );
     if (!titleMatch && filteredSubs.length === 0) return null;
-    return { ...topic, _filteredSubs: titleMatch ? topic.subtopics : filteredSubs };
+    return { ...topic, _filteredSubs: titleMatch ? activeSubs : filteredSubs };
   }).filter(Boolean);
 
   // Show/hide empty state
-  emptyState.style.display = filtered.length === 0 ? 'flex' : 'none';
+  emptyState.style.display = filtered.length === 0 && !query ? 'flex' : 'none';
   emptyState.style.flexDirection = 'column';
   emptyState.style.alignItems = 'center';
 
-  // Clear old cards
-  container.querySelectorAll('.nt-topic-card').forEach(el => el.remove());
+  // Clear old cards and trash section
+  container.querySelectorAll('.nt-topic-card, .nt-trash-section').forEach(el => el.remove());
 
+  // Render active topic cards
   filtered.forEach(topic => {
     const isCollapsed = topic.collapsed && !query;
     const card = document.createElement('div');
     card.className = 'nt-topic-card';
     card.dataset.topicId = topic.id;
-
     const subCount = topic._filteredSubs.length;
-
     card.innerHTML = `
       <div class="nt-topic-header" onclick="toggleTopicCollapse('${topic.id}')">
         <div class="nt-topic-color-bar" style="background:${topic.color};"></div>
@@ -2488,7 +2556,7 @@ function renderNotes() {
         <span class="nt-topic-count">${subCount} subtopic${subCount !== 1 ? 's' : ''}</span>
         <div class="nt-topic-actions" onclick="event.stopPropagation()">
           <button class="icon-btn" title="Edit topic" onclick="openTopicModal('${topic.id}')">✏️</button>
-          <button class="icon-btn del" title="Delete topic" onclick="confirmDeleteTopic('${topic.id}')">🗑️</button>
+          <button class="icon-btn del" title="Move to trash" onclick="confirmDeleteTopic('${topic.id}')">🗑️</button>
         </div>
         <span class="nt-topic-toggle${isCollapsed ? ' collapsed' : ''}">▾</span>
       </div>
@@ -2499,7 +2567,7 @@ function renderNotes() {
               <span class="nt-sub-title">${escapeHtml(s.title)}</span>
               <div class="nt-sub-actions">
                 <button class="icon-btn" title="Edit subtopic" onclick="openSubtopicModal('${topic.id}','${s.id}')">✏️</button>
-                <button class="icon-btn del" title="Delete subtopic" onclick="confirmDeleteSubtopic('${topic.id}','${s.id}')">🗑️</button>
+                <button class="icon-btn del" title="Move to trash" onclick="confirmDeleteSubtopic('${topic.id}','${s.id}')">🗑️</button>
               </div>
             </div>
             ${s.body ? `<div class="nt-sub-body">${escapeHtml(s.body)}</div>` : ''}
@@ -2512,6 +2580,58 @@ function renderNotes() {
     `;
     container.appendChild(card);
   });
+
+  // ── Trash section ──────────────────────────────────────────────
+  // Collect all trashed items: trashed topics + trashed subtopics within active topics
+  const trashedSubs = [];
+  activeTopics.forEach(topic => {
+    topic.subtopics.filter(s => s.deleted).forEach(s => {
+      trashedSubs.push({ topicId: topic.id, topicTitle: topic.title, topicColor: topic.color, sub: s });
+    });
+  });
+
+  const totalTrashed = trashedTopics.length + trashedSubs.length;
+  if (totalTrashed === 0 || query) return; // hide trash section during search
+
+  const trashSection = document.createElement('div');
+  trashSection.className = 'nt-trash-section';
+  trashSection.innerHTML = `
+    <div class="nt-trash-header" onclick="this.parentElement.classList.toggle('nt-trash-open')">
+      <span>🗑️ Trash</span>
+      <span class="nt-topic-count">${totalTrashed} item${totalTrashed !== 1 ? 's' : ''}</span>
+      <span class="nt-topic-toggle" style="margin-left:auto;">▾</span>
+    </div>
+    <div class="nt-trash-body">
+      ${trashedTopics.map(t => `
+        <div class="nt-trash-row">
+          <div class="nt-topic-color-bar" style="background:${t.color};height:28px;"></div>
+          <div class="nt-trash-info">
+            <span class="nt-trash-label">📁 Topic</span>
+            <span class="nt-trash-title">${escapeHtml(t.title)}</span>
+            <span class="nt-trash-sub-count">${t.subtopics.filter(s=>!s.deleted).length} subtopic(s)</span>
+          </div>
+          <div class="nt-sub-actions">
+            <button class="icon-btn restore" title="Restore" onclick="ntRestoreTopic('${t.id}')">↩️</button>
+            <button class="icon-btn del" title="Delete permanently" onclick="confirmPermanentDeleteTopic('${t.id}')">✕</button>
+          </div>
+        </div>
+      `).join('')}
+      ${trashedSubs.map(({ topicId, topicTitle, topicColor, sub }) => `
+        <div class="nt-trash-row">
+          <div class="nt-topic-color-bar" style="background:${topicColor};height:28px;"></div>
+          <div class="nt-trash-info">
+            <span class="nt-trash-label">📄 Subtopic of <em>${escapeHtml(topicTitle)}</em></span>
+            <span class="nt-trash-title">${escapeHtml(sub.title)}</span>
+          </div>
+          <div class="nt-sub-actions">
+            <button class="icon-btn restore" title="Restore" onclick="ntRestoreSubtopic('${topicId}','${sub.id}')">↩️</button>
+            <button class="icon-btn del" title="Delete permanently" onclick="confirmPermanentDeleteSubtopic('${topicId}','${sub.id}')">✕</button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  container.appendChild(trashSection);
 }
 
 function escapeHtml(str) {
