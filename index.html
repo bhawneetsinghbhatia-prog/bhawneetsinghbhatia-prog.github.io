@@ -2341,6 +2341,7 @@ function loadNotes(uid) {
           subtopics: (data.subtopics || []).map(s => ({
             id: s.id || ntUid(),
             title: s.title || '',
+            desc: s.desc || '',
             body: s.body || '',
             deleted: s.deleted || false
           })),
@@ -2439,7 +2440,7 @@ function openSubtopicModal(topicId, subtopicId) {
   document.getElementById('subtopicModalTitle').textContent = subtopicId ? 'Edit Subtopic' : 'Add Subtopic';
   document.getElementById('ntSubTitle').value = existing ? existing.title : '';
   document.getElementById('ntSubDesc').value = existing ? (existing.desc || '') : '';
-  document.getElementById('ntSubBody').value = existing ? existing.body : '';
+  document.getElementById('ntSubBody').value = existing ? (existing.body || '') : '';
   document.getElementById('subtopicModalBackdrop').classList.add('show');
   setTimeout(() => document.getElementById('ntSubTitle').focus(), 80);
 }
