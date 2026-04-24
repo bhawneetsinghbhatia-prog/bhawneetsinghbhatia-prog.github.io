@@ -540,6 +540,7 @@ body.dark .bar-track { background: #3a3a3c; }
 .nt-sub-header { display: flex; align-items: center; gap: 8px; margin-bottom: 0; }
 .nt-sub-title { font-size: 0.88rem; font-weight: 600; flex: 1; }
 .nt-sub-body { font-size: 0.79rem; color: var(--text-secondary); line-height: 1.6; margin-top: 5px; white-space: pre-wrap; word-break: break-word; }
+.nt-sub-desc { font-size: 0.74rem; color: var(--text-tertiary); margin-top: 2px; margin-bottom: 2px; font-style: italic; line-height: 1.5; }
 /* Copy button for note body */
 .nt-copy-btn-wrap { position: relative; margin-top: 6px; }
 .nt-copy-btn {
@@ -1133,6 +1134,10 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
     <div class="form-group">
       <label>Subtopic Title *</label>
       <input type="text" id="ntSubTitle" placeholder="e.g. Architecture decisions…">
+    </div>
+    <div class="form-group">
+      <label>Short Description <span style="font-weight:400;color:var(--text-tertiary);text-transform:none;letter-spacing:0;">(optional)</span></label>
+      <input type="text" id="ntSubDesc" placeholder="Brief one-line description…">
     </div>
     <div class="form-group">
       <label>Notes / Body</label>
@@ -2433,6 +2438,7 @@ function openSubtopicModal(topicId, subtopicId) {
   const existing = subtopicId ? topic?.subtopics.find(s => s.id === subtopicId) : null;
   document.getElementById('subtopicModalTitle').textContent = subtopicId ? 'Edit Subtopic' : 'Add Subtopic';
   document.getElementById('ntSubTitle').value = existing ? existing.title : '';
+  document.getElementById('ntSubDesc').value = existing ? (existing.desc || '') : '';
   document.getElementById('ntSubBody').value = existing ? existing.body : '';
   document.getElementById('subtopicModalBackdrop').classList.add('show');
   setTimeout(() => document.getElementById('ntSubTitle').focus(), 80);
@@ -2443,6 +2449,7 @@ function closeSubtopicModalOnBackdrop(e) { if (e.target === e.currentTarget) clo
 
 async function saveSubtopic() {
   const title = document.getElementById('ntSubTitle').value.trim();
+  const desc = document.getElementById('ntSubDesc').value.trim();
   const body = document.getElementById('ntSubBody').value.trim();
   if (!title) { document.getElementById('ntSubTitle').focus(); return; }
   const topic = notesTopics.find(t => t.id === ntEditSubtopicTopicId);
@@ -2450,9 +2457,9 @@ async function saveSubtopic() {
   closeSubtopicModal();
   let updatedSubs;
   if (ntEditSubtopicId) {
-    updatedSubs = topic.subtopics.map(s => s.id === ntEditSubtopicId ? { ...s, title, body } : s);
+    updatedSubs = topic.subtopics.map(s => s.id === ntEditSubtopicId ? { ...s, title, desc, body } : s);
   } else {
-    updatedSubs = [...topic.subtopics, { id: ntUid(), title, body }];
+    updatedSubs = [...topic.subtopics, { id: ntUid(), title, desc, body }];
   }
   try {
     await ntSaveSubtopics(ntEditSubtopicTopicId, updatedSubs);
@@ -2605,7 +2612,10 @@ function renderNotes() {
         ${topic._filteredSubs.map(s => `
           <div class="nt-subtopic-row" data-sub-id="${s.id}">
             <div class="nt-sub-header">
-              <span class="nt-sub-title">${escapeHtml(s.title)}</span>
+              <div style="flex:1;min-width:0;">
+                <span class="nt-sub-title">${escapeHtml(s.title)}</span>
+                ${s.desc ? `<div class="nt-sub-desc">${escapeHtml(s.desc)}</div>` : ''}
+              </div>
               <div class="nt-sub-actions">
                 <button class="icon-btn" title="Edit subtopic" onclick="openSubtopicModal('${topic.id}','${s.id}')">✏️</button>
                 <button class="icon-btn del" title="Move to trash" onclick="confirmDeleteSubtopic('${topic.id}','${s.id}')">🗑️</button>
