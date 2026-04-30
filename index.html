@@ -899,10 +899,13 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
       <datalist id="recurEmployeeList"></datalist>
     </div>
     <div class="recur-section-title">Recurrence Schedule</div>
-    <div class="form-row-3">
+    <div class="form-row-2">
       <div class="form-group"><label>First Date *</label><input type="date" id="rfStartDate" oninput="updateRecurPreview()"></div>
       <div class="form-group"><label>Duration (days) *</label><input type="number" id="rfDuration" min="1" max="365" placeholder="e.g. 2" oninput="updateRecurPreview()"><div class="time-hint">Task visible for N days</div></div>
-      <div class="form-group"><label>Repeat (months) *</label><input type="number" id="rfMonths" min="1" max="60" placeholder="e.g. 6" oninput="updateRecurPreview()"><div class="time-hint">Total months</div></div>
+    </div>
+    <div class="form-row-2">
+      <div class="form-group"><label>Repeat how many times *</label><input type="number" id="rfTimes" min="1" max="120" placeholder="e.g. 6" oninput="updateRecurPreview()"><div class="time-hint">Total occurrences</div></div>
+      <div class="form-group"><label>Repeat after how many months *</label><input type="number" id="rfInterval" min="1" max="60" placeholder="e.g. 1" oninput="updateRecurPreview()"><div class="time-hint">Gap between each occurrence</div></div>
     </div>
     <div class="recur-preview" id="recurPreview" style="display:none;">
       <strong>📅 Preview — Occurrences:</strong>
@@ -1669,7 +1672,7 @@ function renderAll() {
                 <span class="cat-badge">${escHtml(t.category)}</span>
                 ${t.assignedTo ? `<span class="assignee-badge">👤 ${escHtml(t.assignedTo)}</span>` : ''}
                 ${t.isRecurring ? `<span class="recur-badge">🔄 Recurring</span>` : (t.isDateRange ? `<span class="range-badge">📅 ${fmtDate(t.startDate)} → ${fmtDate(t.endDate)}</span>` : '')}
-                ${t.isRecurring && t.recurMonthIndex !== undefined ? `<span class="recur-info-badge">Month ${t.recurMonthIndex+1}/${t.recurTotalMonths}</span>` : ''}
+                ${t.isRecurring && t.recurMonthIndex !== undefined ? `<span class="recur-info-badge">Occ ${t.recurMonthIndex+1}/${t.recurTotalMonths}</span>` : ''}
               </div>
               ${t.desc ? `<div class="task-desc">${escHtml(t.desc)}</div>` : ''}
               <div class="task-meta">
@@ -1725,7 +1728,7 @@ function openRecurModal() {
   document.getElementById('rfPriority').value = 'moderate'; document.getElementById('rfCategory').value = 'Work';
   document.getElementById('rfAssignee').value = '';
   document.getElementById('rfStartDate').value = todayStr();
-  document.getElementById('rfDuration').value = ''; document.getElementById('rfMonths').value = '';
+  document.getElementById('rfDuration').value = ''; document.getElementById('rfTimes').value = ''; document.getElementById('rfInterval').value = '1';
   document.getElementById('recurPreview').style.display = 'none';
   const dl = document.getElementById('recurEmployeeList');
   if (dl) { dl.innerHTML = ''; employees.forEach(e => { const o = document.createElement('option'); o.value = e; dl.appendChild(o); }); }
@@ -1736,14 +1739,14 @@ function openRecurModal() {
 function closeRecurModal() { document.getElementById('recurModalBackdrop').classList.remove('show'); }
 function closeRecurModalOnBackdrop(e) { if (e.target.id === 'recurModalBackdrop') closeRecurModal(); }
 
-function computeOccurrences(startDateStr, durationDays, totalMonths) {
+function computeOccurrences(startDateStr, durationDays, times, intervalMonths) {
   const occurrences = [];
   const base = new Date(startDateStr + 'T00:00:00');
-  for (let m = 0; m < totalMonths; m++) {
-    const occStart = new Date(base.getFullYear(), base.getMonth() + m, base.getDate());
+  for (let i = 0; i < times; i++) {
+    const occStart = new Date(base.getFullYear(), base.getMonth() + (i * intervalMonths), base.getDate());
     const occEnd = new Date(occStart);
     occEnd.setDate(occEnd.getDate() + durationDays - 1);
-    occurrences.push({ startDate: toDateStr(occStart), endDate: toDateStr(occEnd), monthIndex: m });
+    occurrences.push({ startDate: toDateStr(occStart), endDate: toDateStr(occEnd), monthIndex: i });
   }
   return occurrences;
 }
@@ -1752,11 +1755,12 @@ function toDateStr(d) { return d.toISOString().slice(0, 10); }
 function updateRecurPreview() {
   const startStr = document.getElementById('rfStartDate').value;
   const duration = parseInt(document.getElementById('rfDuration').value);
-  const months = parseInt(document.getElementById('rfMonths').value);
+  const times = parseInt(document.getElementById('rfTimes').value);
+  const interval = parseInt(document.getElementById('rfInterval').value);
   const preview = document.getElementById('recurPreview');
   const list = document.getElementById('recurPreviewList');
-  if (!startStr || !duration || duration < 1 || !months || months < 1) { preview.style.display = 'none'; return; }
-  const occurrences = computeOccurrences(startStr, duration, months);
+  if (!startStr || !duration || duration < 1 || !times || times < 1 || !interval || interval < 1) { preview.style.display = 'none'; return; }
+  const occurrences = computeOccurrences(startStr, duration, times, interval);
   const today = new Date(); today.setHours(0,0,0,0);
   let html = '';
   occurrences.forEach((occ, i) => {
@@ -1766,7 +1770,7 @@ function updateRecurPreview() {
     const color = isPast ? '#9ca3af' : isActive ? '#22c55e' : '#a855f7';
     const status = isPast ? '🗑️ → Trash' : isActive ? '✅ Active now' : '⏳ Upcoming';
     html += `<div class="pi-row"><div class="pi-dot" style="background:${color}"></div>
-      <span style="color:${color};font-weight:600;">Month ${i+1}:</span>
+      <span style="color:${color};font-weight:600;">Occurrence ${i+1}:</span>
       <span>${fmtDate(occ.startDate)} → ${fmtDate(occ.endDate)}</span>
       <span style="color:${color};font-size:0.7rem;">${status}</span></div>`;
   });
@@ -1778,15 +1782,17 @@ async function saveRecurringTask() {
   const title = document.getElementById('rfTitle').value.trim();
   const startStr = document.getElementById('rfStartDate').value;
   const duration = parseInt(document.getElementById('rfDuration').value);
-  const months = parseInt(document.getElementById('rfMonths').value);
+  const times = parseInt(document.getElementById('rfTimes').value);
+  const interval = parseInt(document.getElementById('rfInterval').value);
   if (!title) { showToast('Please enter a task title.', '#ef4444'); return; }
   if (!startStr) { showToast('Please select a start date.', '#ef4444'); return; }
   if (!duration || duration < 1) { showToast('Please enter a valid duration.', '#ef4444'); return; }
-  if (!months || months < 1) { showToast('Please enter how many months to repeat.', '#ef4444'); return; }
+  if (!times || times < 1) { showToast('Please enter how many times to repeat.', '#ef4444'); return; }
+  if (!interval || interval < 1) { showToast('Please enter interval (months between occurrences).', '#ef4444'); return; }
   const uid = auth.currentUser.uid;
   const assignedTo = document.getElementById('rfAssignee').value.trim();
   if (assignedTo) saveEmployee(assignedTo);
-  const occurrences = computeOccurrences(startStr, duration, months);
+  const occurrences = computeOccurrences(startStr, duration, times, interval);
   const groupId = 'recur_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const batch = db.batch();
@@ -1799,8 +1805,8 @@ async function saveRecurringTask() {
       priority: document.getElementById('rfPriority').value, category: document.getElementById('rfCategory').value,
       assignedTo: assignedTo || '', done: false, dueTime: '', isDateRange: true,
       date: occ.endDate, startDate: occ.startDate, endDate: occ.endDate,
-      isRecurring: true, recurGroupId: groupId, recurMonthIndex: i, recurTotalMonths: months,
-      recurDurationDays: duration, recurOriginalStart: startStr,
+      isRecurring: true, recurGroupId: groupId, recurMonthIndex: i, recurTotalMonths: times,
+      recurInterval: interval, recurDurationDays: duration, recurOriginalStart: startStr,
       deleted: isExpired, deletedAt: isExpired ? firebase.firestore.Timestamp.now() : null,
       created: firebase.firestore.FieldValue.serverTimestamp(),
     });
