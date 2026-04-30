@@ -502,6 +502,127 @@ body.dark .bar-track { background: #3a3a3c; }
 @media (max-width: 960px) { .rp-inputs-grid { grid-template-columns: 1fr; } }
 @media (max-width: 780px) { .rp-summary-bar { grid-template-columns: repeat(2, 1fr); } }
 
+/* ── TAB LOGIN GATE ── */
+.tab-login-gate { display: none; position: absolute; inset: 0; z-index: 10; background: var(--bg); align-items: center; justify-content: center; padding: 40px 24px; min-height: calc(100vh - var(--nav-height)); }
+.tab-login-gate.show { display: flex; }
+#repayment-section, #notes-section { position: relative; }
+.tab-gate-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px 40px; max-width: 420px; width: 100%; text-align: center; box-shadow: var(--shadow-md); }
+.tab-gate-card h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: 10px; }
+.tab-gate-card p { color: var(--text-secondary); font-size: 0.86rem; margin-bottom: 28px; line-height: 1.6; }
+
+/* ── NOTES SECTION ── */
+#notes-section { min-height: calc(100vh - var(--nav-height)); }
+
+.nt-hero { text-align: center; padding: 44px 24px 28px; }
+.nt-hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.nt-hero h1 { font-size: clamp(26px, 5vw, 44px); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
+.nt-hero-sub { margin-top: 10px; font-size: 15px; color: var(--text-secondary); }
+
+.nt-toolbar { max-width: 900px; margin: 0 auto 20px; padding: 0 24px; display: flex; align-items: center; gap: 12px; }
+.nt-search-wrap { position: relative; flex: 1; }
+.nt-search-wrap svg { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-tertiary); }
+.nt-search-box { width: 100%; background: var(--surface); border: 1.5px solid var(--border); color: var(--text-primary); padding: 9px 12px 9px 34px; border-radius: var(--radius-sm); font-size: 0.86rem; font-family: inherit; transition: border-color .2s; }
+.nt-search-box:focus { outline: none; border-color: var(--accent); }
+
+.nt-content { max-width: 900px; margin: 0 auto 60px; padding: 0 24px; display: flex; flex-direction: column; gap: 14px; }
+.nt-empty-state { text-align: center; padding: 48px 24px; color: var(--text-secondary); background: var(--surface); border-radius: var(--radius-lg); border: 1.5px dashed var(--border); }
+
+/* Topic card */
+.nt-topic-card { background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; transition: box-shadow .2s; }
+.nt-topic-card:hover { box-shadow: var(--shadow-md); }
+.nt-topic-header { display: flex; align-items: center; gap: 10px; padding: 14px 18px; cursor: pointer; user-select: none; border-bottom: 1px solid var(--border); }
+.nt-topic-color-bar { width: 5px; height: 38px; border-radius: 3px; flex-shrink: 0; }
+.nt-topic-name { font-size: 1rem; font-weight: 700; flex: 1; letter-spacing: -.01em; }
+.nt-topic-count { font-size: 0.68rem; color: var(--text-secondary); background: var(--surface2); padding: 2px 8px; border-radius: 99px; border: 1px solid var(--border); flex-shrink: 0; }
+.nt-topic-toggle { color: var(--text-secondary); font-size: 0.85rem; transition: transform .22s ease; flex-shrink: 0; }
+.nt-topic-toggle.collapsed { transform: rotate(-90deg); }
+.nt-topic-actions { display: flex; align-items: center; gap: 2px; margin-left: 4px; }
+
+/* Subtopics area */
+.nt-subtopics { display: flex; flex-direction: column; gap: 0; }
+.nt-subtopics.nt-collapsed { display: none; }
+
+.nt-subtopic-row { padding: 13px 18px 13px 33px; border-bottom: 1px solid var(--border); transition: background .15s; }
+.nt-subtopic-row:last-child { border-bottom: none; }
+.nt-subtopic-row:hover { background: var(--surface2); }
+.nt-sub-header { display: flex; align-items: center; gap: 8px; margin-bottom: 0; }
+.nt-sub-title { font-size: 0.88rem; font-weight: 600; flex: 1; }
+.nt-sub-body { font-size: 0.79rem; color: var(--text-secondary); line-height: 1.6; margin-top: 5px; white-space: pre-wrap; word-break: break-word; }
+.nt-sub-desc { font-size: 0.74rem; color: var(--text-tertiary); margin-top: 2px; margin-bottom: 2px; font-style: italic; line-height: 1.5; }
+/* Copy button for note body */
+.nt-copy-btn-wrap { position: relative; margin-top: 6px; }
+.nt-copy-btn {
+  position: absolute;
+  top: -28px;
+  right: 0;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .15s, box-shadow .15s;
+  padding: 0;
+  flex-shrink: 0;
+}
+.nt-copy-btn:hover { background: var(--surface); box-shadow: var(--shadow); }
+.nt-copy-btn svg { width: 16px; height: 16px; color: var(--text-primary); }
+.nt-copy-tooltip {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .15s;
+  z-index: 10;
+}
+.nt-copy-btn:hover .nt-copy-tooltip { opacity: 1; }
+body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
+
+.nt-sub-actions { display: flex; align-items: center; gap: 2px; flex-shrink: 0; }
+
+/* Add subtopic row */
+.nt-add-sub-row { padding: 10px 18px 12px 33px; display: flex; align-items: center; }
+.nt-add-sub-btn { background: none; border: 1.5px dashed var(--border); color: var(--text-tertiary); padding: 6px 14px; border-radius: var(--radius-sm); font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all .18s; font-family: inherit; }
+.nt-add-sub-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-light); }
+
+/* Color picker */
+.nt-color-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.nt-color-swatch { width: 28px; height: 28px; border-radius: 50%; cursor: pointer; border: 2.5px solid transparent; transition: all .15s; flex-shrink: 0; }
+.nt-color-swatch:hover { transform: scale(1.15); }
+.nt-color-swatch.selected { border-color: var(--text-primary); box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--text-primary); }
+
+/* Notes Trash */
+.nt-trash-section { border-radius: var(--radius-lg); border: 1.5px dashed var(--border); overflow: hidden; }
+.nt-trash-header { display: flex; align-items: center; gap: 10px; padding: 12px 18px; cursor: pointer; user-select: none; font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); background: var(--surface2); }
+.nt-trash-header:hover { color: var(--text-primary); }
+.nt-trash-body { display: none; }
+.nt-trash-section.nt-trash-open .nt-trash-body { display: block; }
+.nt-trash-section.nt-trash-open .nt-topic-toggle { transform: rotate(0deg); }
+.nt-trash-row { display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-top: 1px solid var(--border); background: var(--surface); transition: background .15s; }
+.nt-trash-row:hover { background: var(--surface2); }
+.nt-trash-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.nt-trash-label { font-size: 0.65rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600; }
+.nt-trash-title { font-size: 0.86rem; font-weight: 600; color: var(--text-secondary); }
+.nt-trash-sub-count { font-size: 0.68rem; color: var(--text-tertiary); }
+
+@media (max-width: 600px) {
+  .nt-hero { padding: 28px 16px 20px; }
+  .nt-toolbar, .nt-content { padding-left: 16px; padding-right: 16px; }
+  .nt-subtopic-row, .nt-add-sub-row { padding-left: 16px; }
+}
+
 /* ── PRINT / PDF ── */
 .btn-pdf {
   display: inline-flex; align-items: center; gap: 6px;
@@ -517,6 +638,8 @@ body.dark .bar-track { background: #3a3a3c; }
   /* Hide everything except repayment content */
   nav.main-nav,
   #pendency-section,
+  #notes-section,
+  .tab-login-gate,
   .rp-hero,
   .rp-inputs-panel,
   .rp-rate-section,
@@ -588,6 +711,7 @@ body.dark .bar-track { background: #3a3a3c; }
     <div class="nav-tabs">
       <button class="nav-tab active" id="tab-pendency" onclick="switchTab('pendency')">📋 Pendency Tracker</button>
       <button class="nav-tab" id="tab-repayment" onclick="switchTab('repayment')">💰 Repayment Schedule</button>
+      <button class="nav-tab" id="tab-notes" onclick="switchTab('notes')">📝 Notes</button>
     </div>
   </div>
   <!-- Row 2: Actions -->
@@ -600,6 +724,10 @@ body.dark .bar-track { background: #3a3a3c; }
       <button class="btn-logout" id="btnLogout" style="display:none;" onclick="signOut()">Sign Out</button>
       <button class="add-recur-btn" id="btnRecur" style="display:none;" onclick="openRecurModal()">🔄 Recurring</button>
       <button class="pt-add-btn" id="btnAddTask" style="display:none;" onclick="openModal()">＋ Add Task</button>
+    </div>
+    <!-- Notes-specific actions -->
+    <div id="notes-actions" style="display:none;align-items:center;gap:8px;">
+      <button class="btn btn-primary" id="btnAddTopic" onclick="openTopicModal()">＋ Add Topic</button>
     </div>
     <!-- Repayment-specific actions -->
     <div id="repayment-actions" style="display:none;align-items:center;gap:8px;">
@@ -793,6 +921,19 @@ body.dark .bar-track { background: #3a3a3c; }
 <!-- ═══ REPAYMENT SCHEDULE SECTION ═══ -->
 <div id="repayment-section" style="display:none;">
 
+  <!-- Login gate -->
+  <div class="tab-login-gate" id="rpLoginGate">
+    <div class="tab-gate-card">
+      <div style="font-size:2.8rem;margin-bottom:12px;">💰</div>
+      <h2>Sign in to access Repayment Schedule</h2>
+      <p>Your repayment data is securely saved to your Google account and synced across devices.</p>
+      <button class="btn-google" onclick="signInWithGoogle()" style="max-width:280px;margin:0 auto;">
+        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Sign in with Google
+      </button>
+    </div>
+  </div>
+
   <!-- Print-only header (hidden on screen) -->
   <div class="print-header" id="printHeader">
     <h1>📊 Loan Repayment Schedule</h1>
@@ -965,6 +1106,97 @@ body.dark .bar-track { background: #3a3a3c; }
 
 </div><!-- end repayment-section -->
 
+<!-- ═══ NOTES SECTION ═══ -->
+<div id="notes-section" style="display:none;">
+  <!-- Login gate -->
+  <div class="tab-login-gate" id="ntLoginGate">
+    <div class="tab-gate-card">
+      <div style="font-size:2.8rem;margin-bottom:12px;">📝</div>
+      <h2>Sign in to access Notes</h2>
+      <p>Your notes are securely saved to your Google account and synced across devices.</p>
+      <button class="btn-google" onclick="signInWithGoogle()" style="max-width:280px;margin:0 auto;">
+        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Sign in with Google
+      </button>
+    </div>
+  </div>
+
+  <div class="nt-hero">
+    <p class="nt-hero-eyebrow">Knowledge Base</p>
+    <h1>Notes</h1>
+    <p class="nt-hero-sub">Organise your ideas with topics and subtopics.</p>
+  </div>
+
+  <div class="nt-toolbar">
+    <div class="nt-search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="nt-search-box" type="text" id="notesSearchInput" placeholder="Search topics & subtopics…" oninput="renderNotes()">
+    </div>
+  </div>
+
+  <div class="nt-content" id="notesContent">
+    <div class="nt-empty-state" id="notesEmptyState">
+      <div style="font-size:2.5rem;margin-bottom:12px;">📝</div>
+      <div style="font-weight:600;margin-bottom:6px;">No notes yet</div>
+      <div style="font-size:0.82rem;color:var(--text-tertiary);">Click <strong>＋ Add Topic</strong> to create your first note.</div>
+    </div>
+  </div>
+</div><!-- end notes-section -->
+
+<!-- ═══ NOTES — Add/Edit Topic Modal ═══ -->
+<div class="modal-backdrop" id="topicModalBackdrop" onclick="closeTopicModalOnBackdrop(event)">
+  <div class="modal" style="max-width:460px;">
+    <h2 id="topicModalTitle">Add Main Topic</h2>
+    <div class="form-group">
+      <label>Topic Title *</label>
+      <input type="text" id="ntTopicTitle" placeholder="e.g. Project Alpha, Learning Python…">
+    </div>
+    <div class="form-group">
+      <label>Color Label</label>
+      <div class="nt-color-picker" id="ntColorPicker"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeTopicModal()">Cancel</button>
+      <button class="btn-primary-modal" onclick="saveTopic()">Save Topic</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NOTES — Add/Edit Subtopic Modal ═══ -->
+<div class="modal-backdrop" id="subtopicModalBackdrop" onclick="closeSubtopicModalOnBackdrop(event)">
+  <div class="modal" style="max-width:520px;">
+    <h2 id="subtopicModalTitle">Add Subtopic</h2>
+    <div class="form-group">
+      <label>Subtopic Title *</label>
+      <input type="text" id="ntSubTitle" placeholder="e.g. Architecture decisions…">
+    </div>
+    <div class="form-group">
+      <label>Short Description <span style="font-weight:400;color:var(--text-tertiary);text-transform:none;letter-spacing:0;">(optional)</span></label>
+      <input type="text" id="ntSubDesc" placeholder="Brief one-line description…">
+    </div>
+    <div class="form-group">
+      <label>Notes / Body</label>
+      <textarea id="ntSubBody" style="min-height:120px;" placeholder="Write your notes here…"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeSubtopicModal()">Cancel</button>
+      <button class="btn-primary-modal" onclick="saveSubtopic()">Save Subtopic</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NOTES — Confirm Delete Modal ═══ -->
+<div class="modal-backdrop" id="ntConfirmBackdrop" onclick="closeNtConfirm(event)">
+  <div class="modal" style="max-width:400px;">
+    <h2 id="ntConfirmTitle">Delete Topic?</h2>
+    <p id="ntConfirmMsg" style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:20px;line-height:1.6;"></p>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeNtConfirmModal()">Cancel</button>
+      <button class="btn-primary-modal" style="background:#ef4444;" id="ntConfirmOkBtn" onclick="ntConfirmAction()">Delete</button>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
@@ -980,11 +1212,30 @@ function switchTab(tab) {
   currentTab = tab;
   document.getElementById('pendency-section').style.display = tab === 'pendency' ? 'block' : 'none';
   document.getElementById('repayment-section').style.display = tab === 'repayment' ? 'block' : 'none';
+  document.getElementById('notes-section').style.display = tab === 'notes' ? 'block' : 'none';
   document.getElementById('tab-pendency').classList.toggle('active', tab === 'pendency');
   document.getElementById('tab-repayment').classList.toggle('active', tab === 'repayment');
+  document.getElementById('tab-notes').classList.toggle('active', tab === 'notes');
   document.getElementById('pendency-actions').style.display = tab === 'pendency' ? 'flex' : 'none';
   document.getElementById('repayment-actions').style.display = tab === 'repayment' ? 'flex' : 'none';
-  if (tab === 'repayment' && typeof recalculate === 'function') setTimeout(recalculate, 50);
+  document.getElementById('notes-actions').style.display = tab === 'notes' ? 'flex' : 'none';
+  // Show login gates for non-pendency tabs when not signed in
+  updateTabGates();
+  if (tab === 'repayment' && typeof recalculate === 'function' && auth?.currentUser) setTimeout(recalculate, 50);
+}
+
+function updateTabGates() {
+  const loggedIn = !!(auth?.currentUser);
+  const rpGate = document.getElementById('rpLoginGate');
+  const ntGate = document.getElementById('ntLoginGate');
+  const btnAddTopic = document.getElementById('btnAddTopic');
+  const rpActions = document.getElementById('repayment-actions');
+  if (rpGate) rpGate.classList.toggle('show', !loggedIn);
+  if (ntGate) ntGate.classList.toggle('show', !loggedIn);
+  // Hide repayment action buttons when not logged in
+  if (rpActions) rpActions.style.display = (currentTab === 'repayment' && loggedIn) ? 'flex' : (currentTab === 'repayment' && !loggedIn) ? 'none' : rpActions.style.display;
+  // Hide notes Add Topic button when not logged in
+  if (btnAddTopic) btnAddTopic.style.display = loggedIn ? 'inline-flex' : 'none';
 }
 
 function toggleTheme() {
@@ -996,7 +1247,7 @@ function toggleTheme() {
 // ═══════════════════════════════════════════════════════════════════
 // PENDENCY TRACKER JS
 // ═══════════════════════════════════════════════════════════════════
-let db, auth, unsubscribe, unsubEmployees, unsubRepayment;
+let db, auth, unsubscribe, unsubEmployees, unsubRepayment, unsubNotes;
 let tasks = [];
 let editId = null;
 let sectionFilter = null;
@@ -1112,13 +1363,15 @@ function signOut() {
   if (unsubscribe) unsubscribe();
   if (unsubEmployees) unsubEmployees();
   if (unsubRepayment) { unsubRepayment(); unsubRepayment = null; }
+  if (unsubNotes) { unsubNotes(); unsubNotes = null; }
+  notesTopics = [];
   employees = [];
   // Hide repayment cloud UI on sign-out
   const rpBadge = document.getElementById('rpSyncBadge');
   const btnSaveRP = document.getElementById('btnSaveRP');
   if (rpBadge) rpBadge.style.display = 'none';
   if (btnSaveRP) btnSaveRP.style.display = 'none';
-  auth.signOut().then(() => showPTScreen('loginScreen'));
+  auth.signOut().then(() => { showPTScreen('loginScreen'); updateTabGates(); });
 }
 
 function startApp(user) {
@@ -1129,6 +1382,7 @@ function startApp(user) {
     else { const i=(user.displayName||user.email||'U')[0].toUpperCase(); pill.innerHTML=`<div class="user-initial">${i}</div> <span>${user.displayName?.split(' ')[0]||'User'}</span>`; }
   }
   loadEmployees(user.uid);
+  loadNotes(user.uid);
   if (unsubscribe) unsubscribe();
   const sb = document.getElementById('syncBadge');
   if (sb) sb.textContent = '⟳ Syncing…';
@@ -1140,10 +1394,13 @@ function startApp(user) {
   }, e => {
     if (sb) { sb.textContent = '⚠ Sync Error'; sb.style.color = '#ef4444'; }
   });
-  // Show repayment save button and load saved repayment data
+  // Show repayment sync badge and load saved repayment data
+  const rpBadge = document.getElementById('rpSyncBadge');
   const btnSaveRP = document.getElementById('btnSaveRP');
+  if (rpBadge) rpBadge.style.display = 'inline-flex';
   if (btnSaveRP) btnSaveRP.style.display = 'inline-flex';
   loadRepaymentFromCloud(user.uid);
+  updateTabGates();
 }
 
 async function saveTask() {
@@ -2013,26 +2270,18 @@ function recalculate() {
   const primaryDisb = disbursements[0];
   const repayTermMonths = term - mora;
   const totalDisb = disbursements.reduce((s, d) => s + d.amount, 0);
-
-  // For the EMI display: compute the effective principal at repayment start.
-  // When inttPaid=N, interest compounds into the balance during moratorium,
-  // so the effective principal is higher than totalDisb.
   const extraDisb = disbursements.slice(1);
 
-  // For the EMI display: compute the effective principal at repayment start.
-  // When inttPaid=N, interest compounds into the balance during moratorium,
-  // so the effective principal at repayment start is higher than totalDisb.
+  // Compute the effective principal at repayment start for the EMI display.
+  // When inttPaid=N, interest compounds into the balance each moratorium month,
+  // so the actual principal at repayment start is higher than totalDisb.
   let effectivePrincipalForEMI = totalDisb;
   if (inttPaid === 'N' && mora > 0) {
     let simBalance = primaryDisb.amount;
     let simDate = endOfMonth(primaryDisb.date);
-    // Use the effective rate at each moratorium month (accounting for rate changes)
     let simRate = initialRate;
     for (let m = 1; m <= mora; m++) {
-      const addl = extraDisb.reduce((s, d) => {
-        return sameMonth(endOfMonth(d.date), simDate) ? s + d.amount : s;
-      }, 0);
-      // Check for rate change this month
+      const addl = extraDisb.reduce((s, d) => sameMonth(endOfMonth(d.date), simDate) ? s + d.amount : s, 0);
       const rc = rateChanges.find(r => sameMonth(endOfMonth(r.date), simDate));
       if (rc) simRate = rc.roi / 100 / 12;
       simBalance = (simBalance + addl) * (1 + simRate);
@@ -2040,12 +2289,12 @@ function recalculate() {
     }
     effectivePrincipalForEMI = simBalance;
   }
-  // For rate-at-repayment-start: find the last rate change during moratorium (if any)
+  // Use the rate in effect at repayment start (last rate change during moratorium, if any)
   const rateAtRepayStart = (() => {
     if (mora === 0) return initialRate;
     const moraEnd = endOfMonth(addMonths(endOfMonth(primaryDisb.date), mora - 1));
-    const lastRcInMora = [...rateChanges].reverse().find(rc => endOfMonth(rc.date) <= moraEnd);
-    return lastRcInMora ? lastRcInMora.roi / 100 / 12 : initialRate;
+    const lastRc = [...rateChanges].reverse().find(rc => endOfMonth(rc.date) <= moraEnd);
+    return lastRc ? lastRc.roi / 100 / 12 : initialRate;
   })();
   const initialEMI = computeEMI(effectivePrincipalForEMI, rateAtRepayStart, repayTermMonths);
   document.getElementById('emi-display').textContent = '₹' + Math.round(initialEMI).toLocaleString('en-IN');
@@ -2136,6 +2385,445 @@ function recalculate() {
 }
 
 // ═══════════════════════════════════════════════════════════════════
+// NOTES
+// ═══════════════════════════════════════════════════════════════════
+
+const NT_COLORS = [
+  '#ef4444','#f97316','#eab308','#22c55e','#14b8a6',
+  '#3b82f6','#8b5cf6','#ec4899','#64748b','#a16207'
+];
+
+let notesTopics = [];           // array of { id, title, color, subtopics:[], collapsed }
+let ntEditTopicId = null;       // topic being edited (null = new)
+let ntEditSubtopicId = null;    // subtopic being edited (null = new)
+let ntEditSubtopicTopicId = null; // parent topic id when editing subtopic
+let ntSelectedColor = NT_COLORS[5]; // default blue
+let ntConfirmCallback = null;   // callback for confirm-delete modal
+
+// ── Firestore helpers ──────────────────────────────────────────────
+
+function loadNotes(uid) {
+  if (unsubNotes) unsubNotes();
+  unsubNotes = db.collection('users').doc(uid).collection('notes')
+    .orderBy('created', 'asc')
+    .onSnapshot(snap => {
+      // Rebuild notesTopics while preserving local collapsed state
+      const prevCollapsed = {};
+      notesTopics.forEach(t => { prevCollapsed[t.id] = t.collapsed; });
+      notesTopics = snap.docs.map(d => {
+        const data = d.data();
+        return {
+          id: d.id,
+          title: data.title || '',
+          color: data.color || NT_COLORS[5],
+          deleted: data.deleted || false,
+          subtopics: (data.subtopics || []).map(s => ({
+            id: s.id || ntUid(),
+            title: s.title || '',
+            desc: s.desc || '',
+            body: s.body || '',
+            deleted: s.deleted || false
+          })),
+          collapsed: prevCollapsed[d.id] !== undefined ? prevCollapsed[d.id] : false
+        };
+      });
+      renderNotes();
+    }, err => console.warn('Notes sync error:', err));
+}
+
+function ntUid() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+}
+
+async function ntSaveTopic(topicId, title, color) {
+  if (!auth?.currentUser) return;
+  const uid = auth.currentUser.uid;
+  const col = db.collection('users').doc(uid).collection('notes');
+  if (topicId) {
+    await col.doc(topicId).update({ title, color });
+  } else {
+    await col.add({ title, color, subtopics: [], created: firebase.firestore.FieldValue.serverTimestamp() });
+  }
+}
+
+async function ntTrashTopic(topicId) {
+  if (!auth?.currentUser) return;
+  const uid = auth.currentUser.uid;
+  await db.collection('users').doc(uid).collection('notes').doc(topicId).update({ deleted: true, deletedAt: firebase.firestore.FieldValue.serverTimestamp() });
+}
+
+async function ntRestoreTopic(topicId) {
+  if (!auth?.currentUser) return;
+  const uid = auth.currentUser.uid;
+  await db.collection('users').doc(uid).collection('notes').doc(topicId).update({ deleted: false, deletedAt: null });
+}
+
+async function ntPermanentDeleteTopic(topicId) {
+  if (!auth?.currentUser) return;
+  const uid = auth.currentUser.uid;
+  await db.collection('users').doc(uid).collection('notes').doc(topicId).delete();
+}
+
+async function ntSaveSubtopics(topicId, subtopics) {
+  if (!auth?.currentUser) return;
+  const uid = auth.currentUser.uid;
+  await db.collection('users').doc(uid).collection('notes').doc(topicId).update({ subtopics });
+}
+
+// ── Topic Modal ────────────────────────────────────────────────────
+
+function openTopicModal(topicId) {
+  ntEditTopicId = topicId || null;
+  const existing = topicId ? notesTopics.find(t => t.id === topicId) : null;
+  document.getElementById('topicModalTitle').textContent = topicId ? 'Edit Topic' : 'Add Main Topic';
+  document.getElementById('ntTopicTitle').value = existing ? existing.title : '';
+  ntSelectedColor = existing ? existing.color : NT_COLORS[5];
+  buildColorPicker();
+  document.getElementById('topicModalBackdrop').classList.add('show');
+  setTimeout(() => document.getElementById('ntTopicTitle').focus(), 80);
+}
+
+function buildColorPicker() {
+  const wrap = document.getElementById('ntColorPicker');
+  wrap.innerHTML = '';
+  NT_COLORS.forEach(c => {
+    const sw = document.createElement('div');
+    sw.className = 'nt-color-swatch' + (c === ntSelectedColor ? ' selected' : '');
+    sw.style.background = c;
+    sw.title = c;
+    sw.onclick = () => { ntSelectedColor = c; buildColorPicker(); };
+    wrap.appendChild(sw);
+  });
+}
+
+function closeTopicModal() { document.getElementById('topicModalBackdrop').classList.remove('show'); }
+function closeTopicModalOnBackdrop(e) { if (e.target === e.currentTarget) closeTopicModal(); }
+
+async function saveTopic() {
+  const title = document.getElementById('ntTopicTitle').value.trim();
+  if (!title) { document.getElementById('ntTopicTitle').focus(); return; }
+  closeTopicModal();
+  try {
+    await ntSaveTopic(ntEditTopicId, title, ntSelectedColor);
+    showToast(ntEditTopicId ? 'Topic updated ✓' : 'Topic added ✓');
+  } catch(e) { showToast('Error saving topic: ' + e.message, '#ef4444'); }
+}
+
+// ── Subtopic Modal ─────────────────────────────────────────────────
+
+function openSubtopicModal(topicId, subtopicId) {
+  ntEditSubtopicTopicId = topicId;
+  ntEditSubtopicId = subtopicId || null;
+  const topic = notesTopics.find(t => t.id === topicId);
+  const existing = subtopicId ? topic?.subtopics.find(s => s.id === subtopicId) : null;
+  document.getElementById('subtopicModalTitle').textContent = subtopicId ? 'Edit Subtopic' : 'Add Subtopic';
+  document.getElementById('ntSubTitle').value = existing ? existing.title : '';
+  document.getElementById('ntSubDesc').value = existing ? (existing.desc || '') : '';
+  document.getElementById('ntSubBody').value = existing ? (existing.body || '') : '';
+  document.getElementById('subtopicModalBackdrop').classList.add('show');
+  setTimeout(() => document.getElementById('ntSubTitle').focus(), 80);
+}
+
+function closeSubtopicModal() { document.getElementById('subtopicModalBackdrop').classList.remove('show'); }
+function closeSubtopicModalOnBackdrop(e) { if (e.target === e.currentTarget) closeSubtopicModal(); }
+
+async function saveSubtopic() {
+  const title = document.getElementById('ntSubTitle').value.trim();
+  const desc = document.getElementById('ntSubDesc').value.trim();
+  const body = document.getElementById('ntSubBody').value.trim();
+  if (!title) { document.getElementById('ntSubTitle').focus(); return; }
+  const topic = notesTopics.find(t => t.id === ntEditSubtopicTopicId);
+  if (!topic) return;
+  closeSubtopicModal();
+  let updatedSubs;
+  if (ntEditSubtopicId) {
+    updatedSubs = topic.subtopics.map(s => s.id === ntEditSubtopicId ? { ...s, title, desc, body } : s);
+  } else {
+    updatedSubs = [...topic.subtopics, { id: ntUid(), title, desc, body }];
+  }
+  try {
+    await ntSaveSubtopics(ntEditSubtopicTopicId, updatedSubs);
+    showToast(ntEditSubtopicId ? 'Subtopic updated ✓' : 'Subtopic added ✓');
+  } catch(e) { showToast('Error saving subtopic: ' + e.message, '#ef4444'); }
+}
+
+// ── Confirm Delete Modal ───────────────────────────────────────────
+
+function openNtConfirm(title, msg, callback) {
+  document.getElementById('ntConfirmTitle').textContent = title;
+  document.getElementById('ntConfirmMsg').textContent = msg;
+  ntConfirmCallback = callback;
+  document.getElementById('ntConfirmBackdrop').classList.add('show');
+}
+function closeNtConfirmModal() {
+  document.getElementById('ntConfirmBackdrop').classList.remove('show');
+  ntConfirmCallback = null;
+}
+function closeNtConfirm(e) { if (e.target === e.currentTarget) closeNtConfirmModal(); }
+function ntConfirmAction() {
+  if (ntConfirmCallback) ntConfirmCallback();
+  closeNtConfirmModal();
+}
+
+function confirmDeleteTopic(topicId) {
+  const topic = notesTopics.find(t => t.id === topicId);
+  if (!topic) return;
+  openNtConfirm(
+    'Move to Trash?',
+    `"${topic.title}" and its ${topic.subtopics.filter(s=>!s.deleted).length} subtopic(s) will be moved to Trash. You can restore them later.`,
+    async () => {
+      try { await ntTrashTopic(topicId); showToast('Moved to Trash 🗑️'); }
+      catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
+    }
+  );
+}
+
+function confirmDeleteSubtopic(topicId, subtopicId) {
+  const topic = notesTopics.find(t => t.id === topicId);
+  const sub = topic?.subtopics.find(s => s.id === subtopicId);
+  if (!sub) return;
+  openNtConfirm(
+    'Move to Trash?',
+    `"${sub.title}" will be moved to Trash. You can restore it later.`,
+    async () => {
+      const updatedSubs = topic.subtopics.map(s => s.id === subtopicId ? { ...s, deleted: true } : s);
+      try { await ntSaveSubtopics(topicId, updatedSubs); showToast('Moved to Trash 🗑️'); }
+      catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
+    }
+  );
+}
+
+function confirmPermanentDeleteTopic(topicId) {
+  const topic = notesTopics.find(t => t.id === topicId);
+  if (!topic) return;
+  openNtConfirm(
+    'Permanently Delete?',
+    `"${topic.title}" will be permanently deleted and cannot be recovered.`,
+    async () => {
+      try { await ntPermanentDeleteTopic(topicId); showToast('Permanently deleted'); }
+      catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
+    }
+  );
+}
+
+function confirmPermanentDeleteSubtopic(topicId, subtopicId) {
+  const topic = notesTopics.find(t => t.id === topicId);
+  const sub = topic?.subtopics.find(s => s.id === subtopicId);
+  if (!sub) return;
+  openNtConfirm(
+    'Permanently Delete?',
+    `"${sub.title}" will be permanently deleted and cannot be recovered.`,
+    async () => {
+      const updatedSubs = topic.subtopics.filter(s => s.id !== subtopicId);
+      try { await ntSaveSubtopics(topicId, updatedSubs); showToast('Permanently deleted'); }
+      catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
+    }
+  );
+}
+
+async function ntRestoreSubtopic(topicId, subtopicId) {
+  const topic = notesTopics.find(t => t.id === topicId);
+  if (!topic) return;
+  const updatedSubs = topic.subtopics.map(s => s.id === subtopicId ? { ...s, deleted: false } : s);
+  try { await ntSaveSubtopics(topicId, updatedSubs); showToast('Subtopic restored ✓'); }
+  catch(e) { showToast('Error: ' + e.message, '#ef4444'); }
+}
+
+// ── Collapse toggle ────────────────────────────────────────────────
+
+function toggleTopicCollapse(topicId) {
+  const topic = notesTopics.find(t => t.id === topicId);
+  if (!topic) return;
+  topic.collapsed = !topic.collapsed;
+  renderNotes();
+}
+
+// ── Render ─────────────────────────────────────────────────────────
+
+function renderNotes() {
+  const query = (document.getElementById('notesSearchInput')?.value || '').toLowerCase().trim();
+  const container = document.getElementById('notesContent');
+  const emptyState = document.getElementById('notesEmptyState');
+  if (!container) return;
+
+  // Split active vs trashed topics
+  const activeTopics = notesTopics.filter(t => !t.deleted);
+  const trashedTopics = notesTopics.filter(t => t.deleted);
+
+  // Filter active topics by search query
+  let filtered = activeTopics.map(topic => {
+    const activeSubs = topic.subtopics.filter(s => !s.deleted);
+    if (!query) return { ...topic, _filteredSubs: activeSubs };
+    const titleMatch = topic.title.toLowerCase().includes(query);
+    const filteredSubs = activeSubs.filter(s =>
+      s.title.toLowerCase().includes(query) || s.body.toLowerCase().includes(query)
+    );
+    if (!titleMatch && filteredSubs.length === 0) return null;
+    return { ...topic, _filteredSubs: titleMatch ? activeSubs : filteredSubs };
+  }).filter(Boolean);
+
+  // Show/hide empty state
+  emptyState.style.display = filtered.length === 0 && !query ? 'flex' : 'none';
+  emptyState.style.flexDirection = 'column';
+  emptyState.style.alignItems = 'center';
+
+  // Clear old cards and trash section
+  container.querySelectorAll('.nt-topic-card, .nt-trash-section').forEach(el => el.remove());
+
+  // Render active topic cards
+  filtered.forEach(topic => {
+    const isCollapsed = topic.collapsed && !query;
+    const card = document.createElement('div');
+    card.className = 'nt-topic-card';
+    card.dataset.topicId = topic.id;
+    const subCount = topic._filteredSubs.length;
+    card.innerHTML = `
+      <div class="nt-topic-header" onclick="toggleTopicCollapse('${topic.id}')">
+        <div class="nt-topic-color-bar" style="background:${topic.color};"></div>
+        <span class="nt-topic-name">${escapeHtml(topic.title)}</span>
+        <span class="nt-topic-count">${subCount} subtopic${subCount !== 1 ? 's' : ''}</span>
+        <div class="nt-topic-actions" onclick="event.stopPropagation()">
+          <button class="icon-btn" title="Edit topic" onclick="openTopicModal('${topic.id}')">✏️</button>
+          <button class="icon-btn del" title="Move to trash" onclick="confirmDeleteTopic('${topic.id}')">🗑️</button>
+        </div>
+        <span class="nt-topic-toggle${isCollapsed ? ' collapsed' : ''}">▾</span>
+      </div>
+      <div class="nt-subtopics${isCollapsed ? ' nt-collapsed' : ''}">
+        ${topic._filteredSubs.map(s => `
+          <div class="nt-subtopic-row" data-sub-id="${s.id}">
+            <div class="nt-sub-header">
+              <div style="flex:1;min-width:0;">
+                <span class="nt-sub-title">${escapeHtml(s.title)}</span>
+                ${s.desc ? `<div class="nt-sub-desc">${escapeHtml(s.desc)}</div>` : ''}
+              </div>
+              <div class="nt-sub-actions">
+                <button class="icon-btn" title="Edit subtopic" onclick="openSubtopicModal('${topic.id}','${s.id}')">✏️</button>
+                <button class="icon-btn del" title="Move to trash" onclick="confirmDeleteSubtopic('${topic.id}','${s.id}')">🗑️</button>
+              </div>
+            </div>
+            ${s.body ? `
+            <div class="nt-copy-btn-wrap">
+              <button class="nt-copy-btn" onclick="copyNoteBody(this, '${s.id}')" aria-label="Copy note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span class="nt-copy-tooltip">Copy</span>
+              </button>
+              <div class="nt-sub-body">${escapeHtml(s.body)}</div>
+            </div>` : ''}
+          </div>
+        `).join('')}
+        <div class="nt-add-sub-row">
+          <button class="nt-add-sub-btn" onclick="openSubtopicModal('${topic.id}')">＋ Add Subtopic</button>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+
+  // ── Trash section ──────────────────────────────────────────────
+  // Collect all trashed items: trashed topics + trashed subtopics within active topics
+  const trashedSubs = [];
+  activeTopics.forEach(topic => {
+    topic.subtopics.filter(s => s.deleted).forEach(s => {
+      trashedSubs.push({ topicId: topic.id, topicTitle: topic.title, topicColor: topic.color, sub: s });
+    });
+  });
+
+  const totalTrashed = trashedTopics.length + trashedSubs.length;
+  if (totalTrashed === 0 || query) return; // hide trash section during search
+
+  const trashSection = document.createElement('div');
+  trashSection.className = 'nt-trash-section';
+  trashSection.innerHTML = `
+    <div class="nt-trash-header" onclick="this.parentElement.classList.toggle('nt-trash-open')">
+      <span>🗑️ Trash</span>
+      <span class="nt-topic-count">${totalTrashed} item${totalTrashed !== 1 ? 's' : ''}</span>
+      <span class="nt-topic-toggle" style="margin-left:auto;">▾</span>
+    </div>
+    <div class="nt-trash-body">
+      ${trashedTopics.map(t => `
+        <div class="nt-trash-row">
+          <div class="nt-topic-color-bar" style="background:${t.color};height:28px;"></div>
+          <div class="nt-trash-info">
+            <span class="nt-trash-label">📁 Topic</span>
+            <span class="nt-trash-title">${escapeHtml(t.title)}</span>
+            <span class="nt-trash-sub-count">${t.subtopics.filter(s=>!s.deleted).length} subtopic(s)</span>
+          </div>
+          <div class="nt-sub-actions">
+            <button class="icon-btn restore" title="Restore" onclick="ntRestoreTopic('${t.id}')">↩️</button>
+            <button class="icon-btn del" title="Delete permanently" onclick="confirmPermanentDeleteTopic('${t.id}')">✕</button>
+          </div>
+        </div>
+      `).join('')}
+      ${trashedSubs.map(({ topicId, topicTitle, topicColor, sub }) => `
+        <div class="nt-trash-row">
+          <div class="nt-topic-color-bar" style="background:${topicColor};height:28px;"></div>
+          <div class="nt-trash-info">
+            <span class="nt-trash-label">📄 Subtopic of <em>${escapeHtml(topicTitle)}</em></span>
+            <span class="nt-trash-title">${escapeHtml(sub.title)}</span>
+          </div>
+          <div class="nt-sub-actions">
+            <button class="icon-btn restore" title="Restore" onclick="ntRestoreSubtopic('${topicId}','${sub.id}')">↩️</button>
+            <button class="icon-btn del" title="Delete permanently" onclick="confirmPermanentDeleteSubtopic('${topicId}','${sub.id}')">✕</button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  container.appendChild(trashSection);
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+// Keyboard shortcuts for Notes modals
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    if (document.getElementById('topicModalBackdrop').classList.contains('show')) {
+      e.preventDefault(); saveTopic();
+    }
+  }
+  if (e.key === 'Escape') {
+    if (document.getElementById('topicModalBackdrop').classList.contains('show')) closeTopicModal();
+    if (document.getElementById('subtopicModalBackdrop').classList.contains('show')) closeSubtopicModal();
+    if (document.getElementById('ntConfirmBackdrop').classList.contains('show')) closeNtConfirmModal();
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════════
+
+// Copy note body text to clipboard
+function copyNoteBody(btn, subId) {
+  const wrap = btn.closest('.nt-copy-btn-wrap');
+  const bodyEl = wrap ? wrap.querySelector('.nt-sub-body') : null;
+  if (!bodyEl) return;
+  const text = bodyEl.innerText || bodyEl.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const tooltip = btn.querySelector('.nt-copy-tooltip');
+    if (tooltip) {
+      tooltip.textContent = 'Copied!';
+      btn.style.background = 'var(--positive-light)';
+      setTimeout(() => {
+        tooltip.textContent = 'Copy';
+        btn.style.background = '';
+      }, 1500);
+    }
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+}
 // INIT
 // ═══════════════════════════════════════════════════════════════════
 
@@ -2156,6 +2844,8 @@ if (savedCfg) {
 } else {
   showPTScreen('setupScreen');
 }
+// Show login gates immediately (before auth resolves)
+updateTabGates();
 
 // Run repayment calc after a small delay
 setTimeout(recalculate, 100);
