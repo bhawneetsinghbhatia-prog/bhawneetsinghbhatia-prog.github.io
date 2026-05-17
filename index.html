@@ -2843,13 +2843,18 @@ function copyNoteBody(btn, subId) {
   }
 })();
 
-const savedCfg = localStorage.getItem('fbConfig');
-if (savedCfg) {
-  try { initFirebase(JSON.parse(savedCfg)); showPTScreen('loginScreen'); }
-  catch(e) { localStorage.removeItem('fbConfig'); showPTScreen('setupScreen'); }
-} else {
-  showPTScreen('setupScreen');
-}
+const hardcodedCfg = {
+  apiKey: "AIzaSyDPMPqU8uvQ396N_dGDAYQahQMAaP1N2ds",
+  authDomain: "my-pendency-tracker.firebaseapp.com",
+  projectId: "my-pendency-tracker",
+  storageBucket: "my-pendency-tracker.firebasestorage.app",
+  messagingSenderId: "669165182538",
+  appId: "1:669165182538:web:c71800a02de7d5144590b3",
+  measurementId: "G-LFBTL1EXHB"
+};
+localStorage.setItem('fbConfig', JSON.stringify(hardcodedCfg));
+initFirebase(hardcodedCfg);
+showPTScreen('loginScreen');
 // Show login gates immediately (before auth resolves)
 updateTabGates();
 
