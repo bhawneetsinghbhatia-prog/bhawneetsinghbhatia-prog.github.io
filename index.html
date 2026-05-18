@@ -2228,6 +2228,7 @@ function getInputs() {
     const dateVal = dateInput.value, amtVal = parseFloat(amtInput.value);
     if (dateVal && amtVal > 0) disbursements.push({ date: new Date(dateVal + 'T00:00:00'), amount: amtVal });
   });
+  disbursements.sort((a, b) => a.date - b.date);
   return { roi, term, mora, inttPaid, disbursements };
 }
 function computeEMI(principal, monthlyRate, repayTermMonths) {
@@ -2278,33 +2279,6 @@ function recalculate() {
   const totalDisb = disbursements.reduce((s, d) => s + d.amount, 0);
   const extraDisb = disbursements.slice(1);
 
-  // Compute the effective principal at repayment start for the EMI display.
-  // When inttPaid=N, interest compounds into the balance each moratorium month,
-  // so the actual principal at repayment start is higher than totalDisb.
-  let effectivePrincipalForEMI = totalDisb;
-  if (inttPaid === 'N' && mora > 0) {
-    let simBalance = primaryDisb.amount;
-    let simDate = endOfMonth(primaryDisb.date);
-    let simRate = initialRate;
-    for (let m = 1; m <= mora; m++) {
-      const addl = extraDisb.reduce((s, d) => sameMonth(endOfMonth(d.date), simDate) ? s + d.amount : s, 0);
-      const rc = rateChanges.find(r => sameMonth(endOfMonth(r.date), simDate));
-      if (rc) simRate = rc.roi / 100 / 12;
-      simBalance = (simBalance + addl) * (1 + simRate);
-      simDate = endOfMonth(addMonths(simDate, 1));
-    }
-    effectivePrincipalForEMI = simBalance;
-  }
-  // Use the rate in effect at repayment start (last rate change during moratorium, if any)
-  const rateAtRepayStart = (() => {
-    if (mora === 0) return initialRate;
-    const moraEnd = endOfMonth(addMonths(endOfMonth(primaryDisb.date), mora - 1));
-    const lastRc = [...rateChanges].reverse().find(rc => endOfMonth(rc.date) <= moraEnd);
-    return lastRc ? lastRc.roi / 100 / 12 : initialRate;
-  })();
-  const initialEMI = computeEMI(effectivePrincipalForEMI, rateAtRepayStart, repayTermMonths);
-  document.getElementById('emi-display').textContent = '₹' + Math.round(initialEMI).toLocaleString('en-IN');
-  document.getElementById('monthly-rate-display').textContent = (rateAtRepayStart * 100).toFixed(4) + '%';
   document.getElementById('total-disb').textContent = '₹' + Math.round(totalDisb).toLocaleString('en-IN');
   function addlDisbForMonth(mEnd) { return extraDisb.reduce((s, d) => { const dm = endOfMonth(d.date); return sameMonth(dm, mEnd) ? s + d.amount : s; }, 0); }
   function rateChangeForMonth(mEnd) { return rateChanges.find(rc => sameMonth(endOfMonth(rc.date), mEnd)) || null; }
@@ -2324,6 +2298,11 @@ function recalculate() {
       if (!isMora) { const repayDone = i - mora - 1; const remainingRepay = Math.max(1, repayTermMonths - repayDone); currentEMI = computeEMI(openBalance, currentMonthlyRate, remainingRepay); }
     }
     if (!isMora && currentEMI === null) currentEMI = computeEMI(openBalance, currentMonthlyRate, repayTermMonths);
+    if (!isMora && addlAmt > 0 && !rc) {
+      const repayDone = i - mora - 1;
+      const remainingRepay = Math.max(1, repayTermMonths - repayDone);
+      currentEMI = computeEMI(openBalance, currentMonthlyRate, remainingRepay);
+    }
     const interest = openBalance * currentMonthlyRate;
     let emiAmt, principal, closeBalance;
     if (isMora) {
@@ -2341,6 +2320,13 @@ function recalculate() {
   const totalInterest = rows.reduce((s, r) => s + r.interest, 0);
   const totalOutflow = totalInterest + totalDisb;
   const lastRow = rows[rows.length - 1];
+  const firstRepayRow = rows.find(r => r.sno > mora) || lastRow;
+  document.getElementById('emi-display').textContent = firstRepayRow?.effectiveEMI
+    ? '₹' + Math.round(firstRepayRow.effectiveEMI).toLocaleString('en-IN')
+    : '—';
+  document.getElementById('monthly-rate-display').textContent = firstRepayRow
+    ? ((firstRepayRow.effectiveROI / 12).toFixed(4) + '%')
+    : '—';
   document.getElementById('s-loan').textContent = fmtCr(totalDisb);
   document.getElementById('s-loan-sub').textContent = 'Disbursed ' + fmtDateRP(primaryDisb.date);
   document.getElementById('s-interest').textContent = fmtCr(totalInterest);
