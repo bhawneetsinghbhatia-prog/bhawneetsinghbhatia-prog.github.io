@@ -2236,6 +2236,11 @@ function computeEMI(principal, monthlyRate, repayTermMonths) {
   const r = monthlyRate, n = repayTermMonths;
   return (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 }
+function proratedMonthInterest(amount, monthlyRate, disbDate, monthEnd) {
+  const daysInMonth = monthEnd.getDate();
+  const daysHeld = Math.max(0, daysInMonth - disbDate.getDate() + 1);
+  return amount * monthlyRate * (daysHeld / daysInMonth);
+}
 function addMonths(date, months) {
   const d = new Date(date.getFullYear(), date.getMonth() + months, 1);
   const maxDay = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
@@ -2277,13 +2282,16 @@ function recalculate() {
   const primaryDisb = disbursements[0];
   const repayTermMonths = term - mora;
   const totalDisb = disbursements.reduce((s, d) => s + d.amount, 0);
-  const extraDisb = disbursements.slice(1);
 
   document.getElementById('total-disb').textContent = '₹' + Math.round(totalDisb).toLocaleString('en-IN');
-  function addlDisbForMonth(mEnd) { return extraDisb.reduce((s, d) => { const dm = endOfMonth(d.date); return sameMonth(dm, mEnd) ? s + d.amount : s; }, 0); }
+  function disbsForMonth(mEnd) { return disbursements.filter(d => sameMonth(endOfMonth(d.date), mEnd)); }
+  function addlDisbForMonth(mEnd) { return disbsForMonth(mEnd).reduce((s, d) => s + d.amount, 0); }
+  function disbInterestForMonth(mEnd, monthlyRate) {
+    return disbsForMonth(mEnd).reduce((s, d) => s + proratedMonthInterest(d.amount, monthlyRate, d.date, mEnd), 0);
+  }
   function rateChangeForMonth(mEnd) { return rateChanges.find(rc => sameMonth(endOfMonth(rc.date), mEnd)) || null; }
   const rows = [];
-  let balance = primaryDisb.amount, dueDate = endOfMonth(primaryDisb.date);
+  let balance = 0, dueDate = endOfMonth(primaryDisb.date);
   let currentMonthlyRate = initialRate, currentEMI = null, prevROI = roi;
   for (let i = 1; i <= term; i++) {
     const isMora = i <= mora;
@@ -2303,7 +2311,7 @@ function recalculate() {
       const remainingRepay = Math.max(1, repayTermMonths - repayDone);
       currentEMI = computeEMI(openBalance, currentMonthlyRate, remainingRepay);
     }
-    const interest = openBalance * currentMonthlyRate;
+    const interest = (balance * currentMonthlyRate) + disbInterestForMonth(dueDate, currentMonthlyRate);
     let emiAmt, principal, closeBalance;
     if (isMora) {
       if (inttPaid === 'Y') { emiAmt = interest; principal = 0; closeBalance = openBalance; }
