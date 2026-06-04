@@ -2333,6 +2333,12 @@ function computeEMI(principal, monthlyRate, repayTermMonths) {
   const r = monthlyRate, n = repayTermMonths;
   return (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 }
+function computeEMIWithFirstInterest(principal, firstInterest, monthlyRate, months) {
+  if (months <= 1) return principal + firstInterest;
+  if (monthlyRate === 0) return principal / months;
+  const annuityFactor = (1 - Math.pow(1 + monthlyRate, -(months - 1))) / monthlyRate;
+  return (principal + firstInterest) / (1 + annuityFactor);
+}
 function proratedMonthInterest(amount, monthlyRate, disbDate, monthEnd) {
   const daysInMonth = monthEnd.getDate();
   const daysHeld = Math.max(0, daysInMonth - disbDate.getDate() + 1);
@@ -2400,15 +2406,13 @@ function recalculate() {
       const newMonthlyRate = rc.roi / 100 / 12;
       rateChangedThisMonth = { roi: rc.roi, prev: prevROI, direction: rc.roi > prevROI ? 'up' : 'down' };
       prevROI = rc.roi; currentMonthlyRate = newMonthlyRate;
-      if (!isMora) { const repayDone = i - mora - 1; const remainingRepay = Math.max(1, repayTermMonths - repayDone); currentEMI = computeEMI(openBalance, currentMonthlyRate, remainingRepay); }
-    }
-    if (!isMora && currentEMI === null) currentEMI = computeEMI(openBalance, currentMonthlyRate, repayTermMonths);
-    if (!isMora && addlAmt > 0 && !rc) {
-      const repayDone = i - mora - 1;
-      const remainingRepay = Math.max(1, repayTermMonths - repayDone);
-      currentEMI = computeEMI(openBalance, currentMonthlyRate, remainingRepay);
     }
     const interest = (balance * currentMonthlyRate) + disbInterestForMonth(dueDate, currentMonthlyRate);
+    if (!isMora && (currentEMI === null || rc || addlAmt > 0)) {
+      const repayDone = i - mora - 1;
+      const remainingRepay = Math.max(1, repayTermMonths - repayDone);
+      currentEMI = computeEMIWithFirstInterest(openBalance, interest, currentMonthlyRate, remainingRepay);
+    }
     let emiAmt, principal, closeBalance;
     if (isMora) {
       if (inttPaid === 'Y') { emiAmt = interest; principal = 0; closeBalance = openBalance; }
