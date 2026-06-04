@@ -1884,6 +1884,16 @@ function setRepaymentLocalSaves(saves) {
   localStorage.setItem(RP_LOCAL_SAVES_KEY, JSON.stringify(saves));
 }
 
+function safeRepaymentFileName(name) {
+  return String(name || '')
+    .trim()
+    .replace(/[<>:"/\\|?*\x00-\x1F]/g, '_')
+    .replace(/\s+/g, '_')
+    .replace(/_+/g, '_')
+    .replace(/^_+|_+$/g, '')
+    .slice(0, 120);
+}
+
 function refreshRepaymentLocalSaves() {
   const select = document.getElementById('rpLocalSavedSelect');
   if (!select) return;
@@ -2185,7 +2195,11 @@ function generatePDF() {
   }
 
   // ── Save ──
-  const fname = `Repayment_Schedule_${new Date().toISOString().slice(0,10)}.pdf`;
+  const savedName = document.getElementById('rpLocalSavedSelect')?.value || '';
+  const safeName = safeRepaymentFileName(savedName);
+  const fname = safeName
+    ? `${safeName}.pdf`
+    : `Repayment_Schedule_${new Date().toISOString().slice(0,10)}.pdf`;
   doc.save(fname);
 }
 
