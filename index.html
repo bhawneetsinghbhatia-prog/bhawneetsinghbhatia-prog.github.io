@@ -739,6 +739,7 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
     <div id="repayment-actions" style="display:none;align-items:center;gap:8px;">
       <span class="sync-badge" id="rpSyncBadge" style="display:none;">☁️ Saved</span>
       <button class="btn btn-primary" onclick="saveRepaymentLocal()" style="background:#0f766e;">💾 Save Local</button>
+      <button class="btn btn-primary" onclick="updateRepaymentLocal()" style="background:#0f766e;">Update Saved</button>
       <select class="rp-local-select" id="rpLocalSavedSelect" onchange="loadRepaymentLocal(this.value)" title="Load saved local schedule">
         <option value="">Load saved...</option>
       </select>
@@ -1922,6 +1923,21 @@ function saveRepaymentLocal() {
   const select = document.getElementById('rpLocalSavedSelect');
   if (select) select.value = name;
   showToast(`Saved locally: ${name}`, '#0f766e');
+}
+
+function updateRepaymentLocal() {
+  const select = document.getElementById('rpLocalSavedSelect');
+  const name = select?.value;
+  if (!name) { showToast('Select a local save to update', '#ef4444'); return; }
+  const saves = getRepaymentLocalSaves();
+  if (!saves[name]) { refreshRepaymentLocalSaves(); showToast('Selected save was not found', '#ef4444'); return; }
+  if (!confirm(`Update "${name}" with the current repayment inputs?`)) return;
+  saves[name] = { ...getRepaymentSnapshot(), localName: name, savedAt: Date.now() };
+  setRepaymentLocalSaves(saves);
+  refreshRepaymentLocalSaves();
+  const refreshedSelect = document.getElementById('rpLocalSavedSelect');
+  if (refreshedSelect) refreshedSelect.value = name;
+  showToast(`Updated local save: ${name}`, '#0f766e');
 }
 
 function loadRepaymentLocal(name) {
