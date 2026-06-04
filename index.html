@@ -278,6 +278,12 @@ body.dark .assignee-badge { color: #d8b4fe; background: rgba(168,85,247,.18); }
 .user-initial { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: white; font-size: 0.68rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 .sync-badge { font-size: 0.7rem; background: rgba(34,197,94,.12); color: #16a34a; border: 1px solid rgba(34,197,94,.25); padding: 3px 10px; border-radius: 99px; white-space: nowrap; }
 body.dark .sync-badge { color: #4ade80; background: rgba(34,197,94,.15); }
+.rp-local-select {
+  min-width: 150px; max-width: 210px; background: var(--surface); color: var(--text-primary);
+  border: 1px solid var(--border); border-radius: 20px; padding: 6px 12px;
+  font-size: 13px; font-family: inherit; cursor: pointer;
+}
+.rp-local-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,113,227,.12); }
 .btn-logout { background: none; border: 1px solid var(--border); color: var(--text-secondary); padding: 5px 11px; border-radius: 99px; font-size: 0.75rem; cursor: pointer; transition: all .2s; }
 .btn-logout:hover { color: var(--text-primary); }
 .add-recur-btn { background: rgba(168,85,247,.1); color: #a855f7; border: 1.5px solid rgba(168,85,247,.3); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all .2s; white-space: nowrap; }
@@ -732,6 +738,11 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
     <!-- Repayment-specific actions -->
     <div id="repayment-actions" style="display:none;align-items:center;gap:8px;">
       <span class="sync-badge" id="rpSyncBadge" style="display:none;">☁️ Saved</span>
+      <button class="btn btn-primary" onclick="saveRepaymentLocal()" style="background:#0f766e;">💾 Save Local</button>
+      <select class="rp-local-select" id="rpLocalSavedSelect" onchange="loadRepaymentLocal(this.value)" title="Load saved local schedule">
+        <option value="">Load saved...</option>
+      </select>
+      <button class="btn btn-ghost" onclick="deleteRepaymentLocal()" title="Delete selected local save">Delete</button>
       <button class="btn btn-ghost" onclick="resetDefaults()">Reset</button>
       <button class="btn btn-primary" onclick="recalculate()">↻ Recalculate</button>
       <button class="btn btn-primary" onclick="saveRepaymentToCloud(true)" id="btnSaveRP" style="display:none;background:#1a7a35;">💾 Save ☁️</button>
@@ -1859,6 +1870,78 @@ function getRepaymentSnapshot() {
 
 let _rpApplying = false;   // guard: prevents save-loop when onSnapshot triggers recalculate
 let _lastRpSavedAt = null; // timestamp of our last save — used to skip our own snapshots on iOS
+const RP_LOCAL_SAVES_KEY = 'repaymentLocalNamedSaves';
+
+function getRepaymentLocalSaves() {
+  try {
+    return JSON.parse(localStorage.getItem(RP_LOCAL_SAVES_KEY) || '{}') || {};
+  } catch(e) {
+    return {};
+  }
+}
+
+function setRepaymentLocalSaves(saves) {
+  localStorage.setItem(RP_LOCAL_SAVES_KEY, JSON.stringify(saves));
+}
+
+function refreshRepaymentLocalSaves() {
+  const select = document.getElementById('rpLocalSavedSelect');
+  if (!select) return;
+  const saves = getRepaymentLocalSaves();
+  const entries = Object.entries(saves).sort((a, b) => (b[1].savedAt || 0) - (a[1].savedAt || 0));
+  select.innerHTML = '<option value="">Load saved...</option>';
+  entries.forEach(([name, data]) => {
+    const option = document.createElement('option');
+    option.value = name;
+    const when = data.savedAt ? new Date(data.savedAt).toLocaleDateString('en-IN') : '';
+    option.textContent = when ? `${name} (${when})` : name;
+    select.appendChild(option);
+  });
+}
+
+function saveRepaymentLocal() {
+  const rawName = prompt('Name this repayment schedule:');
+  if (rawName === null) return;
+  const name = rawName.trim();
+  if (!name) { showToast('Save cancelled: name is required', '#ef4444'); return; }
+  const saves = getRepaymentLocalSaves();
+  if (saves[name] && !confirm(`"${name}" already exists. Overwrite it?`)) return;
+  saves[name] = { ...getRepaymentSnapshot(), localName: name, savedAt: Date.now() };
+  setRepaymentLocalSaves(saves);
+  refreshRepaymentLocalSaves();
+  const select = document.getElementById('rpLocalSavedSelect');
+  if (select) select.value = name;
+  showToast(`Saved locally: ${name}`, '#0f766e');
+}
+
+function loadRepaymentLocal(name) {
+  if (!name) return;
+  const saves = getRepaymentLocalSaves();
+  const data = saves[name];
+  if (!data) { refreshRepaymentLocalSaves(); return; }
+  if (!confirm(`Load "${name}" and replace the current repayment inputs?`)) {
+    const select = document.getElementById('rpLocalSavedSelect');
+    if (select) select.value = '';
+    return;
+  }
+  _rpApplying = true;
+  applyRepaymentData(data);
+  const select = document.getElementById('rpLocalSavedSelect');
+  if (select) select.value = name;
+  showToast(`Loaded local save: ${name}`, '#0f766e');
+}
+
+function deleteRepaymentLocal() {
+  const select = document.getElementById('rpLocalSavedSelect');
+  const name = select?.value;
+  if (!name) { showToast('Select a local save first', '#ef4444'); return; }
+  if (!confirm(`Delete local save "${name}"?`)) return;
+  const saves = getRepaymentLocalSaves();
+  delete saves[name];
+  setRepaymentLocalSaves(saves);
+  refreshRepaymentLocalSaves();
+  showToast(`Deleted local save: ${name}`, '#9ca3af');
+}
 
 async function saveRepaymentToCloud(manual = false) {
   if (!auth || !auth.currentUser) return;
@@ -2853,6 +2936,7 @@ showPTScreen('loginScreen');
 updateTabGates();
 
 // Run repayment calc after a small delay
+refreshRepaymentLocalSaves();
 setTimeout(recalculate, 100);
 </script>
 </body>
