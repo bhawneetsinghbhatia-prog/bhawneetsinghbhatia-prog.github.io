@@ -2126,17 +2126,23 @@ function generatePDF() {
   // ── Build table data + row colours from DOM ──
   const tbody = document.getElementById('schedule-body');
   const tableData = [];
+  const tableMeta = [];
   const moraIdx = [], currIdx = [], rateIdx = [];
   // Helvetica has no RS glyph — replace with Rs.
-  const fixRs = t => (t || '').replace(/₹/g, 'Rs.');
+  const fixRs = t => (t || '').replace(/₹/g, 'Rs.').replace(/[▲▼]/g, '').replace(/\s+/g, ' ').trim();
   if (tbody) {
     Array.from(tbody.querySelectorAll('tr')).forEach((tr, i) => {
       if (tr.classList.contains('mora'))         moraIdx.push(i);
       if (tr.classList.contains('curr'))         currIdx.push(i);
       if (tr.classList.contains('rate-changed')) rateIdx.push(i);
       const cells = Array.from(tr.querySelectorAll('td'));
+      const badges = Array.from(cells[8]?.querySelectorAll('.rp-badge') || []).map(b => ({
+        text: fixRs(b.textContent),
+        cls: b.className
+      }));
+      tableMeta.push({ badges });
       tableData.push(cells.map((td, ci) => {
-        if (ci === 8) { const b = td.querySelector('.rp-badge'); return b ? b.textContent.trim() : ''; }
+        if (ci === 8) return badges.map(b => b.text).join(' | ');
         const bw = td.querySelector('.bar-wrap .rp-num');
         const raw = bw ? bw.textContent.trim() : td.textContent.trim().replace(/\s+/g, ' ');
         return fixRs(raw);
@@ -2151,7 +2157,7 @@ function generatePDF() {
     head: [['#', 'Due Date', 'Opening Bal (Rs.)', 'Addl. Disb (Rs.)', 'EMI (Rs.)', 'Interest (Rs.)', 'Principal (Rs.)', 'Closing Bal (Rs.)', 'Status']],
     body: tableData,
     startY: boxY + boxH + 6,
-    styles:     { fontSize: 7.2, cellPadding: 2, overflow: 'linebreak', font: 'helvetica', minCellHeight: 0 },
+    styles:     { fontSize: 7.1, cellPadding: 2, overflow: 'linebreak', font: 'helvetica', minCellHeight: 6.4, lineColor: [238, 238, 240], lineWidth: 0.08 },
     headStyles: { fillColor: [40, 40, 44], textColor: [240, 240, 240], fontStyle: 'bold',
                   fontSize: 6.5, halign: 'right', minCellHeight: 0, cellPadding: [2, 2] },
     columnStyles: {
@@ -2163,14 +2169,48 @@ function generatePDF() {
       5: { halign: 'right',  cellWidth: 28 },
       6: { halign: 'right',  cellWidth: 30 },
       7: { halign: 'right',  cellWidth: 36 },
-      8: { halign: 'center', cellWidth: 26 },
+      8: { halign: 'center', cellWidth: 34 },
     },
     didParseCell(data) {
       if (data.section !== 'body') return;
       const i = data.row.index;
       if (moraIdx.includes(i))      { data.cell.styles.fillColor = [255, 248, 225]; data.cell.styles.textColor = [100, 60, 0]; }
       else if (currIdx.includes(i)) { data.cell.styles.fillColor = [232, 240, 254]; data.cell.styles.textColor = [0, 60, 160]; }
-      else if (rateIdx.includes(i)) { data.cell.styles.fillColor = [248, 240, 255]; data.cell.styles.textColor = [80, 0, 130]; }
+      else if (rateIdx.includes(i)) { data.cell.styles.fillColor = [252, 242, 255]; data.cell.styles.textColor = [92, 32, 140]; data.cell.styles.minCellHeight = 10; }
+      else if (i % 2 === 0)         { data.cell.styles.fillColor = [248, 248, 249]; }
+      if (data.column.index === 4) data.cell.styles.fontStyle = 'bold';
+      if (data.column.index === 8) {
+        data.cell.text = [''];
+        data.cell.styles.cellPadding = 1;
+      }
+    },
+    didDrawCell(data) {
+      if (data.section !== 'body' || data.column.index !== 8) return;
+      const meta = tableMeta[data.row.index];
+      if (!meta || !meta.badges.length) return;
+      const badgePalette = badge => {
+        if (badge.cls.includes('b-paid')) return { bg:[230, 248, 235], fg:[26, 122, 53] };
+        if (badge.cls.includes('b-curr')) return { bg:[232, 240, 253], fg:[0, 113, 227] };
+        if (badge.cls.includes('b-mora')) return { bg:[255, 240, 204], fg:[153, 98, 0] };
+        if (badge.cls.includes('b-rate-down')) return { bg:[234, 250, 240], fg:[26, 122, 53] };
+        if (badge.cls.includes('b-rate-up')) return { bg:[255, 235, 235], fg:[192, 57, 43] };
+        return { bg:[243, 230, 255], fg:[123, 47, 181] };
+      };
+      let y = data.cell.y + 1.4;
+      meta.badges.slice(0, 2).forEach(badge => {
+        const text = badge.text.toUpperCase();
+        const palette = badgePalette(badge);
+        doc.setFontSize(5.8);
+        doc.setFont(undefined, 'bold');
+        const textWidth = Math.min(doc.getTextWidth(text), data.cell.width - 4);
+        const badgeWidth = Math.min(textWidth + 4, data.cell.width - 2);
+        const x = data.cell.x + (data.cell.width - badgeWidth) / 2;
+        doc.setFillColor(...palette.bg);
+        doc.roundedRect(x, y, badgeWidth, 3.7, 1.8, 1.8, 'F');
+        doc.setTextColor(...palette.fg);
+        doc.text(text, data.cell.x + data.cell.width / 2, y + 2.55, { align: 'center', maxWidth: badgeWidth - 3 });
+        y += 4.2;
+      });
     },
     didDrawPage(data) {
       // Repeat green header bar on each page
