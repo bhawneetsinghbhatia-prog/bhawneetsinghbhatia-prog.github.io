@@ -9,6 +9,7 @@
     "track": "node src/index.mjs",
     "dry-run": "node src/index.mjs --dry-run",
     "smoke": "node src/smoke.mjs",
+    "probe-url": "node src/probe-url.mjs",
     "preview": "node src/preview-server.mjs",
     "add-hotel": "node src/add-hotel.mjs",
     "test": "node --test"

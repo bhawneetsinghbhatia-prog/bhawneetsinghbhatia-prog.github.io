@@ -1368,8 +1368,8 @@ function renderHotelPrices(snapshot) {
 
   document.getElementById('htDateCount').textContent = dates.length;
   document.getElementById('htHotelCount').textContent = hotels.length;
-  document.getElementById('htVerifiedCount').textContent = verified.length;
-  document.getElementById('htUnverifiedCount').textContent = results.filter(item => item.status !== 'VERIFIED').length;
+  document.getElementById('htVerifiedCount').textContent = best.size;
+  document.getElementById('htUnverifiedCount').textContent = (dates.length * hotels.length) - best.size;
   const stay = snapshot?.stay || { nights: 1, adults: 2, children: [8] };
   document.getElementById('htStayMeta').textContent = `${stay.nights} night${stay.nights === 1 ? '' : 's'} · ${stay.adults} adults + ${stay.children.length} child, age ${stay.children.join(', ')}`;
 

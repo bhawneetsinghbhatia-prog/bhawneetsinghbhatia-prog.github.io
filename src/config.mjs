@@ -46,6 +46,7 @@ export async function loadConfig(env = process.env) {
   return {
     tracker,
     hotels: enabledHotels,
+    allHotels: hotels.filter((hotel) => hotel.enabled !== false),
     sources: enabledSources,
     startDateOverride: env.START_DATE || null,
     maxDates: env.MAX_DATES ? positiveInteger(env.MAX_DATES, 'MAX_DATES') : null

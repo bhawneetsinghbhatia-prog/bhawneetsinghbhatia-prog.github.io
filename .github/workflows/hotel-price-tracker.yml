@@ -30,13 +30,16 @@ concurrency:
 
 jobs:
   collect:
-    if: github.event_name == 'workflow_dispatch' || vars.TRACKER_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 330
     env:
       STAY_NIGHTS: ${{ inputs.nights || '1' }}
       HORIZON_DAYS: ${{ inputs.horizon_days || '30' }}
       MAX_DATES: ${{ inputs.max_dates }}
+      # The daily cloud run uses the source-specific adapter that is currently verified.
+      # Manual runs can still test the full configuration by editing these values.
+      HOTEL_IDS: fairmont-udaipur-palace
+      SOURCE_IDS: official
       SMTP_HOST: ${{ secrets.SMTP_HOST }}
       SMTP_PORT: ${{ secrets.SMTP_PORT }}
       SMTP_SECURE: ${{ secrets.SMTP_SECURE }}

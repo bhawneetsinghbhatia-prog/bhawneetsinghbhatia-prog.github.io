@@ -4,6 +4,7 @@ import { chromium } from '@playwright/test';
 import { buildSourceUrl } from './url-builders.mjs';
 import { interpretPage } from './extract.mjs';
 import { ROOT } from './config.mjs';
+import { collectFairmont } from './adapters/fairmont.mjs';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -33,16 +34,21 @@ async function collectOne(browser, job, tracker) {
   const page = await context.newPage();
   try {
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: tracker.collection.navigationTimeoutMs });
-    await page.waitForTimeout(2500);
-    const result = interpretPage({
-      bodyText: await page.locator('body').innerText({ timeout: 10000 }),
-      title: await page.title(),
-      url: page.url(),
-      expectedHotel: job.hotel.name,
-      expectedStay: job.stay,
-      expectedGuests: tracker.stay,
-      currency: tracker.currency
-    });
+    let result;
+    if (job.source.id === 'official' && job.hotel.officialAdapter === 'fairmont') {
+      result = await collectFairmont(page, { job: { ...job, trackerStay: tracker.stay }, tracker, url });
+    } else {
+      await page.waitForTimeout(2500);
+      result = interpretPage({
+        bodyText: await page.locator('body').innerText({ timeout: 10000 }),
+        title: await page.title(),
+        url: page.url(),
+        expectedHotel: job.hotel.name,
+        expectedStay: job.stay,
+        expectedGuests: tracker.stay,
+        currency: tracker.currency
+      });
+    }
 
     if (result.status !== 'VERIFIED' && tracker.collection.saveFailureScreenshots) {
       const directory = path.join(ROOT, 'evidence', job.stay.checkIn, job.hotel.id);
@@ -74,7 +80,16 @@ export async function collectJobs(jobs, tracker, onProgress = () => {}) {
   async function worker() {
     while (cursor < jobs.length) {
       const job = jobs[cursor++];
-      const result = await collectOne(browser, job, tracker);
+      const maxAttempts = Math.max(1, Number(tracker.collection.maxAttempts || 1));
+      let result;
+      let attempt = 0;
+      do {
+        attempt += 1;
+        result = await collectOne(browser, job, tracker);
+        if (!['TIMED_OUT', 'ACCESS_ERROR'].includes(result.status) || attempt >= maxAttempts) break;
+        await sleep(tracker.collection.delayBetweenRequestsMs * attempt);
+      } while (attempt < maxAttempts);
+      result.attempts = attempt;
       results.push(result);
       completed += 1;
       onProgress({ completed, total: jobs.length, result });

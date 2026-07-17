@@ -18,8 +18,37 @@ function tripadvisor(hotel, stay, guests) {
   return `https://www.tripadvisor.in/Search?q=${enc(`${hotel.name} ${hotel.location}`)}&searchSessionId=${enc(`${stay.checkIn}_${stay.checkOut}_${guests.adults}_${guests.children.join('-')}`)}`;
 }
 
+function official(hotel, stay, guests) {
+  if (hotel.officialAdapter === 'fairmont' && hotel.officialCode) {
+    const params = new URLSearchParams({
+      dateIn: stay.checkIn,
+      lengthOfStayValue: String(stay.nights),
+      client: 'aem.fairmont',
+      languageCode: 'en',
+      hotelCodes: hotel.officialCode,
+      'product[0][adultNumber]': String(guests.adults),
+      'product[0][childNumber]': String(guests.children.length)
+    });
+    guests.children.forEach((age, index) => params.set(`product[0][childrenAges][${index}]`, String(age)));
+    return `https://permalink.fairmont.com/booking/select?${params}`;
+  }
+  if (hotel.officialAdapter === 'wyndham') {
+    const params = new URLSearchParams({
+      checkInDate: stay.checkIn,
+      checkOutDate: stay.checkOut,
+      rooms: String(guests.rooms),
+      adults: String(guests.adults),
+      children: String(guests.children.length),
+      childAge: guests.children.join(','),
+      useWRPoints: 'false'
+    });
+    return `${hotel.bookingUrl}?${params}`;
+  }
+  return hotel.bookingUrl || hotel.officialUrl;
+}
+
 const builders = {
-  official: (hotel) => hotel.bookingUrl || hotel.officialUrl,
+  official,
   booking,
   agoda,
   makemytrip,

@@ -45,7 +45,7 @@ const snapshot = await saveSnapshot({
   timezone: config.tracker.timezone,
   stay: config.tracker.stay,
   dateWindow: dates,
-  hotels: config.hotels.map(({ id, name }) => ({ id, name })),
+  hotels: config.allHotels.map(({ id, name }) => ({ id, name })),
   results
 });
 const report = await writeReports(snapshot);
