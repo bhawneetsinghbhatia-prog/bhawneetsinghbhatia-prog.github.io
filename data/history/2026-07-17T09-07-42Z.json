@@ -1,0 +1,615 @@
+{
+  "schemaVersion": 1,
+  "title": "Udaipur hotel price tracker",
+  "runStartedAt": "2026-07-17T09:07:42.643Z",
+  "timezone": "Asia/Kolkata",
+  "stay": {
+    "nights": 1,
+    "rooms": 1,
+    "adults": 2,
+    "children": [
+      8
+    ]
+  },
+  "dateWindow": [
+    {
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1
+    }
+  ],
+  "hotels": [
+    {
+      "id": "fairmont-udaipur-palace",
+      "name": "Fairmont Udaipur Palace"
+    },
+    {
+      "id": "jagat-niwas-palace",
+      "name": "Jagat Niwas Palace"
+    },
+    {
+      "id": "oberoi-udaivilas",
+      "name": "The Oberoi Udaivilas"
+    },
+    {
+      "id": "wyndham-grand-udaipur",
+      "name": "Wyndham Grand Udaipur Fateh Sagar Lake"
+    },
+    {
+      "id": "trident-udaipur",
+      "name": "Trident Udaipur"
+    }
+  ],
+  "results": [
+    {
+      "hotelId": "fairmont-udaipur-palace",
+      "hotelName": "Fairmont Udaipur Palace",
+      "sourceId": "booking",
+      "sourceName": "Booking.com",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:06:49.163Z",
+      "requestedUrl": "https://www.booking.com/searchresults.html?ss=Fairmont%20Udaipur%20Palace%2C%20Udaipur%2C%20Rajasthan%2C%20India&checkin=2026-07-17&checkout=2026-07-18&group_adults=2&group_children=1&no_rooms=1&age=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.booking.com/searchresults.html",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "fairmont-udaipur-palace",
+      "hotelName": "Fairmont Udaipur Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:06:49.162Z",
+      "requestedUrl": "https://www.fairmont.com/en/hotels/udaipur/fairmont-udaipur-palace.html",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: datesPresent, finalAmount, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.fairmont.com/en/hotels/udaipur/fairmont-udaipur-palace.html",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "fairmont-udaipur-palace",
+      "hotelName": "Fairmont Udaipur Palace",
+      "sourceId": "makemytrip",
+      "sourceName": "MakeMyTrip",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:06:54.077Z",
+      "requestedUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Fairmont%20Udaipur%20Palace&roomStayQualifier=R1A2e1e8",
+      "status": "ACCESS_ERROR",
+      "failureReason": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Fairmont%20Udaipur%20Palace&roomStayQualifier=R1A2e1e8\nCall log:\n  - navigating to \"https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Fairmont%20Udaipur%20Palace&roomStayQualifier=R1A2e1e8\", waiting until \"domconte",
+      "bookingUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Fairmont%20Udaipur%20Palace&roomStayQualifier=R1A2e1e8"
+    },
+    {
+      "hotelId": "fairmont-udaipur-palace",
+      "hotelName": "Fairmont Udaipur Palace",
+      "sourceId": "agoda",
+      "sourceName": "Agoda",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:06:54.022Z",
+      "requestedUrl": "https://www.agoda.com/search?textToSearch=Fairmont%20Udaipur%20Palace&checkIn=2026-07-17&checkOut=2026-07-18&los=1&rooms=1&adults=2&children=1&childages=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.agoda.com/en-in/",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "fairmont-udaipur-palace",
+      "hotelName": "Fairmont Udaipur Palace",
+      "sourceId": "tripadvisor",
+      "sourceName": "Tripadvisor",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:06:55.656Z",
+      "requestedUrl": "https://www.tripadvisor.in/Search?q=Fairmont%20Udaipur%20Palace%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.tripadvisor.in/Search?q=Fairmont%20Udaipur%20Palace%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "booking",
+      "sourceName": "Booking.com",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:06:59.956Z",
+      "requestedUrl": "https://www.booking.com/searchresults.html?ss=Jagat%20Niwas%20Palace%2C%20Udaipur%2C%20Rajasthan%2C%20India&checkin=2026-07-17&checkout=2026-07-18&group_adults=2&group_children=1&no_rooms=1&age=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.booking.com/searchresults.html",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:06:59.115Z",
+      "requestedUrl": "https://jagatcollection.com/",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://jagatcollection.com/",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "makemytrip",
+      "sourceName": "MakeMyTrip",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:05.021Z",
+      "requestedUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Jagat%20Niwas%20Palace&roomStayQualifier=R1A2e1e8",
+      "status": "ACCESS_ERROR",
+      "failureReason": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Jagat%20Niwas%20Palace&roomStayQualifier=R1A2e1e8\nCall log:\n  - navigating to \"https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Jagat%20Niwas%20Palace&roomStayQualifier=R1A2e1e8\", waiting until \"domcontentloaded\"\n",
+      "bookingUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Jagat%20Niwas%20Palace&roomStayQualifier=R1A2e1e8"
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "agoda",
+      "sourceName": "Agoda",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:04.664Z",
+      "requestedUrl": "https://www.agoda.com/search?textToSearch=Jagat%20Niwas%20Palace&checkIn=2026-07-17&checkOut=2026-07-18&los=1&rooms=1&adults=2&children=1&childages=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.agoda.com/en-in/",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "tripadvisor",
+      "sourceName": "Tripadvisor",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:06.649Z",
+      "requestedUrl": "https://www.tripadvisor.in/Search?q=Jagat%20Niwas%20Palace%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.tripadvisor.in/Search?q=Jagat%20Niwas%20Palace%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "oberoi-udaivilas",
+      "hotelName": "The Oberoi Udaivilas",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:09.859Z",
+      "requestedUrl": "https://www.oberoihotels.com/hotels-in-udaipur-udaivilas-resort/",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: datesPresent, finalAmount, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.oberoihotels.com/hotels-in-udaipur-udaivilas-resort/",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "oberoi-udaivilas",
+      "hotelName": "The Oberoi Udaivilas",
+      "sourceId": "booking",
+      "sourceName": "Booking.com",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:10.786Z",
+      "requestedUrl": "https://www.booking.com/searchresults.html?ss=The%20Oberoi%20Udaivilas%2C%20Udaipur%2C%20Rajasthan%2C%20India&checkin=2026-07-17&checkout=2026-07-18&group_adults=2&group_children=1&no_rooms=1&age=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.booking.com/searchresults.html",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "oberoi-udaivilas",
+      "hotelName": "The Oberoi Udaivilas",
+      "sourceId": "makemytrip",
+      "sourceName": "MakeMyTrip",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:15.620Z",
+      "requestedUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=The%20Oberoi%20Udaivilas&roomStayQualifier=R1A2e1e8",
+      "status": "ACCESS_ERROR",
+      "failureReason": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=The%20Oberoi%20Udaivilas&roomStayQualifier=R1A2e1e8\nCall log:\n  - navigating to \"https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=The%20Oberoi%20Udaivilas&roomStayQualifier=R1A2e1e8\", waiting until \"domcontentload",
+      "bookingUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=The%20Oberoi%20Udaivilas&roomStayQualifier=R1A2e1e8"
+    },
+    {
+      "hotelId": "oberoi-udaivilas",
+      "hotelName": "The Oberoi Udaivilas",
+      "sourceId": "agoda",
+      "sourceName": "Agoda",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:14.938Z",
+      "requestedUrl": "https://www.agoda.com/search?textToSearch=The%20Oberoi%20Udaivilas&checkIn=2026-07-17&checkOut=2026-07-18&los=1&rooms=1&adults=2&children=1&childages=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.agoda.com/en-in/",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "oberoi-udaivilas",
+      "hotelName": "The Oberoi Udaivilas",
+      "sourceId": "tripadvisor",
+      "sourceName": "Tripadvisor",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:17.248Z",
+      "requestedUrl": "https://www.tripadvisor.in/Search?q=The%20Oberoi%20Udaivilas%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.tripadvisor.in/Search?q=The%20Oberoi%20Udaivilas%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "wyndham-grand-udaipur",
+      "hotelName": "Wyndham Grand Udaipur Fateh Sagar Lake",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:20.039Z",
+      "requestedUrl": "https://www.wyndhamhotels.com/en-uk/wyndham-grand/udaipur-india/wyndham-grand-udaipur-fateh-sagar-lake/overview",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: datesPresent, finalAmount, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.wyndhamhotels.com/en-uk/wyndham-grand/udaipur-india/wyndham-grand-udaipur-fateh-sagar-lake/overview",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "wyndham-grand-udaipur",
+      "hotelName": "Wyndham Grand Udaipur Fateh Sagar Lake",
+      "sourceId": "booking",
+      "sourceName": "Booking.com",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:21.360Z",
+      "requestedUrl": "https://www.booking.com/searchresults.html?ss=Wyndham%20Grand%20Udaipur%20Fateh%20Sagar%20Lake%2C%20Udaipur%2C%20Rajasthan%2C%20India&checkin=2026-07-17&checkout=2026-07-18&group_adults=2&group_children=1&no_rooms=1&age=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.booking.com/searchresults.html",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "wyndham-grand-udaipur",
+      "hotelName": "Wyndham Grand Udaipur Fateh Sagar Lake",
+      "sourceId": "makemytrip",
+      "sourceName": "MakeMyTrip",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:26.186Z",
+      "requestedUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Wyndham%20Grand%20Udaipur%20Fateh%20Sagar%20Lake&roomStayQualifier=R1A2e1e8",
+      "status": "ACCESS_ERROR",
+      "failureReason": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Wyndham%20Grand%20Udaipur%20Fateh%20Sagar%20Lake&roomStayQualifier=R1A2e1e8\nCall log:\n  - navigating to \"https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Wyndham%20Grand%20Udaipur%20Fateh%20Sagar%20Lake&roomStayQu",
+      "bookingUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Wyndham%20Grand%20Udaipur%20Fateh%20Sagar%20Lake&roomStayQualifier=R1A2e1e8"
+    },
+    {
+      "hotelId": "wyndham-grand-udaipur",
+      "hotelName": "Wyndham Grand Udaipur Fateh Sagar Lake",
+      "sourceId": "agoda",
+      "sourceName": "Agoda",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:25.745Z",
+      "requestedUrl": "https://www.agoda.com/search?textToSearch=Wyndham%20Grand%20Udaipur%20Fateh%20Sagar%20Lake&checkIn=2026-07-17&checkOut=2026-07-18&los=1&rooms=1&adults=2&children=1&childages=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.agoda.com/en-in/",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "wyndham-grand-udaipur",
+      "hotelName": "Wyndham Grand Udaipur Fateh Sagar Lake",
+      "sourceId": "tripadvisor",
+      "sourceName": "Tripadvisor",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:27.777Z",
+      "requestedUrl": "https://www.tripadvisor.in/Search?q=Wyndham%20Grand%20Udaipur%20Fateh%20Sagar%20Lake%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.tripadvisor.in/Search?q=Wyndham%20Grand%20Udaipur%20Fateh%20Sagar%20Lake%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "trident-udaipur",
+      "hotelName": "Trident Udaipur",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:30.916Z",
+      "requestedUrl": "https://www.tridenthotels.com/hotels-in-udaipur/",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: datesPresent, finalAmount, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.tridenthotels.com/hotels-in-udaipur/",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "trident-udaipur",
+      "hotelName": "Trident Udaipur",
+      "sourceId": "booking",
+      "sourceName": "Booking.com",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:31.907Z",
+      "requestedUrl": "https://www.booking.com/searchresults.html?ss=Trident%20Udaipur%2C%20Udaipur%2C%20Rajasthan%2C%20India&checkin=2026-07-17&checkout=2026-07-18&group_adults=2&group_children=1&no_rooms=1&age=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.booking.com/searchresults.html",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "trident-udaipur",
+      "hotelName": "Trident Udaipur",
+      "sourceId": "makemytrip",
+      "sourceName": "MakeMyTrip",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:36.885Z",
+      "requestedUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Trident%20Udaipur&roomStayQualifier=R1A2e1e8",
+      "status": "ACCESS_ERROR",
+      "failureReason": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Trident%20Udaipur&roomStayQualifier=R1A2e1e8\nCall log:\n  - navigating to \"https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Trident%20Udaipur&roomStayQualifier=R1A2e1e8\", waiting until \"domcontentloaded\"\n",
+      "bookingUrl": "https://www.makemytrip.com/hotels/hotel-listing/?checkin=20260717&checkout=20260718&locusId=CTUDR&locusType=city&city=CTUDR&country=IN&searchText=Trident%20Udaipur&roomStayQualifier=R1A2e1e8"
+    },
+    {
+      "hotelId": "trident-udaipur",
+      "hotelName": "Trident Udaipur",
+      "sourceId": "agoda",
+      "sourceName": "Agoda",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:35.841Z",
+      "requestedUrl": "https://www.agoda.com/search?textToSearch=Trident%20Udaipur&checkIn=2026-07-17&checkOut=2026-07-18&los=1&rooms=1&adults=2&children=1&childages=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.agoda.com/en-in/",
+      "candidateAmount": null
+    },
+    {
+      "hotelId": "trident-udaipur",
+      "hotelName": "Trident Udaipur",
+      "sourceId": "tripadvisor",
+      "sourceName": "Tripadvisor",
+      "checkIn": "2026-07-17",
+      "checkOut": "2026-07-18",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-07-17T09:07:38.503Z",
+      "requestedUrl": "https://www.tripadvisor.in/Search?q=Trident%20Udaipur%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "Could not verify required fields: hotelPresent, datesPresent, finalAmount, roomType, occupancyAllowed, mealPlan, cancellationPolicy, taxes",
+      "bookingUrl": "https://www.tripadvisor.in/Search?q=Trident%20Udaipur%20Udaipur%2C%20Rajasthan%2C%20India&searchSessionId=2026-07-17_2026-07-18_2_8",
+      "candidateAmount": null
+    }
+  ]
+}
