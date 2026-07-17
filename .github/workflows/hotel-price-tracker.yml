@@ -30,6 +30,7 @@ concurrency:
 
 jobs:
   collect:
+    if: github.event_name == 'workflow_dispatch' || vars.TRACKER_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 330
     env:
