@@ -1,0 +1,23 @@
+{
+  "name": "udaipur-hotel-price-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.9.0",
+  "description": "Cloud hotel price tracker with strict verified-price reporting",
+  "scripts": {
+    "track": "node src/index.mjs",
+    "dry-run": "node src/index.mjs --dry-run",
+    "smoke": "node src/smoke.mjs",
+    "preview": "node src/preview-server.mjs",
+    "add-hotel": "node src/add-hotel.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.54.1",
+    "nodemailer": "^7.0.5"
+  }
+}

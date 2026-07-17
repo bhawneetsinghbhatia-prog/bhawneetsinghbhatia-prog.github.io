@@ -1,0 +1,77 @@
+name: Hotel price tracker
+
+on:
+  workflow_dispatch:
+    inputs:
+      nights:
+        description: Number of nights for every rolling check-in date
+        required: true
+        default: "1"
+        type: string
+      horizon_days:
+        description: Days ahead, in addition to today
+        required: true
+        default: "30"
+        type: string
+      max_dates:
+        description: Optional small limit for testing; leave blank for full window
+        required: false
+        type: string
+  schedule:
+    - cron: "17 5 * * *"
+      timezone: "Asia/Kolkata"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hotel-price-tracker
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      STAY_NIGHTS: ${{ inputs.nights || '1' }}
+      HORIZON_DAYS: ${{ inputs.horizon_days || '30' }}
+      MAX_DATES: ${{ inputs.max_dates }}
+      SMTP_HOST: ${{ secrets.SMTP_HOST }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_SECURE: ${{ secrets.SMTP_SECURE }}
+      SMTP_USER: ${{ secrets.SMTP_USER }}
+      SMTP_PASS: ${{ secrets.SMTP_PASS }}
+      REPORT_FROM_EMAIL: ${{ secrets.REPORT_FROM_EMAIL }}
+      REPORT_TO_EMAIL: ${{ secrets.REPORT_TO_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test
+      - run: pnpm track
+      - name: Upload report and diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hotel-price-report-${{ github.run_id }}
+          path: |
+            reports/
+            data/latest.json
+            evidence/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Commit historical data and reports
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/latest.json data/history reports
+          git diff --cached --quiet || git commit -m "data: daily hotel prices $(date -u +%F)"
+          git push

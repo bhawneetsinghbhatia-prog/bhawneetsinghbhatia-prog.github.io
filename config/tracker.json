@@ -1,0 +1,27 @@
+{
+  "timezone": "Asia/Kolkata",
+  "locale": "en-IN",
+  "currency": "INR",
+  "window": {
+    "daysAhead": 30,
+    "includeToday": true
+  },
+  "stay": {
+    "nights": 1,
+    "rooms": 1,
+    "adults": 2,
+    "children": [
+      8
+    ]
+  },
+  "collection": {
+    "concurrency": 2,
+    "navigationTimeoutMs": 35000,
+    "delayBetweenRequestsMs": 1500,
+    "saveFailureScreenshots": false
+  },
+  "report": {
+    "title": "Udaipur hotel price tracker",
+    "showUnverifiedCandidates": false
+  }
+}

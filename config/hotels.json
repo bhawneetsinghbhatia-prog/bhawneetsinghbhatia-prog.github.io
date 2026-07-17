@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fairmont-udaipur-palace",
+    "name": "Fairmont Udaipur Palace",
+    "location": "Udaipur, Rajasthan, India",
+    "enabled": true,
+    "officialUrl": "https://www.fairmont.com/en/hotels/udaipur/fairmont-udaipur-palace.html",
+    "bookingUrl": "https://www.fairmont.com/en/hotels/udaipur/fairmont-udaipur-palace.html"
+  },
+  {
+    "id": "jagat-niwas-palace",
+    "name": "Jagat Niwas Palace",
+    "location": "Udaipur, Rajasthan, India",
+    "enabled": true,
+    "officialUrl": "https://jagatcollection.com/",
+    "bookingUrl": "https://jagatcollection.com/"
+  },
+  {
+    "id": "oberoi-udaivilas",
+    "name": "The Oberoi Udaivilas",
+    "location": "Udaipur, Rajasthan, India",
+    "enabled": true,
+    "officialUrl": "https://www.oberoihotels.com/hotels-in-udaipur-udaivilas-resort/",
+    "bookingUrl": "https://www.oberoihotels.com/hotels-in-udaipur-udaivilas-resort/"
+  },
+  {
+    "id": "wyndham-grand-udaipur",
+    "name": "Wyndham Grand Udaipur Fateh Sagar Lake",
+    "location": "Udaipur, Rajasthan, India",
+    "enabled": true,
+    "officialUrl": "https://wyndhamgrandudaipur.com/",
+    "bookingUrl": "https://www.wyndhamhotels.com/en-uk/wyndham-grand/udaipur-india/wyndham-grand-udaipur-fateh-sagar-lake/overview"
+  },
+  {
+    "id": "trident-udaipur",
+    "name": "Trident Udaipur",
+    "location": "Udaipur, Rajasthan, India",
+    "enabled": true,
+    "officialUrl": "https://www.tridenthotels.com/hotels-in-udaipur/",
+    "bookingUrl": "https://www.tridenthotels.com/hotels-in-udaipur/"
+  }
+]

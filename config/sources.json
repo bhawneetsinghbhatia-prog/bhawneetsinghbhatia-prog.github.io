@@ -1,0 +1,32 @@
+[
+  {
+    "id": "official",
+    "name": "Official website",
+    "enabled": true,
+    "urlBuilder": "official"
+  },
+  {
+    "id": "booking",
+    "name": "Booking.com",
+    "enabled": true,
+    "urlBuilder": "booking"
+  },
+  {
+    "id": "agoda",
+    "name": "Agoda",
+    "enabled": true,
+    "urlBuilder": "agoda"
+  },
+  {
+    "id": "makemytrip",
+    "name": "MakeMyTrip",
+    "enabled": true,
+    "urlBuilder": "makemytrip"
+  },
+  {
+    "id": "tripadvisor",
+    "name": "Tripadvisor",
+    "enabled": true,
+    "urlBuilder": "tripadvisor"
+  }
+]
