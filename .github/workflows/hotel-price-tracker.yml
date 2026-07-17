@@ -38,7 +38,7 @@ jobs:
       MAX_DATES: ${{ inputs.max_dates }}
       # The daily cloud run uses the source-specific adapter that is currently verified.
       # Manual runs can still test the full configuration by editing these values.
-      HOTEL_IDS: fairmont-udaipur-palace
+      HOTEL_IDS: fairmont-udaipur-palace,jagat-niwas-palace
       SOURCE_IDS: official
       SMTP_HOST: ${{ secrets.SMTP_HOST }}
       SMTP_PORT: ${{ secrets.SMTP_PORT }}

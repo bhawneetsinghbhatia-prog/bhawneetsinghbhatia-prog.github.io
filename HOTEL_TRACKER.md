@@ -74,7 +74,7 @@ npm run track
 4. Review the artifact and unverified reasons before enabling a full daily run.
 5. Adjust the schedule in `.github/workflows/hotel-price-tracker.yml` if 5:17 AM Asia/Kolkata is not suitable.
 
-Scheduled runs are active. The daily cloud job currently uses the verified Fairmont official-booking adapter across the complete rolling 31-date window. The other hotels remain visible as not verified until their source-specific booking adapters pass the same strict checks; they are not represented by estimates.
+Scheduled runs are active. The daily cloud job checks the Fairmont and Jagat Niwas official booking engines across the complete rolling 31-date window. Oberoi, Trident and Wyndham remain visible as unverified when their booking engines block or time out in the cloud browser; they are not represented by estimates.
 
 The workflow commits `data/latest.json`, dated JSON snapshots, and Markdown/HTML reports. Committing the latest snapshot lets the next run calculate changes and gives a connected ChatGPT task a stable file to read. Raw failure screenshots are stored only as short-lived workflow artifacts when `saveFailureScreenshots` is enabled.
 

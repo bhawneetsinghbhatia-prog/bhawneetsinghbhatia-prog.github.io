@@ -16,6 +16,7 @@
     "enabled": true,
     "officialUrl": "https://jagatcollection.com/",
     "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y"
+    ,"officialAdapter": "jagat"
   },
   {
     "id": "oberoi-udaivilas",
@@ -23,7 +24,12 @@
     "location": "Udaipur, Rajasthan, India",
     "enabled": true,
     "officialUrl": "https://www.oberoihotels.com/hotels-in-udaipur-udaivilas-resort/",
-    "bookingUrl": "https://www.oberoihotels.com/hotels-in-udaipur-udaivilas-resort/"
+    "bookingUrl": "https://www.oberoihotels.com/hotels-in-udaipur-udaivilas-resort/",
+    "officialAdapter": "synxis",
+    "officialCode": "5261",
+    "officialTheme": "OberoiUdaivilas",
+    "officialConfig": "oberoi",
+    "bookingHost": "https://res.oberoihotels.com/"
   },
   {
     "id": "wyndham-grand-udaipur",
@@ -33,7 +39,8 @@
     "officialUrl": "https://wyndhamgrandudaipur.com/",
     "bookingUrl": "https://www.wyndhamhotels.com/en-uk/wyndham-grand/udaipur-india/wyndham-grand-udaipur-fateh-sagar-lake/overview",
     "officialAdapter": "wyndham",
-    "officialCode": "58098"
+    "officialCode": "58098",
+    "roomsRatesPath": "https://www.wyndhamhotels.com/en-uk/wyndham-grand/udaipur-india/wyndham-grand-udaipur-fateh-sagar-lake/rooms-rates"
   },
   {
     "id": "trident-udaipur",
@@ -41,6 +48,11 @@
     "location": "Udaipur, Rajasthan, India",
     "enabled": true,
     "officialUrl": "https://www.tridenthotels.com/hotels-in-udaipur/",
-    "bookingUrl": "https://www.tridenthotels.com/hotels-in-udaipur/"
+    "bookingUrl": "https://www.tridenthotels.com/hotels-in-udaipur/",
+    "officialAdapter": "synxis",
+    "officialCode": "5262",
+    "officialTheme": "InitialThemeTridentNew",
+    "officialConfig": "InitialConfigTrident",
+    "bookingHost": "https://res.tridenthotels.com/"
   }
 ]

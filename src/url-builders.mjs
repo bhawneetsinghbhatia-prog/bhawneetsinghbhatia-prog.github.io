@@ -42,7 +42,27 @@ function official(hotel, stay, guests) {
       childAge: guests.children.join(','),
       useWRPoints: 'false'
     });
-    return `${hotel.bookingUrl}?${params}`;
+    return `${hotel.roomsRatesPath || hotel.bookingUrl}?${params}`;
+  }
+  if (hotel.officialAdapter === 'synxis') {
+    const params = new URLSearchParams({
+      hotel: hotel.officialCode,
+      rate: '',
+      arrive: stay.checkIn,
+      depart: stay.checkOut,
+      rooms: String(guests.rooms),
+      adult: String(guests.adults),
+      child: String(guests.children.length),
+      childages: guests.children.join(','),
+      themecode: hotel.officialTheme,
+      configcode: hotel.officialConfig,
+      chain: '24188',
+      level: 'hotel',
+      locale: 'en-US',
+      sbe_ri: '0'
+    });
+    if (hotel.id === 'oberoi-udaivilas') params.set('brand', 'ob');
+    return `${hotel.bookingHost}?${params}`;
   }
   return hotel.bookingUrl || hotel.officialUrl;
 }

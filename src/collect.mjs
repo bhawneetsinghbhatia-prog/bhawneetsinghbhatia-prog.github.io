@@ -5,6 +5,9 @@ import { buildSourceUrl } from './url-builders.mjs';
 import { interpretPage } from './extract.mjs';
 import { ROOT } from './config.mjs';
 import { collectFairmont } from './adapters/fairmont.mjs';
+import { collectSynxis } from './adapters/synxis.mjs';
+import { collectWyndham } from './adapters/wyndham.mjs';
+import { collectJagat } from './adapters/jagat.mjs';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -25,6 +28,7 @@ async function collectOne(browser, job, tracker) {
   };
 
   const context = await browser.newContext({
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
     locale: tracker.locale,
     timezoneId: tracker.timezone,
     colorScheme: 'light',
@@ -37,6 +41,12 @@ async function collectOne(browser, job, tracker) {
     let result;
     if (job.source.id === 'official' && job.hotel.officialAdapter === 'fairmont') {
       result = await collectFairmont(page, { job: { ...job, trackerStay: tracker.stay }, tracker, url });
+    } else if (job.source.id === 'official' && job.hotel.officialAdapter === 'synxis') {
+      result = await collectSynxis(page, { job: { ...job, trackerStay: tracker.stay }, url });
+    } else if (job.source.id === 'official' && job.hotel.officialAdapter === 'wyndham') {
+      result = await collectWyndham(page, { job: { ...job, trackerStay: tracker.stay }, url });
+    } else if (job.source.id === 'official' && job.hotel.officialAdapter === 'jagat') {
+      result = await collectJagat(page, { job: { ...job, trackerStay: tracker.stay }, url });
     } else {
       await page.waitForTimeout(2500);
       result = interpretPage({
