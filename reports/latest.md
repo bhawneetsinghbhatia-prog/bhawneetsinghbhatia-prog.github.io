@@ -1,6 +1,6 @@
 # Udaipur hotel price tracker
 
-Checked: 2026-07-17T13:10:07.289Z · Stay: 1 night(s) · 2 adults + 1 child (age 8)
+Checked: 2026-07-17T13:39:23.646Z · Stay: 1 night(s) · 2 adults + 1 child (age 8)
 
 | Check-in | Hotel | Lowest verified final price | Best website | Change | Booking |
 |---|---|---:|---|---:|---|
@@ -164,7 +164,38 @@ Checked: 2026-07-17T13:10:07.289Z · Stay: 1 night(s) · 2 adults + 1 child (age
 
 | Date | Hotel | Website | Status | Reason |
 |---|---|---|---|---|
+| 2026-07-17 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-18 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-19 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-20 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-21 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-22 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-23 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-24 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-07-26 | Fairmont Udaipur Palace | Official website | ROOM_NOT_AVAILABLE | The official booking page reports no availability for the requested stay |
+| 2026-07-25 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-07-27 | Fairmont Udaipur Palace | Official website | ROOM_NOT_AVAILABLE | The official booking page reports no availability for the requested stay |
+| 2026-07-26 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-27 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-28 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-29 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-30 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-07-31 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-01 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-02 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-03 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-04 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-05 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-06 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-07 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-08 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-09 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-10 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-11 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-12 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-13 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-14 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-15 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-08-16 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 
 > “Not verified” means no confirmed final payable price was obtained. Candidate or estimated prices are deliberately excluded.
