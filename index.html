@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WorkSuite – Tasks, Repayments, Notes & Hotel Prices</title>
+<title>WorkSuite – Tasks, Repayments & Notes</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -623,45 +623,9 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
 .nt-trash-title { font-size: 0.86rem; font-weight: 600; color: var(--text-secondary); }
 .nt-trash-sub-count { font-size: 0.68rem; color: var(--text-tertiary); }
 
-/* HOTEL PRICE TRACKER */
-.ht-page { min-height: calc(100vh - 104px); background: var(--bg); padding-bottom: 48px; }
-.ht-hero { padding: 38px 32px 64px; background: linear-gradient(135deg, #123c34, #256b59); color: #fff; }
-.ht-hero-inner { max-width: 1320px; margin: 0 auto; }
-.ht-eyebrow { font-size: 0.7rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #b9ddd3; margin-bottom: 8px; }
-.ht-hero h1 { font-size: clamp(2rem, 4vw, 3.25rem); letter-spacing: -.04em; line-height: 1.05; margin-bottom: 9px; }
-.ht-hero-sub { color: #d4e9e3; font-size: .92rem; }
-.ht-wrap { max-width: 1320px; margin: -38px auto 0; padding: 0 32px; }
-.ht-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.ht-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 20px; box-shadow: var(--shadow-md); }
-.ht-card-label { color: var(--text-tertiary); font-size: .72rem; margin-bottom: 6px; }
-.ht-card-value { color: var(--text-primary); font-size: 1.55rem; font-weight: 750; }
-.ht-panel { margin-top: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
-.ht-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--border); }
-.ht-panel-head h2 { font-size: 1rem; color: var(--text-primary); }
-.ht-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-.ht-pill { border-radius: 999px; padding: 6px 10px; background: var(--surface2); color: var(--text-secondary); font-size: .7rem; border: 1px solid var(--border); }
-.ht-refresh { border: none; border-radius: 999px; padding: 7px 12px; background: #176953; color: #fff; cursor: pointer; font: inherit; font-size: .72rem; font-weight: 650; }
-.ht-table-scroll { overflow: auto; max-height: 60vh; }
-.ht-table { width: 100%; border-collapse: collapse; font-size: .78rem; }
-.ht-table th, .ht-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); white-space: nowrap; }
-.ht-table th { position: sticky; top: 0; z-index: 1; background: var(--surface2); color: var(--text-tertiary); font-size: .65rem; letter-spacing: .045em; text-transform: uppercase; }
-.ht-table tbody tr:hover { background: var(--surface2); }
-.ht-price { font-weight: 750; color: var(--text-primary); }
-.ht-muted { color: var(--text-tertiary); }
-.ht-up { color: #dc2626; font-weight: 650; }
-.ht-down { color: #16a34a; font-weight: 650; }
-.ht-book { color: #176953; font-weight: 700; text-decoration: none; }
-.ht-note { padding: 15px 20px; color: var(--text-tertiary); font-size: .72rem; background: var(--surface2); }
-.ht-status { margin-top: 14px; color: var(--text-tertiary); font-size: .72rem; text-align: right; }
-
 @media (max-width: 800px) {
   .nav-tabs { max-width: 72vw; overflow-x: auto; }
   .nav-tab { padding-left: 13px; padding-right: 13px; }
-  .ht-cards { grid-template-columns: repeat(2, 1fr); }
-  .ht-hero { padding: 30px 18px 58px; }
-  .ht-wrap { padding: 0 14px; }
-  .ht-panel-head { align-items: flex-start; flex-direction: column; }
-  .ht-meta { justify-content: flex-start; }
 }
 
 @media (max-width: 600px) {
@@ -759,7 +723,6 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
       <button class="nav-tab active" id="tab-pendency" onclick="switchTab('pendency')">📋 Pendency Tracker</button>
       <button class="nav-tab" id="tab-repayment" onclick="switchTab('repayment')">💰 Repayment Schedule</button>
       <button class="nav-tab" id="tab-notes" onclick="switchTab('notes')">📝 Notes</button>
-      <button class="nav-tab" id="tab-hotels" onclick="switchTab('hotels')">🏨 Hotel Prices</button>
     </div>
   </div>
   <!-- Row 2: Actions -->
@@ -770,6 +733,8 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
       <span class="sync-badge" id="syncBadge" style="display:none;">● Live Sync</span>
       <div class="user-pill" id="userPill" style="display:none;"></div>
       <button class="btn-logout" id="btnLogout" style="display:none;" onclick="signOut()">Sign Out</button>
+      <button class="btn btn-ghost" id="btnEnableNotifications" style="display:none;" onclick="enableTaskNotifications()">🔔 Enable Alerts</button>
+      <button class="btn btn-ghost" id="btnTestNotification" style="display:none;" onclick="showTaskNotification('Test reminder')">Test Now</button>
       <button class="add-recur-btn" id="btnRecur" style="display:none;" onclick="openRecurModal()">🔄 Recurring</button>
       <button class="pt-add-btn" id="btnAddTask" style="display:none;" onclick="openModal()">＋ Add Task</button>
     </div>
@@ -1200,44 +1165,6 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
   </div>
 </div><!-- end notes-section -->
 
-<!-- HOTEL PRICE TRACKER SECTION -->
-<div id="hotels-section" style="display:none;">
-  <div class="ht-page">
-    <section class="ht-hero">
-      <div class="ht-hero-inner">
-        <p class="ht-eyebrow">Daily verified-rate monitor</p>
-        <h1>Udaipur hotel prices</h1>
-        <p class="ht-hero-sub">Fresh public prices compared across official hotel and travel websites.</p>
-      </div>
-    </section>
-    <div class="ht-wrap">
-      <div class="ht-cards">
-        <div class="ht-card"><div class="ht-card-label">Check-in dates</div><div class="ht-card-value" id="htDateCount">31</div></div>
-        <div class="ht-card"><div class="ht-card-label">Hotels tracked</div><div class="ht-card-value" id="htHotelCount">5</div></div>
-        <div class="ht-card"><div class="ht-card-label">Verified offers</div><div class="ht-card-value" id="htVerifiedCount">0</div></div>
-        <div class="ht-card"><div class="ht-card-label">Unverified checks</div><div class="ht-card-value" id="htUnverifiedCount">0</div></div>
-      </div>
-      <section class="ht-panel">
-        <div class="ht-panel-head">
-          <h2>Date-wise lowest verified rates</h2>
-          <div class="ht-meta">
-            <span class="ht-pill" id="htStayMeta">1 night · 2 adults + 1 child, age 8</span>
-            <button class="ht-refresh" onclick="loadHotelPrices(true)">↻ Refresh data</button>
-          </div>
-        </div>
-        <div class="ht-table-scroll">
-          <table class="ht-table">
-            <thead><tr><th>Check-in</th><th>Hotel</th><th>Lowest verified final price</th><th>Best website</th><th>Change</th><th>Booking</th></tr></thead>
-            <tbody id="htTableBody"></tbody>
-          </table>
-        </div>
-        <p class="ht-note">Estimated, cached, and incomplete prices are never shown as confirmed. CAPTCHA, login, access, and availability failures remain explicitly unverified.</p>
-      </section>
-      <p class="ht-status" id="htStatus">Waiting for the first cloud price collection.</p>
-    </div>
-  </div>
-</div><!-- end hotels-section -->
-
 <!-- ═══ NOTES — Add/Edit Topic Modal ═══ -->
 <div class="modal-backdrop" id="topicModalBackdrop" onclick="closeTopicModalOnBackdrop(event)">
   <div class="modal" style="max-width:460px;">
@@ -1308,101 +1235,15 @@ function switchTab(tab) {
   document.getElementById('pendency-section').style.display = tab === 'pendency' ? 'block' : 'none';
   document.getElementById('repayment-section').style.display = tab === 'repayment' ? 'block' : 'none';
   document.getElementById('notes-section').style.display = tab === 'notes' ? 'block' : 'none';
-  document.getElementById('hotels-section').style.display = tab === 'hotels' ? 'block' : 'none';
   document.getElementById('tab-pendency').classList.toggle('active', tab === 'pendency');
   document.getElementById('tab-repayment').classList.toggle('active', tab === 'repayment');
   document.getElementById('tab-notes').classList.toggle('active', tab === 'notes');
-  document.getElementById('tab-hotels').classList.toggle('active', tab === 'hotels');
   document.getElementById('pendency-actions').style.display = tab === 'pendency' ? 'flex' : 'none';
   document.getElementById('repayment-actions').style.display = tab === 'repayment' ? 'flex' : 'none';
   document.getElementById('notes-actions').style.display = tab === 'notes' ? 'flex' : 'none';
   // Show login gates for non-pendency tabs when not signed in
   updateTabGates();
   if (tab === 'repayment' && typeof recalculate === 'function' && auth?.currentUser) setTimeout(recalculate, 50);
-  if (tab === 'hotels') loadHotelPrices();
-}
-
-let hotelPricesLoaded = false;
-const defaultTrackedHotels = [
-  { id: 'fairmont-udaipur-palace', name: 'Fairmont Udaipur Palace' },
-  { id: 'jagat-niwas-palace', name: 'Jagat Niwas Palace' },
-  { id: 'oberoi-udaivilas', name: 'The Oberoi Udaivilas' },
-  { id: 'wyndham-grand-udaipur', name: 'Wyndham Grand Udaipur Fateh Sagar Lake' },
-  { id: 'trident-udaipur', name: 'Trident Udaipur' }
-];
-
-function htEscape(value) {
-  return String(value ?? '').replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
-}
-
-function htMoney(amount, currency = 'INR') {
-  return new Intl.NumberFormat('en-IN', { style: 'currency', currency, maximumFractionDigits: 0 }).format(amount);
-}
-
-function htAddDays(isoDate, days) {
-  const [year, month, day] = isoDate.split('-').map(Number);
-  return new Date(Date.UTC(year, month - 1, day + days)).toISOString().slice(0, 10);
-}
-
-function htToday() {
-  const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata', year:'numeric', month:'2-digit', day:'2-digit' }).formatToParts(new Date());
-  const values = Object.fromEntries(parts.filter(part => part.type !== 'literal').map(part => [part.type, part.value]));
-  return `${values.year}-${values.month}-${values.day}`;
-}
-
-function htFallbackWindow() {
-  const today = htToday();
-  return Array.from({ length: 31 }, (_, index) => ({ checkIn: htAddDays(today, index), checkOut: htAddDays(today, index + 1), nights: 1 }));
-}
-
-function renderHotelPrices(snapshot) {
-  const hotels = snapshot?.hotels?.length ? snapshot.hotels : defaultTrackedHotels;
-  const dates = snapshot?.dateWindow?.length ? snapshot.dateWindow : htFallbackWindow();
-  const results = snapshot?.results || [];
-  const verified = results.filter(item => item.status === 'VERIFIED');
-  const best = new Map();
-  verified.forEach(item => {
-    const key = `${item.hotelId}|${item.checkIn}`;
-    if (!best.has(key) || item.finalAmount < best.get(key).finalAmount) best.set(key, item);
-  });
-
-  document.getElementById('htDateCount').textContent = dates.length;
-  document.getElementById('htHotelCount').textContent = hotels.length;
-  document.getElementById('htVerifiedCount').textContent = best.size;
-  document.getElementById('htUnverifiedCount').textContent = (dates.length * hotels.length) - best.size;
-  const stay = snapshot?.stay || { nights: 1, adults: 2, children: [8] };
-  document.getElementById('htStayMeta').textContent = `${stay.nights} night${stay.nights === 1 ? '' : 's'} · ${stay.adults} adults + ${stay.children.length} child, age ${stay.children.join(', ')}`;
-
-  document.getElementById('htTableBody').innerHTML = dates.flatMap(date => hotels.map(hotel => {
-    const item = best.get(`${hotel.id}|${date.checkIn}`);
-    if (!item) return `<tr><td>${date.checkIn}</td><td>${htEscape(hotel.name)}</td><td class="ht-muted">Not verified</td><td class="ht-muted">—</td><td class="ht-muted">—</td><td class="ht-muted">—</td></tr>`;
-    let change = '<span class="ht-muted">New</span>';
-    if (item.changeAmount === 0) change = '<span class="ht-muted">No change</span>';
-    else if (item.changeAmount != null) {
-      const direction = item.changeAmount > 0 ? '▲' : '▼';
-      const css = item.changeAmount > 0 ? 'ht-up' : 'ht-down';
-      change = `<span class="${css}">${direction} ${htMoney(Math.abs(item.changeAmount), item.currency)} (${Math.abs(item.changePercent).toFixed(1)}%)</span>`;
-    }
-    return `<tr><td>${date.checkIn}</td><td>${htEscape(hotel.name)}</td><td class="ht-price">${htMoney(item.finalAmount, item.currency)}</td><td>${htEscape(item.sourceName)}</td><td>${change}</td><td><a class="ht-book" href="${htEscape(item.bookingUrl)}" target="_blank" rel="noopener">Book ↗</a></td></tr>`;
-  })).join('');
-}
-
-async function loadHotelPrices(force = false) {
-  if (hotelPricesLoaded && !force) return;
-  const status = document.getElementById('htStatus');
-  status.textContent = 'Loading latest hotel prices…';
-  try {
-    const response = await fetch(`data/latest.json${force ? `?t=${Date.now()}` : ''}`, { cache: 'no-store' });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const snapshot = await response.json();
-    renderHotelPrices(snapshot);
-    const checked = snapshot.runStartedAt ? new Date(snapshot.runStartedAt).toLocaleString('en-IN', { timeZone: snapshot.timezone || 'Asia/Kolkata' }) : 'unknown';
-    status.textContent = `Latest cloud check: ${checked}`;
-    hotelPricesLoaded = true;
-  } catch (error) {
-    renderHotelPrices(null);
-    status.textContent = 'Preview mode — data/latest.json will appear after the first successful GitHub Actions run.';
-  }
 }
 
 function updateTabGates() {
@@ -1438,6 +1279,112 @@ let showAllotted = false;
 let employeeFilter = null;
 let employees = [];
 const collapsed = {};
+let reminderServiceWorker = null;
+
+function todayInKolkata() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.filter(part => part.type !== 'literal').map(part => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+function dueTodayTasks() {
+  const today = todayInKolkata();
+  const priorityOrder = { urgent: 0, moderate: 1, low: 2 };
+  return tasks
+    .filter(task => {
+      if (task.done || task.deleted) return false;
+      if (task.isDateRange && task.startDate && task.endDate) return task.startDate <= today && today <= task.endDate;
+      return task.date === today;
+    })
+    .sort((a, b) => {
+      const priorityDifference = (priorityOrder[a.priority] ?? 9) - (priorityOrder[b.priority] ?? 9);
+      if (priorityDifference) return priorityDifference;
+      if (a.dueTime && b.dueTime) return a.dueTime.localeCompare(b.dueTime);
+      if (a.dueTime) return -1;
+      if (b.dueTime) return 1;
+      return (a.title || '').localeCompare(b.title || '');
+    });
+}
+
+function updateNotificationButtons() {
+  const enableButton = document.getElementById('btnEnableNotifications');
+  const testButton = document.getElementById('btnTestNotification');
+  if (!enableButton || !testButton) return;
+  const supported = 'Notification' in window && 'serviceWorker' in navigator;
+  if (!supported) {
+    enableButton.textContent = 'Notifications unavailable';
+    enableButton.disabled = true;
+    testButton.style.display = 'none';
+    return;
+  }
+  const granted = Notification.permission === 'granted';
+  enableButton.textContent = granted ? '🔔 Alerts Enabled' : '🔔 Enable Alerts';
+  testButton.style.display = granted && auth?.currentUser ? 'inline-flex' : 'none';
+}
+
+async function registerReminderServiceWorker() {
+  if (!('serviceWorker' in navigator)) return null;
+  if (reminderServiceWorker) return reminderServiceWorker;
+  reminderServiceWorker = await navigator.serviceWorker.register('./sw.js');
+  await navigator.serviceWorker.ready;
+  return reminderServiceWorker;
+}
+
+async function enableTaskNotifications() {
+  if (!('Notification' in window) || !('serviceWorker' in navigator)) {
+    showToast('This browser does not support notifications.', '#ef4444');
+    return false;
+  }
+  try {
+    await registerReminderServiceWorker();
+    const permission = await Notification.requestPermission();
+    updateNotificationButtons();
+    if (permission !== 'granted') {
+      showToast('Notification permission was not granted.', '#ef4444');
+      return false;
+    }
+    localStorage.setItem('taskNotificationsEnabled', 'true');
+    showToast('Windows notifications enabled ✓', '#0071e3');
+    return true;
+  } catch (error) {
+    showToast('Could not enable notifications: ' + error.message, '#ef4444');
+    return false;
+  }
+}
+
+async function showTaskNotification(slotLabel = 'Task reminder') {
+  if (!('Notification' in window) || !('serviceWorker' in navigator)) {
+    showToast('This browser does not support notifications.', '#ef4444');
+    return;
+  }
+  if (Notification.permission !== 'granted' && !(await enableTaskNotifications())) return;
+  try {
+    const registration = await registerReminderServiceWorker();
+    const dueTasks = dueTodayTasks();
+    const visibleTasks = dueTasks.slice(0, 3);
+    const priorityIcon = { urgent: '🔴', moderate: '🟡', low: '🟢' };
+    const lines = visibleTasks.map(task => {
+      const time = task.dueTime ? ` — ${fmt12(task.dueTime)}` : '';
+      return `${priorityIcon[task.priority] || '•'} ${task.title}${time}`;
+    });
+    if (dueTasks.length > visibleTasks.length) lines.push(`+${dueTasks.length - visibleTasks.length} more task${dueTasks.length - visibleTasks.length === 1 ? '' : 's'}`);
+    const title = dueTasks.length
+      ? `${dueTasks.length} task${dueTasks.length === 1 ? '' : 's'} due today`
+      : 'No unfinished tasks due today';
+    const body = dueTasks.length ? lines.join('\n') : 'You are all caught up.';
+    await registration.showNotification(title, {
+      body,
+      tag: `worksuite-due-${todayInKolkata()}-${slotLabel}`,
+      renotify: true,
+      data: { url: './?due=today' }
+    });
+    showToast(`${slotLabel} sent to Windows ✓`, '#0071e3');
+  } catch (error) {
+    showToast('Notification failed: ' + error.message, '#ef4444');
+  }
+}
 
 function toggleDateRange() {
   const use = document.getElementById('fUseDateRange').checked;
@@ -1506,11 +1453,15 @@ function showPTScreen(id) {
   const syncBadge = document.getElementById('syncBadge');
   const userPill = document.getElementById('userPill');
   const btnLogout = document.getElementById('btnLogout');
+  const btnEnableNotifications = document.getElementById('btnEnableNotifications');
+  const btnTestNotification = document.getElementById('btnTestNotification');
   const btnRecur = document.getElementById('btnRecur');
   const btnAddTask = document.getElementById('btnAddTask');
   if (syncBadge) syncBadge.style.display = isApp ? 'inline-flex' : 'none';
   if (userPill) userPill.style.display = isApp ? 'flex' : 'none';
   if (btnLogout) btnLogout.style.display = isApp ? 'inline-block' : 'none';
+  if (btnEnableNotifications) btnEnableNotifications.style.display = isApp ? 'inline-flex' : 'none';
+  if (btnTestNotification) btnTestNotification.style.display = isApp && 'Notification' in window && Notification.permission === 'granted' ? 'inline-flex' : 'none';
   if (btnRecur) btnRecur.style.display = isApp ? 'inline-flex' : 'none';
   if (btnAddTask) btnAddTask.style.display = isApp ? 'inline-block' : 'none';
 }
@@ -1557,6 +1508,8 @@ function signOut() {
 
 function startApp(user) {
   showPTScreen('appScreen');
+  registerReminderServiceWorker().catch(() => {});
+  updateNotificationButtons();
   const pill = document.getElementById('userPill');
   if (pill) {
     if (user.photoURL) pill.innerHTML = `<img class="user-avatar" src="${user.photoURL}"> <span>${user.displayName?.split(' ')[0]||'User'}</span>`;
@@ -1571,6 +1524,7 @@ function startApp(user) {
     tasks = snap.docs.map(d => ({ id: d.id, ...d.data() }));
     if (sb) sb.textContent = '● Live Sync';
     await autoTrashExpiredRecurring();
+    if (new URLSearchParams(location.search).get('due') === 'today') sectionFilter = 'today';
     renderAll();
   }, e => {
     if (sb) { sb.textContent = '⚠ Sync Error'; sb.style.color = '#ef4444'; }
