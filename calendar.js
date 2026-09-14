@@ -1,4 +1,4 @@
-/* The feed contains public summaries only. Private tasks stay in Firebase. */
+/* This view contains only sanitized pending items from the scheduled Outlook task. */
 (function () {
   'use strict';
   const C = WorkCalendar;
@@ -10,9 +10,6 @@
     if (cls) el.className = cls;
     return el;
   }
-  function button(label, action) {
-    const el = element('button', label, 'btn btn-ghost'); el.type = 'button'; el.addEventListener('click', action); return el;
-  }
   async function load() {
     if (loading) return;
     loading = true; error = ''; render();
@@ -20,21 +17,18 @@
       const response = await fetch('./data/office-tasks.json', { cache: 'no-store' });
       if (!response.ok) throw new Error('Feed unavailable');
       feed = C.validate(await response.json()); loaded = true;
-    } catch (e) { error = 'Could not refresh the GitHub feed. ' + (loaded ? 'Showing the last loaded copy.' : 'Your signed-in Pendency tasks are still available.'); }
+    } catch (e) { error = 'Could not refresh the scheduled-task feed. ' + (loaded ? 'Showing the last loaded copy.' : 'Please try again.'); }
     finally { loading = false; render(); }
   }
   function render() {
     if (!$('cal-grid')) return;
-    const signedIn = !!auth?.currentUser;
     const day = C.today(feed.timezone);
-    const items = C.combine(signedIn ? tasks : [], feed.tasks);
+    const items = C.scheduledPending(feed.tasks);
     const filtered = C.filter(items, $('cal-filter').value, $('cal-search').value, day);
-    $('cal-add').hidden = !signedIn;
-    $('cal-login').hidden = signedIn;
-    $('cal-sync').textContent = error || (loading ? 'Refreshing GitHub deadlines…' : feed.updatedAt ? 'GitHub feed updated ' + feed.updatedAt : 'Outlook sync is not configured. No GitHub deadlines have been added yet.');
+    $('cal-sync').textContent = error || (loading ? 'Refreshing scheduled pendency…' : feed.updatedAt ? 'Scheduled pendency updated ' + feed.updatedAt : 'Waiting for the next scheduled Outlook update.');
     $('cal-zone').textContent = 'Dates shown in ' + feed.timezone + '. Pending dates: red = overdue, orange = today, green = future.';
     $('cal-refresh').disabled = loading;
-    $('cal-summary').textContent = ['overdue', 'today', 'upcoming', 'completed'].map(s => items.filter(t => C.status(t, day) === s).length + ' ' + (s === 'today' ? 'due today' : s)).join(' · ');
+    $('cal-summary').textContent = ['overdue', 'today', 'upcoming', 'undated'].map(s => items.filter(t => C.status(t, day) === s).length + ' ' + (s === 'today' ? 'due today' : s === 'undated' ? 'without due date' : s)).join(' · ');
     const first = new Date(month + '-01T12:00:00Z');
     $('cal-month').textContent = new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(first);
     const grid = $('cal-grid'); grid.replaceChildren();
@@ -61,18 +55,13 @@
     const visible = selected ? filtered.filter(t => t.date === selected) : filtered;
     $('cal-list-title').textContent = (selected || 'All dates') + ' · ' + visible.length + (visible.length === 1 ? ' task' : ' tasks');
     const list = $('cal-list'); list.replaceChildren();
-    if (!visible.length) list.append(element('p', selected ? 'No matching tasks on this date. Choose All dates to see the full list.' : 'No matching tasks. Sign in to view your Pendency tasks or refresh after deadlines are added to the GitHub feed.', 'cal-empty'));
+    if (!visible.length) list.append(element('p', selected ? 'No scheduled pending tasks on this date. Choose All dates to see the full list.' : 'No scheduled pending tasks match this view.', 'cal-empty'));
     for (const t of visible) {
       const card = element('article', '', 'cal-task'), state = C.status(t, day);
       card.append(element('span', state, 'cal-badge ' + state), element('h3', t.title));
       card.append(element('p', [t.date || 'No due date', t.dueTime, t.origin, t.assignedTo].filter(Boolean).join(' · '), 'cal-muted' + (['overdue', 'today', 'upcoming'].includes(state) ? ' cal-date-marker cal-date-' + state : '')));
       if (t.isDateRange && t.startDate) card.append(element('p', 'From ' + t.startDate + ' to ' + t.date, 'cal-muted'));
       if (t.desc) card.append(element('p', t.desc, 'cal-muted'));
-      if (t.origin === 'Pendency') {
-        card.append(button('Edit', () => openModal(t.id)), button(t.done ? 'Reopen' : 'Complete', async () => {
-          try { await toggleDone(t.id); } catch { showToast('Could not update the task. Please try again.', '#ef4444'); }
-        }));
-      }
       list.append(card);
     }
   }
@@ -86,8 +75,6 @@
   $('cal-filter').addEventListener('change', render);
   $('cal-search').addEventListener('input', render);
   $('cal-refresh').addEventListener('click', load);
-  $('cal-add').addEventListener('click', () => openModal());
-  $('cal-login').addEventListener('click', () => switchTab('pendency'));
   window.renderWorkCalendar = render;
   window.openWorkCalendar = () => { render(); if (!loaded) load(); };
   document.addEventListener('visibilitychange', () => { if (!document.hidden && currentTab === 'calendar') render(); });

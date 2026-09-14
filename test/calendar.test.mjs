@@ -14,12 +14,14 @@ test('completed and cancelled past tasks never become overdue; undated tasks rem
   assert.equal(C.status({ date: '2026-09-11' }, '2026-09-11'), 'today');
   assert.equal(C.status({ date: '2026-09-12' }, '2026-09-11'), 'upcoming');
 });
-test('stable external ID suppresses a duplicate feed entry including deleted private records', () => {
-  const remote = [{ id: 'outlook-1', title: 'Deadline', date: '2026-09-11', status: 'pending' }];
-  const combined = C.combine([{ id: 'local-1', externalId: 'outlook-1', title: 'Deadline', done: true }], remote);
-  assert.equal(combined.length, 1);
-  assert.equal(combined[0].status, 'completed');
-  assert.equal(C.combine([{ id: 'local-1', externalId: 'outlook-1', deleted: true }], remote).length, 0);
+test('calendar accepts only pending records produced by the scheduled Outlook task', () => {
+  const items = [
+    { id: 'outlook-1', title: 'Scheduled deadline', date: '2026-09-11', status: 'pending' },
+    { id: 'outlook-2', title: 'Finished deadline', date: '2026-09-10', status: 'completed' },
+    { id: 'manual-1', title: 'Pendency tracker task', date: '2026-09-12', status: 'pending' }
+  ];
+  assert.deepEqual(C.scheduledPending(items).map(t => t.id), ['outlook-1']);
+  assert.equal(C.scheduledPending(items)[0].origin, 'Scheduled Outlook task');
 });
 test('feed rejects duplicate IDs, malformed dates, invalid states and timezone', () => {
   const t = { id: 'one', title: 'Test', date: null, status: 'pending' };

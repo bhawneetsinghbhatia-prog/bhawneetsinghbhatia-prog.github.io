@@ -15,12 +15,8 @@
     }
     return feed;
   }
-  function combine(local, remote) {
-    const records = new Map(remote.map(t => [t.id, { ...t, origin: 'GitHub', key: 'github:' + t.id }]));
-    for (const t of local) {
-      if (t.externalId) records.delete(t.externalId);
-    }
-    return [...records.values(), ...local.filter(t => !t.deleted).map(t => ({ ...t, status: t.done ? 'completed' : t.status || 'pending', origin: 'Pendency', key: 'pendency:' + t.id }))];
+  function scheduledPending(items) {
+    return items.filter(t => t.status === 'pending' && t.id.startsWith('outlook-')).map(t => ({ ...t, origin: 'Scheduled Outlook task', key: 'github:' + t.id }));
   }
   function status(t, day) {
     if (t.status === 'completed' || t.status === 'cancelled') return t.status;
@@ -30,6 +26,6 @@
   function filter(items, scope, query, day) {
     return items.filter(t => (scope === 'all' || status(t, day) === scope) && [t.title, t.desc, t.category, t.assignedTo, t.origin].join(' ').toLowerCase().includes(query.toLowerCase())).sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999') || a.title.localeCompare(b.title));
   }
-  const api = { validDate, today, validate, combine, status, filter };
+  const api = { validDate, today, validate, scheduledPending, status, filter };
   root.WorkCalendar = api;
 })(globalThis);

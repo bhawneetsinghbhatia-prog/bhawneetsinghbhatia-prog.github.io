@@ -1223,16 +1223,14 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
 
 <section id="calendar-section" style="display:none;" aria-labelledby="cal-title">
   <div class="cal-heading">
-    <div><h1 id="cal-title">Calendar &amp; Tasks</h1><p class="cal-muted">Your deadlines, today’s priorities, and what comes next.</p></div>
-    <button class="btn btn-primary" id="cal-add" hidden>＋ Add Task</button>
+    <div><h1 id="cal-title">Calendar &amp; Tasks</h1><p class="cal-muted">Pending actions from your scheduled Outlook briefing.</p></div>
   </div>
   <div class="cal-toolbar">
-    <input id="cal-search" type="search" placeholder="Search tasks, people, or categories…" aria-label="Search calendar tasks">
+    <input id="cal-search" type="search" placeholder="Search scheduled tasks or categories…" aria-label="Search scheduled calendar tasks">
     <select id="cal-filter" aria-label="Filter task status">
-      <option value="all">All statuses</option><option value="overdue">Overdue</option><option value="today">Due today</option><option value="upcoming">Upcoming</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option><option value="undated">No due date</option>
+      <option value="all">All pending</option><option value="overdue">Overdue</option><option value="today">Due today</option><option value="upcoming">Upcoming</option><option value="undated">No due date</option>
     </select>
-    <button class="btn btn-ghost" id="cal-refresh">↻ Refresh feed</button>
-    <button class="btn btn-ghost" id="cal-login">Sign in for my tasks</button>
+    <button class="btn btn-ghost" id="cal-refresh">↻ Refresh scheduled pendency</button>
   </div>
   <p id="cal-summary" class="cal-muted" aria-live="polite"></p>
   <p id="cal-sync" class="cal-muted" role="status"></p>

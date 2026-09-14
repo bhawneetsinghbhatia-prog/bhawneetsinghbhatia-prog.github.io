@@ -1,23 +1,21 @@
 # Calendar & Tasks
 
-The fourth WorkSuite tab keeps the current Pendency Tracker, Repayment Schedule and Notes. It shares the site's light/dark theme, Firebase sign-in, task editor and completion controls.
+The fourth WorkSuite tab is a read-only calendar for pending actions produced by the scheduled Outlook briefing. It is separate from the Pendency Tracker, Repayment Schedule and Notes, while sharing the site's visual design.
 
 ## Data and privacy
 
-- Signed-in Pendency tasks are read from the existing Firebase task subscription. Edits and completion use the existing Firebase functions. Signing out removes private tasks from the calendar.
-- `data/office-tasks.json` is an optional public feed, fetched on first opening the tab and on **Refresh feed**. The initial feed is empty; no Outlook connection or scheduled synchronization is enabled by this change.
+- Pendency Tracker records stored in Firebase are never read, merged, or displayed by this calendar.
+- `data/office-tasks.json` is the calendar's sole data source. The scheduled Outlook task writes sanitized pending actions to it, and the website refreshes it when the tab opens or **Refresh scheduled pendency** is selected.
 - This repository and GitHub Pages are public. A login screen cannot protect committed data. Only publish summaries explicitly approved for public sharing. Keep confidential Outlook subjects, bodies, client details, links and identifiers in private storage such as the existing Firebase backend.
-- GitHub feed entries are read-only in the website. Edit their source feed or use an authenticated future sync service. The calendar does not claim that local browser edits are saved to GitHub.
+- Scheduled entries are read-only in the website. Their state is controlled by the scheduled Outlook task.
 
 ## Future Outlook sync contract
 
-The feed has `version: 1`, an IANA `timezone` (default `Asia/Kolkata`), `updatedAt` (ISO timestamp or null), and a `tasks` array. Each task requires a stable opaque string `id`, a `title`, a `date` (`YYYY-MM-DD` or null for undated tasks), and `status` (`pending`, `completed`, or `cancelled`). Optional display fields: `desc`, `category`, `assignedTo`, `dueTime` and date-range fields `isDateRange`, `startDate`, `endDate` (with `date` equal to `endDate`).
+The feed has `version: 1`, an IANA `timezone` (default `Asia/Kolkata`), `updatedAt` (ISO timestamp or null), and a `tasks` array. Every displayed task requires an opaque `id` beginning with `outlook-`, a generic `title`, a `date` (`YYYY-MM-DD` or null), and `status: "pending"`. Optional safe display fields are `category` and `dueTime`.
 
-An authenticated sync writer should upsert by ID, change the existing date when a deadline moves, and retain completed/cancelled records. Overdue is derived from today's date in the feed timezone, not written as a permanent state. Keep the mapping from Outlook messages to opaque task IDs private. Update `updatedAt` only after a successful sync and publish the feed atomically. Do not overwrite a newer update with an older briefing. Existing 9:00/2:30/6:30 schedules are unchanged.
+The scheduled writer upserts by ID and changes dates when deadlines move. When Outlook explicitly confirms completion, cancellation, or supersession, it removes the corresponding record from this pending-only feed. Overdue is derived from today's date. The mapping from Outlook messages to opaque IDs remains private. `updatedAt` changes only after a successful sync.
 
-If a private Firebase task represents a feed entry, set its `externalId` to the feed ID. The private task then takes precedence in that user's view, preventing duplicates. Normal Firebase tasks without this field remain independent. Firebase task documents need the existing `created` field because the subscription orders by it.
-
-The month grid shows due-date markers. The adjacent list spans **all dates** by default, preserving overdue and future items outside the displayed month. Selecting a day narrows the list; **All dates** clears that selection. Status/search filters apply to both views. Completed and cancelled tasks never count as overdue. Undated tasks appear in the list.
+The month grid shows due-date markers. The adjacent list spans **all dates** by default, preserving overdue and future pending items outside the displayed month. Selecting a day narrows the list; **All dates** clears that selection. Undated pending tasks appear in the list.
 
 ## Validation
 
