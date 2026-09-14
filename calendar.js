@@ -32,7 +32,7 @@
     $('cal-add').hidden = !signedIn;
     $('cal-login').hidden = signedIn;
     $('cal-sync').textContent = error || (loading ? 'Refreshing GitHub deadlines…' : feed.updatedAt ? 'GitHub feed updated ' + feed.updatedAt : 'Outlook sync is not configured. No GitHub deadlines have been added yet.');
-    $('cal-zone').textContent = 'Dates shown in ' + feed.timezone + '. Calendar markers show matching due dates.';
+    $('cal-zone').textContent = 'Dates shown in ' + feed.timezone + '. Pending dates: red = overdue, orange = today, green = future.';
     $('cal-refresh').disabled = loading;
     $('cal-summary').textContent = ['overdue', 'today', 'upcoming', 'completed'].map(s => items.filter(t => C.status(t, day) === s).length + ' ' + (s === 'today' ? 'due today' : s)).join(' · ');
     const first = new Date(month + '-01T12:00:00Z');
@@ -44,11 +44,17 @@
     for (let n = 1; n <= count; n++) {
       const date = month + '-' + String(n).padStart(2, '0');
       const matches = filtered.filter(t => t.date === date).length;
+      const pending = filtered.filter(t => t.date === date && ['overdue', 'today', 'upcoming'].includes(C.status(t, day))).length;
+      const dateState = date < day ? 'overdue' : date === day ? 'today' : 'upcoming';
       const cell = element('button', String(n), 'cal-day' + (date === day ? ' cal-today' : ''));
       cell.type = 'button'; cell.setAttribute('aria-label', date + ', ' + matches + ' tasks');
       cell.setAttribute('aria-pressed', String(selected === date));
       if (date === day) cell.setAttribute('aria-current', 'date');
-      if (matches) cell.append(element('span', matches + (matches === 1 ? ' task' : ' tasks')));
+      if (matches) {
+        const marker = element('span', matches + (matches === 1 ? ' task' : ' tasks'), pending ? 'cal-date-marker cal-date-' + dateState : '');
+        if (pending) marker.title = pending + ' pending: ' + (dateState === 'upcoming' ? 'future' : dateState === 'today' ? 'due today' : 'overdue');
+        cell.append(marker);
+      }
       cell.addEventListener('click', () => { selected = selected === date ? '' : date; render(); }); grid.append(cell);
     }
     $('cal-clear').hidden = !selected;
@@ -59,7 +65,7 @@
     for (const t of visible) {
       const card = element('article', '', 'cal-task'), state = C.status(t, day);
       card.append(element('span', state, 'cal-badge ' + state), element('h3', t.title));
-      card.append(element('p', [t.date || 'No due date', t.dueTime, t.origin, t.assignedTo].filter(Boolean).join(' · '), 'cal-muted'));
+      card.append(element('p', [t.date || 'No due date', t.dueTime, t.origin, t.assignedTo].filter(Boolean).join(' · '), 'cal-muted' + (['overdue', 'today', 'upcoming'].includes(state) ? ' cal-date-marker cal-date-' + state : '')));
       if (t.isDateRange && t.startDate) card.append(element('p', 'From ' + t.startDate + ' to ' + t.date, 'cal-muted'));
       if (t.desc) card.append(element('p', t.desc, 'cal-muted'));
       if (t.origin === 'Pendency') {

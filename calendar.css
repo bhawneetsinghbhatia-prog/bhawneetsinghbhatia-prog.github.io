@@ -25,6 +25,10 @@
 .cal-badge { display: inline-block; background: var(--surface2); border-radius: 8px; padding: 3px 7px; font-size: 11px; text-transform: capitalize; }
 .cal-badge.overdue { color: var(--overdue); }
 .cal-badge.today { color: var(--today); }
+.cal-date-overdue { --cal-date-color: #ef4444; }
+.cal-date-today { --cal-date-color: #f97316; }
+.cal-date-upcoming { --cal-date-color: #22c55e; }
+.cal-date-marker::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 5px; border-radius: 50%; background: var(--cal-date-color); vertical-align: middle; }
 .cal-badge.completed { color: var(--text-secondary); }
 .cal-empty { padding: 32px 0; text-align: center; color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
 .nav-tab { white-space: nowrap; }
