@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Kolkata",
-  "updatedAt": "2026-09-15T09:02:27.474Z",
+  "updatedAt": "2026-09-15T13:03:04.685Z",
   "tasks": [
     {
       "id": "outlook-445ffcc5",
@@ -155,7 +155,7 @@
     },
     {
       "id": "outlook-6242291e",
-      "title": "Resolve automated-debit mandate setup issue",
+      "title": "Create replacement automated-debit mandate",
       "date": null,
       "status": "pending",
       "category": "Operations"
@@ -166,6 +166,62 @@
       "date": "2026-09-30",
       "status": "pending",
       "category": "Recovery"
+    },
+    {
+      "id": "outlook-cfa1a904",
+      "title": "Clear pending self-employment loan applications",
+      "date": null,
+      "status": "pending",
+      "category": "Credit"
+    },
+    {
+      "id": "outlook-e097b744",
+      "title": "Complete pending scheme-account verification and loan processing",
+      "date": null,
+      "status": "pending",
+      "category": "Credit"
+    },
+    {
+      "id": "outlook-5090756c",
+      "title": "Clear aged digital-loan portal cases",
+      "date": "2026-09-15",
+      "status": "pending",
+      "category": "Credit"
+    },
+    {
+      "id": "outlook-419feccb",
+      "title": "Process pending security-interest termination",
+      "date": null,
+      "status": "pending",
+      "category": "Documentation"
+    },
+    {
+      "id": "outlook-32380a27",
+      "title": "Complete pending internal-access reset",
+      "date": null,
+      "status": "pending",
+      "category": "Operations"
+    },
+    {
+      "id": "outlook-d95412a8",
+      "title": "Complete active-account protection enrolment drive",
+      "date": null,
+      "status": "pending",
+      "category": "Operations"
+    },
+    {
+      "id": "outlook-b42682f9",
+      "title": "Resolve pending collateral-documentation issue",
+      "date": null,
+      "status": "pending",
+      "category": "Credit"
+    },
+    {
+      "id": "outlook-42154380",
+      "title": "Implement scheduled workplace campaign activities",
+      "date": "2026-10-02",
+      "status": "pending",
+      "category": "Compliance"
     }
   ]
 }
