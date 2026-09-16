@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Kolkata",
-  "updatedAt": "2026-09-15T13:03:04.685Z",
+  "updatedAt": "2026-09-16T08:27:42.180Z",
   "tasks": [
     {
       "id": "outlook-445ffcc5",
@@ -189,13 +189,6 @@
       "category": "Credit"
     },
     {
-      "id": "outlook-419feccb",
-      "title": "Process pending security-interest termination",
-      "date": null,
-      "status": "pending",
-      "category": "Documentation"
-    },
-    {
       "id": "outlook-32380a27",
       "title": "Complete pending internal-access reset",
       "date": null,
@@ -222,6 +215,55 @@
       "date": "2026-10-02",
       "status": "pending",
       "category": "Compliance"
+    },
+    {
+      "id": "outlook-6041a8bc",
+      "title": "Submit reducing-limit configuration confirmation",
+      "date": "2026-09-19",
+      "status": "pending",
+      "category": "Operations"
+    },
+    {
+      "id": "outlook-a9c1af46",
+      "title": "Update completed security registration in core system",
+      "date": null,
+      "status": "pending",
+      "category": "Documentation"
+    },
+    {
+      "id": "outlook-43f66d3f",
+      "title": "Process requested application-status reversal",
+      "date": null,
+      "status": "pending",
+      "category": "Credit"
+    },
+    {
+      "id": "outlook-530ce30a",
+      "title": "Process pending loan-insurance approval",
+      "date": null,
+      "status": "pending",
+      "category": "Insurance"
+    },
+    {
+      "id": "outlook-69c29f2f",
+      "title": "Resend undelivered internal case document",
+      "date": null,
+      "status": "pending",
+      "category": "Operations"
+    },
+    {
+      "id": "outlook-82181e67",
+      "title": "Review account-mapping and standing-instruction exceptions",
+      "date": null,
+      "status": "pending",
+      "category": "Operations"
+    },
+    {
+      "id": "outlook-6b083eec",
+      "title": "Provide pending commercial credit assessment",
+      "date": null,
+      "status": "pending",
+      "category": "Credit"
     }
   ]
 }
