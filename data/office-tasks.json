@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Kolkata",
-  "updatedAt": "2026-09-17T05:33:16.994Z",
+  "updatedAt": "2026-09-17T09:07:42.567Z",
   "tasks": [
     {
       "id": "outlook-445ffcc5",
@@ -310,6 +310,20 @@
     {
       "id": "outlook-e9bff33a",
       "title": "Resolve loan-origination field-alignment issue",
+      "date": null,
+      "status": "pending",
+      "category": "Operations"
+    },
+    {
+      "id": "outlook-29ef1519",
+      "title": "Complete livestock-loan recovery and submit progress",
+      "date": "2026-09-25",
+      "status": "pending",
+      "category": "Recovery"
+    },
+    {
+      "id": "outlook-a7c08d5c",
+      "title": "Resolve digital lending portal access issue",
       "date": null,
       "status": "pending",
       "category": "Operations"
