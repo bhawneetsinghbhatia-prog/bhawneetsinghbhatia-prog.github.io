@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Kolkata",
-  "updatedAt": "2026-09-16T13:03:12.426Z",
+  "updatedAt": "2026-09-17T05:33:16.994Z",
   "tasks": [
     {
       "id": "outlook-445ffcc5",
@@ -268,6 +268,48 @@
     {
       "id": "outlook-f0d4640a",
       "title": "Investigate customer-profile mismatch in loan origination",
+      "date": null,
+      "status": "pending",
+      "category": "Operations"
+    },
+    {
+      "id": "outlook-b6d66a6a",
+      "title": "Review pending service-provider appointment application",
+      "date": null,
+      "status": "pending",
+      "category": "Operations"
+    },
+    {
+      "id": "outlook-3ede76db",
+      "title": "Complete pending security-interest registrations",
+      "date": null,
+      "status": "pending",
+      "category": "Documentation"
+    },
+    {
+      "id": "outlook-2c28115d",
+      "title": "Clear overdue micro-enterprise applications",
+      "date": null,
+      "status": "pending",
+      "category": "Credit"
+    },
+    {
+      "id": "outlook-cec8a5db",
+      "title": "Review requested credit-policy deviation",
+      "date": null,
+      "status": "pending",
+      "category": "Credit"
+    },
+    {
+      "id": "outlook-489b2772",
+      "title": "Provide overdue asset-classification remarks",
+      "date": "2026-06-24",
+      "status": "pending",
+      "category": "Recovery"
+    },
+    {
+      "id": "outlook-e9bff33a",
+      "title": "Resolve loan-origination field-alignment issue",
       "date": null,
       "status": "pending",
       "category": "Operations"
