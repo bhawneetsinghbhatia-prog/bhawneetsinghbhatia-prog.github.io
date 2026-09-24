@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WorkSuite – Tasks, Repayments, Notes & Calendar</title>
+<title>WorkSuite – Tasks, Repayments & Notes</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -711,7 +711,6 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
   @page { size: A4 landscape; margin: 15mm 12mm; }
 }
 </style>
-<link rel="stylesheet" href="calendar.css">
 </head>
 <body>
 
@@ -724,7 +723,6 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
       <button class="nav-tab active" id="tab-pendency" onclick="switchTab('pendency')">📋 Pendency Tracker</button>
       <button class="nav-tab" id="tab-repayment" onclick="switchTab('repayment')">💰 Repayment Schedule</button>
       <button class="nav-tab" id="tab-notes" onclick="switchTab('notes')">📝 Notes</button>
-      <button class="nav-tab" id="tab-calendar" onclick="switchTab('calendar')">📅 Calendar &amp; Tasks</button>
     </div>
   </div>
   <!-- Row 2: Actions -->
@@ -1221,29 +1219,6 @@ body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
   </div>
 </div>
 
-<section id="calendar-section" style="display:none;" aria-labelledby="cal-title">
-  <div class="cal-heading">
-    <div><h1 id="cal-title">Calendar &amp; Tasks</h1><p class="cal-muted">Pending actions from your scheduled Outlook briefing.</p></div>
-  </div>
-  <div class="cal-toolbar">
-    <input id="cal-search" type="search" placeholder="Search scheduled tasks or categories…" aria-label="Search scheduled calendar tasks">
-    <select id="cal-filter" aria-label="Filter task status">
-      <option value="all">All pending</option><option value="overdue">Overdue</option><option value="today">Due today</option><option value="upcoming">Upcoming</option><option value="undated">No due date</option>
-    </select>
-    <button class="btn btn-ghost" id="cal-refresh">↻ Refresh scheduled pendency</button>
-  </div>
-  <p id="cal-summary" class="cal-muted" aria-live="polite"></p>
-  <p id="cal-sync" class="cal-muted" role="status"></p>
-  <div class="cal-layout">
-    <div class="cal-panel">
-      <div class="cal-monthbar"><h2 id="cal-month"></h2><div><button class="btn btn-ghost" id="cal-prev" aria-label="Previous month">‹</button> <button class="btn btn-ghost" id="cal-today">Today</button> <button class="btn btn-ghost" id="cal-next" aria-label="Next month">›</button></div></div>
-      <div id="cal-grid" class="cal-grid"></div>
-      <p id="cal-zone" class="cal-muted" style="margin-top:16px;"></p>
-    </div>
-    <div class="cal-panel"><div class="cal-monthbar"><h2 id="cal-list-title">All dates</h2><button class="btn btn-ghost" id="cal-clear" hidden>All dates</button></div><div id="cal-list" class="cal-list"></div></div>
-  </div>
-</section>
-<script src="calendar-core.js?v=2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
@@ -1260,9 +1235,6 @@ function switchTab(tab) {
   document.getElementById('pendency-section').style.display = tab === 'pendency' ? 'block' : 'none';
   document.getElementById('repayment-section').style.display = tab === 'repayment' ? 'block' : 'none';
   document.getElementById('notes-section').style.display = tab === 'notes' ? 'block' : 'none';
-  document.getElementById('calendar-section').style.display = tab === 'calendar' ? 'block' : 'none';
-  document.getElementById('tab-calendar').classList.toggle('active', tab === 'calendar');
-  if (tab === 'calendar') window.openWorkCalendar?.();
   document.getElementById('tab-pendency').classList.toggle('active', tab === 'pendency');
   document.getElementById('tab-repayment').classList.toggle('active', tab === 'repayment');
   document.getElementById('tab-notes').classList.toggle('active', tab === 'notes');
@@ -1286,7 +1258,6 @@ function updateTabGates() {
   if (rpActions) rpActions.style.display = (currentTab === 'repayment' && loggedIn) ? 'flex' : (currentTab === 'repayment' && !loggedIn) ? 'none' : rpActions.style.display;
   // Hide notes Add Topic button when not logged in
   if (btnAddTopic) btnAddTopic.style.display = loggedIn ? 'inline-flex' : 'none';
-  window.renderWorkCalendar?.();
 }
 
 function toggleTheme() {
@@ -1759,7 +1730,6 @@ function getPriorityBadge(p) {
 function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 function renderAll() {
-  window.renderWorkCalendar?.();
   renderEmpPanel();
   const q = (document.getElementById('searchInput')?.value||'').toLowerCase();
   const filtered = tasks.filter(t => {
@@ -3163,6 +3133,5 @@ updateTabGates();
 refreshRepaymentLocalSaves();
 setTimeout(recalculate, 100);
 </script>
-<script src="calendar.js?v=2"></script>
 </body>
 </html>
