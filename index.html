@@ -556,16 +556,15 @@ body.dark .bar-track { background: #3a3a3c; }
 .nt-sub-body { font-size: 0.79rem; color: var(--text-secondary); line-height: 1.6; margin-top: 5px; white-space: pre-wrap; word-break: break-word; }
 .nt-sub-desc { font-size: 0.74rem; color: var(--text-tertiary); margin-top: 2px; margin-bottom: 2px; font-style: italic; line-height: 1.5; }
 /* Copy button for note body */
-.nt-copy-btn-wrap { position: relative; margin-top: 6px; }
+.nt-copy-btn-wrap { margin-top: 6px; }
 .nt-copy-btn {
-  position: absolute;
-  top: -28px;
-  right: 0;
+  position: relative;
   background: var(--surface2);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  width: 34px;
-  height: 34px;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  margin-left: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -597,6 +596,10 @@ body.dark .bar-track { background: #3a3a3c; }
 body.dark .nt-copy-tooltip { background: #f5f5f7; color: #1d1d1f; }
 
 .nt-sub-actions { display: flex; align-items: center; gap: 2px; flex-shrink: 0; }
+.nt-sub-header.nt-sub-clickable { cursor: pointer; user-select: none; }
+.nt-sub-toggle { color: var(--text-secondary); font-size: 0.8rem; transition: transform .22s ease; flex-shrink: 0; margin-left: 4px; }
+.nt-sub-toggle.collapsed { transform: rotate(-90deg); }
+.nt-subtopic-row.nt-sub-closed .nt-copy-btn-wrap { display: none; }
 
 /* Add subtopic row */
 .nt-add-sub-row { padding: 10px 18px 12px 33px; display: flex; align-items: center; }
@@ -2676,6 +2679,7 @@ let ntEditSubtopicId = null;    // subtopic being edited (null = new)
 let ntEditSubtopicTopicId = null; // parent topic id when editing subtopic
 let ntSelectedColor = NT_COLORS[5]; // default blue
 let ntConfirmCallback = null;   // callback for confirm-delete modal
+const ntOpenSubs = new Set();   // subtopic ids expanded this session (all start collapsed)
 
 // ── Firestore helpers ──────────────────────────────────────────────
 
@@ -2701,7 +2705,7 @@ function loadNotes(uid) {
             body: s.body || '',
             deleted: s.deleted || false
           })),
-          collapsed: prevCollapsed[d.id] !== undefined ? prevCollapsed[d.id] : false
+          collapsed: prevCollapsed[d.id] !== undefined ? prevCollapsed[d.id] : true
         };
       });
       renderNotes();
@@ -2915,6 +2919,11 @@ function toggleTopicCollapse(topicId) {
   renderNotes();
 }
 
+function toggleSubtopicCollapse(subId) {
+  if (ntOpenSubs.has(subId)) ntOpenSubs.delete(subId); else ntOpenSubs.add(subId);
+  renderNotes();
+}
+
 // ── Render ─────────────────────────────────────────────────────────
 
 function renderNotes() {
@@ -2966,31 +2975,35 @@ function renderNotes() {
         <span class="nt-topic-toggle${isCollapsed ? ' collapsed' : ''}">▾</span>
       </div>
       <div class="nt-subtopics${isCollapsed ? ' nt-collapsed' : ''}">
-        ${topic._filteredSubs.map(s => `
-          <div class="nt-subtopic-row" data-sub-id="${s.id}">
-            <div class="nt-sub-header">
+        ${topic._filteredSubs.map(s => {
+          const subOpen = !s.body || !!query || ntOpenSubs.has(s.id);
+          return `
+          <div class="nt-subtopic-row${subOpen ? '' : ' nt-sub-closed'}" data-sub-id="${s.id}">
+            <div class="nt-sub-header${s.body ? ' nt-sub-clickable' : ''}"${s.body ? ` onclick="toggleSubtopicCollapse('${s.id}')"` : ''}>
               <div style="flex:1;min-width:0;">
                 <span class="nt-sub-title">${escapeHtml(s.title)}</span>
                 ${s.desc ? `<div class="nt-sub-desc">${escapeHtml(s.desc)}</div>` : ''}
               </div>
-              <div class="nt-sub-actions">
+              <div class="nt-sub-actions" onclick="event.stopPropagation()">
                 <button class="icon-btn" title="Edit subtopic" onclick="openSubtopicModal('${topic.id}','${s.id}')">✏️</button>
                 <button class="icon-btn del" title="Move to trash" onclick="confirmDeleteSubtopic('${topic.id}','${s.id}')">🗑️</button>
+                ${s.body ? `
+                <button class="nt-copy-btn" onclick="copyNoteBody(this, '${s.id}')" aria-label="Copy note">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span class="nt-copy-tooltip">Copy</span>
+                </button>` : ''}
               </div>
+              ${s.body ? `<span class="nt-sub-toggle${subOpen ? '' : ' collapsed'}">▾</span>` : ''}
             </div>
             ${s.body ? `
             <div class="nt-copy-btn-wrap">
-              <button class="nt-copy-btn" onclick="copyNoteBody(this, '${s.id}')" aria-label="Copy note">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                <span class="nt-copy-tooltip">Copy</span>
-              </button>
               <div class="nt-sub-body">${escapeHtml(s.body)}</div>
             </div>` : ''}
           </div>
-        `).join('')}
+        `; }).join('')}
         <div class="nt-add-sub-row">
           <button class="nt-add-sub-btn" onclick="openSubtopicModal('${topic.id}')">＋ Add Subtopic</button>
         </div>
@@ -3077,10 +3090,10 @@ document.addEventListener('keydown', e => {
 
 // Copy note body text to clipboard
 function copyNoteBody(btn, subId) {
-  const wrap = btn.closest('.nt-copy-btn-wrap');
-  const bodyEl = wrap ? wrap.querySelector('.nt-sub-body') : null;
+  const row = btn.closest('.nt-subtopic-row');
+  const bodyEl = row ? row.querySelector('.nt-sub-body') : null;
   if (!bodyEl) return;
-  const text = bodyEl.innerText || bodyEl.textContent;
+  const text = bodyEl.textContent;
   navigator.clipboard.writeText(text).then(() => {
     const tooltip = btn.querySelector('.nt-copy-tooltip');
     if (tooltip) {
