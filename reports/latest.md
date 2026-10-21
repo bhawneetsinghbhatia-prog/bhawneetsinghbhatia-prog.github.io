@@ -1,15 +1,10 @@
 # Udaipur hotel price tracker
 
-Checked: 2026-10-20T02:15:13.050Z · Stay: 1 night(s) · 2 adults + 1 child (age 8)
+Checked: 2026-10-21T02:11:21.310Z · Stay: 1 night(s) · 2 adults + 1 child (age 8)
 
 | Check-in | Hotel | Lowest verified final price | Best website | Change | Booking |
 |---|---|---:|---|---:|---|
-| 2026-10-20 | Fairmont Udaipur Palace | ₹48,970 | Official website | No change | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-20&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
-| 2026-10-20 | Jagat Niwas Palace | Not verified | — | — | — |
-| 2026-10-20 | The Oberoi Udaivilas | Not verified | — | — | — |
-| 2026-10-20 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
-| 2026-10-20 | Trident Udaipur | Not verified | — | — | — |
-| 2026-10-21 | Fairmont Udaipur Palace | ₹48,970 | Official website | New | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-21&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
+| 2026-10-21 | Fairmont Udaipur Palace | ₹49,560 | Official website | ▲ ₹590 (1.2%) | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-21&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
 | 2026-10-21 | Jagat Niwas Palace | Not verified | — | — | — |
 | 2026-10-21 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-10-21 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
@@ -19,12 +14,12 @@ Checked: 2026-10-20T02:15:13.050Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-10-22 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-10-22 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
 | 2026-10-22 | Trident Udaipur | Not verified | — | — | — |
-| 2026-10-23 | Fairmont Udaipur Palace | ₹63,425 | Official website | No change | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-23&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
+| 2026-10-23 | Fairmont Udaipur Palace | ₹66,670 | Official website | New | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-23&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
 | 2026-10-23 | Jagat Niwas Palace | Not verified | — | — | — |
 | 2026-10-23 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-10-23 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
 | 2026-10-23 | Trident Udaipur | Not verified | — | — | — |
-| 2026-10-24 | Fairmont Udaipur Palace | ₹63,425 | Official website | No change | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-24&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
+| 2026-10-24 | Fairmont Udaipur Palace | ₹63,425 | Official website | New | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-24&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
 | 2026-10-24 | Jagat Niwas Palace | Not verified | — | — | — |
 | 2026-10-24 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-10-24 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
@@ -34,7 +29,7 @@ Checked: 2026-10-20T02:15:13.050Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-10-25 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-10-25 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
 | 2026-10-25 | Trident Udaipur | Not verified | — | — | — |
-| 2026-10-26 | Fairmont Udaipur Palace | ₹35,961 | Official website | ▲ ₹561 (1.6%) | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-26&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
+| 2026-10-26 | Fairmont Udaipur Palace | ₹35,400 | Official website | ▼ ₹561 (1.6%) | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-26&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
 | 2026-10-26 | Jagat Niwas Palace | Not verified | — | — | — |
 | 2026-10-26 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-10-26 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
@@ -44,7 +39,7 @@ Checked: 2026-10-20T02:15:13.050Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-10-27 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-10-27 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
 | 2026-10-27 | Trident Udaipur | Not verified | — | — | — |
-| 2026-10-28 | Fairmont Udaipur Palace | ₹35,400 | Official website | ▼ ₹561 (1.6%) | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-28&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
+| 2026-10-28 | Fairmont Udaipur Palace | ₹35,400 | Official website | No change | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-10-28&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
 | 2026-10-28 | Jagat Niwas Palace | Not verified | — | — | — |
 | 2026-10-28 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-10-28 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
@@ -89,7 +84,7 @@ Checked: 2026-10-20T02:15:13.050Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-11-05 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-11-05 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
 | 2026-11-05 | Trident Udaipur | Not verified | — | — | — |
-| 2026-11-06 | Fairmont Udaipur Palace | ₹41,005 | Official website | No change | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-11-06&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
+| 2026-11-06 | Fairmont Udaipur Palace | ₹41,566 | Official website | ▲ ₹561 (1.4%) | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-11-06&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
 | 2026-11-06 | Jagat Niwas Palace | Not verified | — | — | — |
 | 2026-11-06 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-11-06 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
@@ -154,17 +149,21 @@ Checked: 2026-10-20T02:15:13.050Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-11-18 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-11-18 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
 | 2026-11-18 | Trident Udaipur | Not verified | — | — | — |
-| 2026-11-19 | Fairmont Udaipur Palace | ₹1,08,265 | Official website | New | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-11-19&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
+| 2026-11-19 | Fairmont Udaipur Palace | ₹1,08,265 | Official website | No change | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-11-19&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
 | 2026-11-19 | Jagat Niwas Palace | Not verified | — | — | — |
 | 2026-11-19 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-11-19 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
 | 2026-11-19 | Trident Udaipur | Not verified | — | — | — |
+| 2026-11-20 | Fairmont Udaipur Palace | ₹1,08,265 | Official website | New | [Book](https://www.fairmont.com/booking/en/stay?dateIn=2026-11-20&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8) |
+| 2026-11-20 | Jagat Niwas Palace | Not verified | — | — | — |
+| 2026-11-20 | The Oberoi Udaivilas | Not verified | — | — | — |
+| 2026-11-20 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
+| 2026-11-20 | Trident Udaipur | Not verified | — | — | — |
 
 ## Unverified checks
 
 | Date | Hotel | Website | Status | Reason |
 |---|---|---|---|---|
-| 2026-10-20 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 | 2026-10-21 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 | 2026-10-22 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 | 2026-10-23 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
@@ -186,8 +185,8 @@ Checked: 2026-10-20T02:15:13.050Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-11-08 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 | 2026-11-09 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 | 2026-11-10 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
-| 2026-11-11 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 | 2026-11-11 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
+| 2026-11-11 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 | 2026-11-12 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 | 2026-11-12 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-13 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
@@ -199,5 +198,6 @@ Checked: 2026-10-20T02:15:13.050Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-11-18 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 | 2026-11-18 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-19 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
+| 2026-11-20 | Jagat Niwas Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official engine did not expose a complete tax-inclusive payable amount for the requested party |
 
 > “Not verified” means no confirmed final payable price was obtained. Candidate or estimated prices are deliberately excluded.
