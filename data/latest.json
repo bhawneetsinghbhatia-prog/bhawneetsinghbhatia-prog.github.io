@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "title": "Udaipur hotel price tracker",
-  "runStartedAt": "2026-10-26T01:51:32.845Z",
+  "runStartedAt": "2026-10-27T02:31:30.431Z",
   "timezone": "Asia/Kolkata",
   "stay": {
     "nights": 1,
@@ -12,11 +12,6 @@
     ]
   },
   "dateWindow": [
-    {
-      "checkIn": "2026-10-26",
-      "checkOut": "2026-10-27",
-      "nights": 1
-    },
     {
       "checkIn": "2026-10-27",
       "checkOut": "2026-10-28",
@@ -165,6 +160,11 @@
     {
       "checkIn": "2026-11-25",
       "checkOut": "2026-11-26",
+      "nights": 1
+    },
+    {
+      "checkIn": "2026-11-26",
+      "checkOut": "2026-11-27",
       "nights": 1
     }
   ],
@@ -192,51 +192,12 @@
   ],
   "results": [
     {
-      "hotelId": "fairmont-udaipur-palace",
-      "hotelName": "Fairmont Udaipur Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-10-26",
-      "checkOut": "2026-10-27",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:47:13.658Z",
-      "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-10-26&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
-      "status": "VERIFIED",
-      "roomType": "FAIRMONT KING ROOM",
-      "occupancy": "4 pers. MAX",
-      "mealPlan": "Breakfast included",
-      "cancellationPolicy": "Non-refundable",
-      "guaranteePolicy": "No prepayment required",
-      "taxes": "INR 5670.00 (shown separately by the hotel)",
-      "taxAmount": 5670,
-      "additionalCharges": null,
-      "baseAmount": 31500,
-      "finalAmount": 37170,
-      "currency": "INR",
-      "availability": "AVAILABLE",
-      "rateName": "FLEXIBLE RATE - BREAKFAST INCLUDED",
-      "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
-      "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-10-26&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
-      "attempts": 1,
-      "previousAmount": 37170,
-      "changeAmount": 0,
-      "changePercent": 0
-    },
-    {
       "hotelId": "jagat-niwas-palace",
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-10-26",
-      "checkOut": "2026-10-27",
+      "checkIn": "2026-10-27",
+      "checkOut": "2026-10-28",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -246,7 +207,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:13.658Z",
+      "checkedAt": "2026-10-27T02:27:00.113Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -269,7 +230,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:18.875Z",
+      "checkedAt": "2026-10-27T02:27:00.113Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-10-27&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -288,17 +249,17 @@
       "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-10-27&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
-      "previousAmount": null,
-      "changeAmount": null,
-      "changePercent": null
+      "previousAmount": 37170,
+      "changeAmount": 0,
+      "changePercent": 0
     },
     {
       "hotelId": "jagat-niwas-palace",
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-10-27",
-      "checkOut": "2026-10-28",
+      "checkIn": "2026-10-28",
+      "checkOut": "2026-10-29",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -308,7 +269,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:19.876Z",
+      "checkedAt": "2026-10-27T02:27:07.180Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -331,13 +292,13 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:23.827Z",
+      "checkedAt": "2026-10-27T02:27:05.898Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-10-28&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
       "occupancy": "4 pers. MAX",
       "mealPlan": "Breakfast included",
-      "cancellationPolicy": "Cancel free of charge until 26th Oct 6:00 pm",
+      "cancellationPolicy": "Non-refundable",
       "guaranteePolicy": "No prepayment required",
       "taxes": "INR 5670.00 (shown separately by the hotel)",
       "taxAmount": 5670,
@@ -359,8 +320,8 @@
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-10-28",
-      "checkOut": "2026-10-29",
+      "checkIn": "2026-10-29",
+      "checkOut": "2026-10-30",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -370,7 +331,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:25.673Z",
+      "checkedAt": "2026-10-27T02:27:12.790Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -393,36 +354,36 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:29.290Z",
+      "checkedAt": "2026-10-27T02:27:12.663Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-10-29&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
       "occupancy": "4 pers. MAX",
       "mealPlan": "Breakfast included",
-      "cancellationPolicy": "Non-refundable",
-      "guaranteePolicy": "Online payment",
-      "taxes": "INR 5400.00 (shown separately by the hotel)",
-      "taxAmount": 5400,
+      "cancellationPolicy": "Cancel free of charge until 27th Oct 6:00 pm",
+      "guaranteePolicy": "No prepayment required",
+      "taxes": "INR 5670.00 (shown separately by the hotel)",
+      "taxAmount": 5670,
       "additionalCharges": null,
-      "baseAmount": 30000,
-      "finalAmount": 35400,
+      "baseAmount": 31500,
+      "finalAmount": 37170,
       "currency": "INR",
       "availability": "AVAILABLE",
-      "rateName": "SAVER RATE- BREAKFAST INCLUDED",
+      "rateName": "FLEXIBLE RATE - BREAKFAST INCLUDED",
       "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-10-29&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
-      "previousAmount": 35400,
-      "changeAmount": 0,
-      "changePercent": 0
+      "previousAmount": null,
+      "changeAmount": null,
+      "changePercent": null
     },
     {
       "hotelId": "jagat-niwas-palace",
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-10-29",
-      "checkOut": "2026-10-30",
+      "checkIn": "2026-10-30",
+      "checkOut": "2026-10-31",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -432,7 +393,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:31.266Z",
+      "checkedAt": "2026-10-27T02:27:19.595Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -455,7 +416,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:34.815Z",
+      "checkedAt": "2026-10-27T02:27:18.569Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-10-30&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -483,8 +444,8 @@
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-10-30",
-      "checkOut": "2026-10-31",
+      "checkIn": "2026-10-31",
+      "checkOut": "2026-11-01",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -494,7 +455,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:37.077Z",
+      "checkedAt": "2026-10-27T02:27:25.284Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -517,7 +478,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:39.940Z",
+      "checkedAt": "2026-10-27T02:27:25.046Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-10-31&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -541,29 +502,6 @@
       "changePercent": 0
     },
     {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-10-31",
-      "checkOut": "2026-11-01",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:47:42.708Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
       "hotelId": "fairmont-udaipur-palace",
       "hotelName": "Fairmont Udaipur Palace",
       "sourceId": "official",
@@ -579,7 +517,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:45.530Z",
+      "checkedAt": "2026-10-27T02:27:30.523Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-01&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -598,9 +536,9 @@
       "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-01&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
-      "previousAmount": 41005,
-      "changeAmount": 560.5,
-      "changePercent": 1.3669064748201438
+      "previousAmount": 41565.5,
+      "changeAmount": 0,
+      "changePercent": 0
     },
     {
       "hotelId": "jagat-niwas-palace",
@@ -618,7 +556,30 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:48.241Z",
+      "checkedAt": "2026-10-27T02:27:31.428Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-02",
+      "checkOut": "2026-11-03",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:27:36.636Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -641,7 +602,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:50.731Z",
+      "checkedAt": "2026-10-27T02:27:36.524Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-02&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -665,29 +626,6 @@
       "changePercent": 0
     },
     {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-02",
-      "checkOut": "2026-11-03",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:47:53.971Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
       "hotelId": "fairmont-udaipur-palace",
       "hotelName": "Fairmont Udaipur Palace",
       "sourceId": "official",
@@ -703,7 +641,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:56.249Z",
+      "checkedAt": "2026-10-27T02:27:42.221Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-03&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -711,11 +649,11 @@
       "mealPlan": "Breakfast included",
       "cancellationPolicy": "Non-refundable",
       "guaranteePolicy": "Online payment",
-      "taxes": "INR 6255.00 (shown separately by the hotel)",
-      "taxAmount": 6255,
+      "taxes": "INR 6340.50 (shown separately by the hotel)",
+      "taxAmount": 6340.5,
       "additionalCharges": null,
-      "baseAmount": 34750,
-      "finalAmount": 41005,
+      "baseAmount": 35225,
+      "finalAmount": 41565.5,
       "currency": "INR",
       "availability": "AVAILABLE",
       "rateName": "SAVER RATE- BREAKFAST INCLUDED",
@@ -723,8 +661,8 @@
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-03&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
       "previousAmount": 41005,
-      "changeAmount": 0,
-      "changePercent": 0
+      "changeAmount": 560.5,
+      "changePercent": 1.3669064748201438
     },
     {
       "hotelId": "jagat-niwas-palace",
@@ -742,7 +680,30 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:47:59.710Z",
+      "checkedAt": "2026-10-27T02:27:42.690Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-04",
+      "checkOut": "2026-11-05",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:27:48.228Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -765,7 +726,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:01.156Z",
+      "checkedAt": "2026-10-27T02:27:48.117Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-04&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -789,6 +750,29 @@
       "changePercent": 0
     },
     {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-05",
+      "checkOut": "2026-11-06",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:27:54.008Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
       "hotelId": "fairmont-udaipur-palace",
       "hotelName": "Fairmont Udaipur Palace",
       "sourceId": "official",
@@ -804,7 +788,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:06.170Z",
+      "checkedAt": "2026-10-27T02:27:53.524Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-05&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -823,17 +807,17 @@
       "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-05&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
-      "previousAmount": 41005,
-      "changeAmount": 560.5,
-      "changePercent": 1.3669064748201438
+      "previousAmount": 41565.5,
+      "changeAmount": 0,
+      "changePercent": 0
     },
     {
       "hotelId": "jagat-niwas-palace",
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-11-04",
-      "checkOut": "2026-11-05",
+      "checkIn": "2026-11-06",
+      "checkOut": "2026-11-07",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -843,7 +827,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:05.884Z",
+      "checkedAt": "2026-10-27T02:28:00.084Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -866,7 +850,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:11.551Z",
+      "checkedAt": "2026-10-27T02:27:59.491Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-06&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -890,52 +874,6 @@
       "changePercent": 0
     },
     {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-05",
-      "checkOut": "2026-11-06",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:48:11.472Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-06",
-      "checkOut": "2026-11-07",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:48:16.703Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
       "hotelId": "fairmont-udaipur-palace",
       "hotelName": "Fairmont Udaipur Palace",
       "sourceId": "official",
@@ -951,7 +889,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:17.335Z",
+      "checkedAt": "2026-10-27T02:28:05.492Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-07&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -970,9 +908,55 @@
       "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-07&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
-      "previousAmount": 41565.5,
-      "changeAmount": -560.5,
-      "changePercent": -1.34847409510291
+      "previousAmount": 41005,
+      "changeAmount": 0,
+      "changePercent": 0
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-07",
+      "checkOut": "2026-11-08",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:28:06.616Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-08",
+      "checkOut": "2026-11-09",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:28:12.036Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
     },
     {
       "hotelId": "fairmont-udaipur-palace",
@@ -990,7 +974,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:22.484Z",
+      "checkedAt": "2026-10-27T02:28:11.563Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-08&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1018,8 +1002,8 @@
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-11-07",
-      "checkOut": "2026-11-08",
+      "checkIn": "2026-11-09",
+      "checkOut": "2026-11-10",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -1029,7 +1013,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:22.290Z",
+      "checkedAt": "2026-10-27T02:28:17.977Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1052,7 +1036,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:28.087Z",
+      "checkedAt": "2026-10-27T02:28:17.577Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-09&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1080,8 +1064,8 @@
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-11-08",
-      "checkOut": "2026-11-09",
+      "checkIn": "2026-11-10",
+      "checkOut": "2026-11-11",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -1091,7 +1075,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:27.576Z",
+      "checkedAt": "2026-10-27T02:28:24.185Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1114,7 +1098,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:33.985Z",
+      "checkedAt": "2026-10-27T02:28:23.466Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-10&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1122,11 +1106,11 @@
       "mealPlan": "Breakfast included",
       "cancellationPolicy": "Non-refundable",
       "guaranteePolicy": "Online payment",
-      "taxes": "INR 8973.90 (shown separately by the hotel)",
-      "taxAmount": 8973.9,
+      "taxes": "INR 10530.00 (shown separately by the hotel)",
+      "taxAmount": 10530,
       "additionalCharges": null,
-      "baseAmount": 49855,
-      "finalAmount": 58828.9,
+      "baseAmount": 58500,
+      "finalAmount": 69030,
       "currency": "INR",
       "availability": "AVAILABLE",
       "rateName": "SAVER RATE- BREAKFAST INCLUDED",
@@ -1134,54 +1118,8 @@
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-10&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
       "previousAmount": 58828.9,
-      "changeAmount": 0,
-      "changePercent": 0
-    },
-    {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-09",
-      "checkOut": "2026-11-10",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:48:32.992Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-10",
-      "checkOut": "2026-11-11",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:48:39.005Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
+      "changeAmount": 10201.099999999999,
+      "changePercent": 17.34028683181225
     },
     {
       "hotelId": "jagat-niwas-palace",
@@ -1199,7 +1137,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:45.076Z",
+      "checkedAt": "2026-10-27T02:28:30.419Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1222,7 +1160,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:40.157Z",
+      "checkedAt": "2026-10-27T02:28:29.598Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-11&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -1245,7 +1183,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:08.116Z",
+      "checkedAt": "2026-10-27T02:28:57.529Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1268,7 +1206,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:48:50.525Z",
+      "checkedAt": "2026-10-27T02:28:35.876Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-12&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -1276,6 +1214,29 @@
       "attempts": 1
     },
     {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-13",
+      "checkOut": "2026-11-14",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:29:03.765Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
       "hotelId": "fairmont-udaipur-palace",
       "hotelName": "Fairmont Udaipur Palace",
       "sourceId": "official",
@@ -1291,7 +1252,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:14.117Z",
+      "checkedAt": "2026-10-27T02:29:03.308Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-13&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1299,11 +1260,11 @@
       "mealPlan": "Breakfast included",
       "cancellationPolicy": "Non-refundable",
       "guaranteePolicy": "Online payment",
-      "taxes": "INR 8820.00 (shown separately by the hotel)",
-      "taxAmount": 8820,
+      "taxes": "INR 8392.50 (shown separately by the hotel)",
+      "taxAmount": 8392.5,
       "additionalCharges": null,
-      "baseAmount": 49000,
-      "finalAmount": 57820,
+      "baseAmount": 46625,
+      "finalAmount": 55017.5,
       "currency": "INR",
       "availability": "AVAILABLE",
       "rateName": "SAVER RATE- BREAKFAST INCLUDED",
@@ -1311,16 +1272,16 @@
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-13&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
       "previousAmount": 57820,
-      "changeAmount": 0,
-      "changePercent": 0
+      "changeAmount": -2802.5,
+      "changePercent": -4.846938775510204
     },
     {
       "hotelId": "jagat-niwas-palace",
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-11-13",
-      "checkOut": "2026-11-14",
+      "checkIn": "2026-11-14",
+      "checkOut": "2026-11-15",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -1330,7 +1291,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:18.234Z",
+      "checkedAt": "2026-10-27T02:29:09.253Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1353,7 +1314,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:19.658Z",
+      "checkedAt": "2026-10-27T02:29:09.002Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-14&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1361,11 +1322,11 @@
       "mealPlan": "Breakfast included",
       "cancellationPolicy": "Non-refundable",
       "guaranteePolicy": "Online payment",
-      "taxes": "INR 8820.00 (shown separately by the hotel)",
-      "taxAmount": 8820,
+      "taxes": "INR 8392.50 (shown separately by the hotel)",
+      "taxAmount": 8392.5,
       "additionalCharges": null,
-      "baseAmount": 49000,
-      "finalAmount": 57820,
+      "baseAmount": 46625,
+      "finalAmount": 55017.5,
       "currency": "INR",
       "availability": "AVAILABLE",
       "rateName": "SAVER RATE- BREAKFAST INCLUDED",
@@ -1373,8 +1334,8 @@
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-14&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
       "previousAmount": 57820,
-      "changeAmount": 0,
-      "changePercent": 0
+      "changeAmount": -2802.5,
+      "changePercent": -4.846938775510204
     },
     {
       "hotelId": "fairmont-udaipur-palace",
@@ -1392,7 +1353,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:24.490Z",
+      "checkedAt": "2026-10-27T02:29:14.807Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-15&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1400,11 +1361,11 @@
       "mealPlan": "Breakfast included",
       "cancellationPolicy": "Cancel free of charge until 13th Nov 6:00 pm",
       "guaranteePolicy": "No prepayment required",
-      "taxes": "INR 9270.00 (shown separately by the hotel)",
-      "taxAmount": 9270,
+      "taxes": "INR 8820.00 (shown separately by the hotel)",
+      "taxAmount": 8820,
       "additionalCharges": null,
-      "baseAmount": 51500,
-      "finalAmount": 60770,
+      "baseAmount": 49000,
+      "finalAmount": 57820,
       "currency": "INR",
       "availability": "AVAILABLE",
       "rateName": "FLEXIBLE RATE - BREAKFAST INCLUDED",
@@ -1412,70 +1373,8 @@
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-15&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
       "previousAmount": 60770,
-      "changeAmount": 0,
-      "changePercent": 0
-    },
-    {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-14",
-      "checkOut": "2026-11-15",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:49:23.794Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
-      "hotelId": "fairmont-udaipur-palace",
-      "hotelName": "Fairmont Udaipur Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-16",
-      "checkOut": "2026-11-17",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:49:29.768Z",
-      "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-16&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
-      "status": "VERIFIED",
-      "roomType": "FAIRMONT KING ROOM",
-      "occupancy": "4 pers. MAX",
-      "mealPlan": "Breakfast included",
-      "cancellationPolicy": "Cancel free of charge until 14th Nov 6:00 pm",
-      "guaranteePolicy": "No prepayment required",
-      "taxes": "INR 10890.00 (shown separately by the hotel)",
-      "taxAmount": 10890,
-      "additionalCharges": null,
-      "baseAmount": 60500,
-      "finalAmount": 71390,
-      "currency": "INR",
-      "availability": "AVAILABLE",
-      "rateName": "FLEXIBLE RATE - BREAKFAST INCLUDED",
-      "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
-      "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-16&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
-      "attempts": 1,
-      "previousAmount": 71390,
-      "changeAmount": 0,
-      "changePercent": 0
+      "changeAmount": -2950,
+      "changePercent": -4.854368932038835
     },
     {
       "hotelId": "jagat-niwas-palace",
@@ -1493,7 +1392,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:29.487Z",
+      "checkedAt": "2026-10-27T02:29:15.315Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1516,12 +1415,51 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:34.950Z",
+      "checkedAt": "2026-10-27T02:29:20.920Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
       "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "attempts": 1
+    },
+    {
+      "hotelId": "fairmont-udaipur-palace",
+      "hotelName": "Fairmont Udaipur Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-16",
+      "checkOut": "2026-11-17",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:29:20.675Z",
+      "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-16&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "status": "VERIFIED",
+      "roomType": "FAIRMONT KING ROOM",
+      "occupancy": "4 pers. MAX",
+      "mealPlan": "Breakfast included",
+      "cancellationPolicy": "Cancel free of charge until 14th Nov 6:00 pm",
+      "guaranteePolicy": "No prepayment required",
+      "taxes": "INR 10980.00 (shown separately by the hotel)",
+      "taxAmount": 10980,
+      "additionalCharges": null,
+      "baseAmount": 61000,
+      "finalAmount": 71980,
+      "currency": "INR",
+      "availability": "AVAILABLE",
+      "rateName": "FLEXIBLE RATE - BREAKFAST INCLUDED",
+      "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
+      "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-16&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "attempts": 1,
+      "previousAmount": 71390,
+      "changeAmount": 590,
+      "changePercent": 0.8264462809917356
     },
     {
       "hotelId": "jagat-niwas-palace",
@@ -1539,7 +1477,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:40.402Z",
+      "checkedAt": "2026-10-27T02:29:26.419Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1562,7 +1500,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:35.202Z",
+      "checkedAt": "2026-10-27T02:29:26.198Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-17&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -1570,29 +1508,6 @@
       "attempts": 1
     },
     {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-18",
-      "checkOut": "2026-11-19",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:50:03.325Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
       "hotelId": "fairmont-udaipur-palace",
       "hotelName": "Fairmont Udaipur Palace",
       "sourceId": "official",
@@ -1608,11 +1523,57 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:49:46.144Z",
+      "checkedAt": "2026-10-27T02:29:31.605Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-18&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-18&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "attempts": 1
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-18",
+      "checkOut": "2026-11-19",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:29:54.413Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-19",
+      "checkOut": "2026-11-20",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:29:59.838Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "attempts": 1
     },
     {
@@ -1631,7 +1592,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:50:09.341Z",
+      "checkedAt": "2026-10-27T02:29:59.222Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-19&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1655,6 +1616,29 @@
       "changePercent": 0
     },
     {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-20",
+      "checkOut": "2026-11-21",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:30:06.467Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
       "hotelId": "fairmont-udaipur-palace",
       "hotelName": "Fairmont Udaipur Palace",
       "sourceId": "official",
@@ -1670,7 +1654,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:50:14.033Z",
+      "checkedAt": "2026-10-27T02:30:05.698Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-20&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1698,52 +1682,6 @@
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-11-19",
-      "checkOut": "2026-11-20",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:50:13.905Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-20",
-      "checkOut": "2026-11-21",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:50:19.234Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
       "checkIn": "2026-11-21",
       "checkOut": "2026-11-22",
       "nights": 1,
@@ -1755,7 +1693,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:50:24.931Z",
+      "checkedAt": "2026-10-27T02:30:13.402Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1778,7 +1716,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:50:19.559Z",
+      "checkedAt": "2026-10-27T02:30:11.675Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-21&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -1801,11 +1739,34 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:50:47.714Z",
+      "checkedAt": "2026-10-27T02:30:39.237Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
       "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
+      "hotelId": "fairmont-udaipur-palace",
+      "hotelName": "Fairmont Udaipur Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-22",
+      "checkOut": "2026-11-23",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:30:19.011Z",
+      "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-22&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "The official booking page did not return room results",
+      "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-22&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1
     },
     {
@@ -1824,7 +1785,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:50:53.235Z",
+      "checkedAt": "2026-10-27T02:30:44.181Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-23&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1848,12 +1809,12 @@
       "changePercent": 0
     },
     {
-      "hotelId": "fairmont-udaipur-palace",
-      "hotelName": "Fairmont Udaipur Palace",
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-11-22",
-      "checkOut": "2026-11-23",
+      "checkIn": "2026-11-23",
+      "checkOut": "2026-11-24",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -1863,11 +1824,11 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:50:30.492Z",
-      "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-22&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
-      "status": "PRICE_DETAILS_INCOMPLETE",
-      "failureReason": "The official booking page did not return room results",
-      "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-22&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "checkedAt": "2026-10-27T02:30:46.809Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "attempts": 1
     },
     {
@@ -1886,7 +1847,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:50:58.324Z",
+      "checkedAt": "2026-10-27T02:30:50.554Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-24&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1914,29 +1875,6 @@
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-11-23",
-      "checkOut": "2026-11-24",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-10-26T01:50:58.121Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
       "checkIn": "2026-11-24",
       "checkOut": "2026-11-25",
       "nights": 1,
@@ -1948,7 +1886,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:51:03.627Z",
+      "checkedAt": "2026-10-27T02:30:51.960Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1971,7 +1909,7 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:51:09.768Z",
+      "checkedAt": "2026-10-27T02:30:57.405Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1994,11 +1932,57 @@
           8
         ]
       },
-      "checkedAt": "2026-10-26T01:51:03.952Z",
+      "checkedAt": "2026-10-27T02:30:56.369Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-25&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-25&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "attempts": 1
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-26",
+      "checkOut": "2026-11-27",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:31:24.019Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
+      "hotelId": "fairmont-udaipur-palace",
+      "hotelName": "Fairmont Udaipur Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-11-26",
+      "checkOut": "2026-11-27",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-10-27T02:31:02.720Z",
+      "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-26&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "status": "PRICE_DETAILS_INCOMPLETE",
+      "failureReason": "The official booking page did not return room results",
+      "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-26&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1
     }
   ]
