@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "title": "Udaipur hotel price tracker",
-  "runStartedAt": "2026-11-13T03:43:22.660Z",
+  "runStartedAt": "2026-11-14T03:42:41.795Z",
   "timezone": "Asia/Kolkata",
   "stay": {
     "nights": 1,
@@ -12,11 +12,6 @@
     ]
   },
   "dateWindow": [
-    {
-      "checkIn": "2026-11-13",
-      "checkOut": "2026-11-14",
-      "nights": 1
-    },
     {
       "checkIn": "2026-11-14",
       "checkOut": "2026-11-15",
@@ -166,6 +161,11 @@
       "checkIn": "2026-12-13",
       "checkOut": "2026-12-14",
       "nights": 1
+    },
+    {
+      "checkIn": "2026-12-14",
+      "checkOut": "2026-12-15",
+      "nights": 1
     }
   ],
   "hotels": [
@@ -196,8 +196,8 @@
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
-      "checkIn": "2026-11-13",
-      "checkOut": "2026-11-14",
+      "checkIn": "2026-11-14",
+      "checkOut": "2026-11-15",
       "nights": 1,
       "guests": {
         "nights": 1,
@@ -207,51 +207,12 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:05.286Z",
+      "checkedAt": "2026-11-14T03:37:16.094Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
       "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "attempts": 1
-    },
-    {
-      "hotelId": "fairmont-udaipur-palace",
-      "hotelName": "Fairmont Udaipur Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-13",
-      "checkOut": "2026-11-14",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-11-13T03:38:05.285Z",
-      "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-13&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
-      "status": "VERIFIED",
-      "roomType": "FAIRMONT KING ROOM",
-      "occupancy": "4 pers. MAX",
-      "mealPlan": "Breakfast included",
-      "cancellationPolicy": "Non-refundable",
-      "guaranteePolicy": "No prepayment required",
-      "taxes": "INR 8100.00 (shown separately by the hotel)",
-      "taxAmount": 8100,
-      "additionalCharges": null,
-      "baseAmount": 45000,
-      "finalAmount": 53100,
-      "currency": "INR",
-      "availability": "AVAILABLE",
-      "rateName": "FLEXIBLE RATE - BREAKFAST INCLUDED",
-      "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
-      "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-13&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
-      "attempts": 1,
-      "previousAmount": 57820,
-      "changeAmount": -4720,
-      "changePercent": -8.16326530612245
     },
     {
       "hotelId": "fairmont-udaipur-palace",
@@ -269,7 +230,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:11.481Z",
+      "checkedAt": "2026-11-14T03:37:16.093Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-14&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -288,32 +249,9 @@
       "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-14&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
-      "previousAmount": null,
-      "changeAmount": null,
-      "changePercent": null
-    },
-    {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-11-14",
-      "checkOut": "2026-11-15",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-11-13T03:38:11.711Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
+      "previousAmount": 53100,
+      "changeAmount": 0,
+      "changePercent": 0
     },
     {
       "hotelId": "fairmont-udaipur-palace",
@@ -331,13 +269,13 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:17.042Z",
+      "checkedAt": "2026-11-14T03:37:22.978Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-15&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
       "occupancy": "4 pers. MAX",
       "mealPlan": "Breakfast included",
-      "cancellationPolicy": "Cancel free of charge until 13th Nov 6:00 pm",
+      "cancellationPolicy": "Non-refundable",
       "guaranteePolicy": "No prepayment required",
       "taxes": "INR 8100.00 (shown separately by the hotel)",
       "taxAmount": 8100,
@@ -370,7 +308,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:17.941Z",
+      "checkedAt": "2026-11-14T03:37:23.757Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -393,28 +331,28 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:22.311Z",
+      "checkedAt": "2026-11-14T03:37:29.003Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-16&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
       "occupancy": "4 pers. MAX",
       "mealPlan": "Breakfast included",
-      "cancellationPolicy": "Non-refundable",
-      "guaranteePolicy": "Online payment",
-      "taxes": "INR 7708.50 (shown separately by the hotel)",
-      "taxAmount": 7708.5,
+      "cancellationPolicy": "Cancel free of charge until 14th Nov 6:00 pm",
+      "guaranteePolicy": "No prepayment required",
+      "taxes": "INR 8100.00 (shown separately by the hotel)",
+      "taxAmount": 8100,
       "additionalCharges": null,
-      "baseAmount": 42825,
-      "finalAmount": 50533.5,
+      "baseAmount": 45000,
+      "finalAmount": 53100,
       "currency": "INR",
       "availability": "AVAILABLE",
-      "rateName": "SAVER RATE- BREAKFAST INCLUDED",
+      "rateName": "FLEXIBLE RATE - BREAKFAST INCLUDED",
       "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-11-16&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
-      "previousAmount": 67909,
-      "changeAmount": -17375.5,
-      "changePercent": -25.586446568201566
+      "previousAmount": null,
+      "changeAmount": null,
+      "changePercent": null
     },
     {
       "hotelId": "jagat-niwas-palace",
@@ -432,7 +370,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:23.746Z",
+      "checkedAt": "2026-11-14T03:37:30.112Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -455,7 +393,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:29.932Z",
+      "checkedAt": "2026-11-14T03:37:36.279Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -478,7 +416,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:28.235Z",
+      "checkedAt": "2026-11-14T03:37:34.802Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-17&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -501,7 +439,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:56.296Z",
+      "checkedAt": "2026-11-14T03:38:04.342Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -524,7 +462,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:38:35.604Z",
+      "checkedAt": "2026-11-14T03:37:42.865Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-18&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -547,7 +485,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:02.266Z",
+      "checkedAt": "2026-11-14T03:38:10.147Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-19&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -586,7 +524,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:03.326Z",
+      "checkedAt": "2026-11-14T03:38:11.716Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -609,7 +547,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:07.655Z",
+      "checkedAt": "2026-11-14T03:38:16.154Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-20&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -648,7 +586,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:09.142Z",
+      "checkedAt": "2026-11-14T03:38:18.488Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -671,7 +609,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:14.810Z",
+      "checkedAt": "2026-11-14T03:38:24.415Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -694,7 +632,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:13.319Z",
+      "checkedAt": "2026-11-14T03:38:22.157Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-21&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -717,7 +655,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:41.058Z",
+      "checkedAt": "2026-11-14T03:38:50.727Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -740,7 +678,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:20.665Z",
+      "checkedAt": "2026-11-14T03:38:30.312Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-22&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -763,7 +701,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:46.489Z",
+      "checkedAt": "2026-11-14T03:38:56.627Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-23&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -802,7 +740,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:48.407Z",
+      "checkedAt": "2026-11-14T03:38:59.040Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -825,7 +763,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:51.915Z",
+      "checkedAt": "2026-11-14T03:39:02.531Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-24&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -864,7 +802,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:54.104Z",
+      "checkedAt": "2026-11-14T03:39:04.965Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -887,7 +825,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:59.726Z",
+      "checkedAt": "2026-11-14T03:39:11.014Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -910,7 +848,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:39:57.937Z",
+      "checkedAt": "2026-11-14T03:39:08.544Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-25&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -933,7 +871,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:25.758Z",
+      "checkedAt": "2026-11-14T03:39:37.248Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -956,7 +894,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:05.326Z",
+      "checkedAt": "2026-11-14T03:39:16.813Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-26&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -979,7 +917,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:31.245Z",
+      "checkedAt": "2026-11-14T03:39:42.912Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-27&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1018,7 +956,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:33.071Z",
+      "checkedAt": "2026-11-14T03:39:45.848Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1041,7 +979,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:36.874Z",
+      "checkedAt": "2026-11-14T03:39:50.868Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-28&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1080,7 +1018,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:39.128Z",
+      "checkedAt": "2026-11-14T03:39:51.990Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1103,7 +1041,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:42.026Z",
+      "checkedAt": "2026-11-14T03:39:56.400Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-29&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1142,7 +1080,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:44.907Z",
+      "checkedAt": "2026-11-14T03:39:58.495Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1165,7 +1103,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:50.532Z",
+      "checkedAt": "2026-11-14T03:40:04.393Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1188,7 +1126,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:56.186Z",
+      "checkedAt": "2026-11-14T03:40:10.253Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-01&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1227,7 +1165,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:01.500Z",
+      "checkedAt": "2026-11-14T03:40:16.161Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1250,7 +1188,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:40:47.503Z",
+      "checkedAt": "2026-11-14T03:40:01.868Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-11-30&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -1273,7 +1211,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:15.517Z",
+      "checkedAt": "2026-11-14T03:40:30.532Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1296,7 +1234,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:06.910Z",
+      "checkedAt": "2026-11-14T03:40:21.826Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-02&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -1319,7 +1257,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:34.791Z",
+      "checkedAt": "2026-11-14T03:40:50.466Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1342,7 +1280,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:40.639Z",
+      "checkedAt": "2026-11-14T03:40:56.317Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-04&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1381,7 +1319,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:21.510Z",
+      "checkedAt": "2026-11-14T03:40:36.740Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-03&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -1404,7 +1342,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:46.166Z",
+      "checkedAt": "2026-11-14T03:41:02.508Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1427,7 +1365,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:49.384Z",
+      "checkedAt": "2026-11-14T03:41:05.471Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-05&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1466,7 +1404,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:51.474Z",
+      "checkedAt": "2026-11-14T03:41:08.300Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1489,7 +1427,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:54.518Z",
+      "checkedAt": "2026-11-14T03:41:11.148Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-06&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1528,7 +1466,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:41:57.170Z",
+      "checkedAt": "2026-11-14T03:41:14.198Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1551,7 +1489,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:00.119Z",
+      "checkedAt": "2026-11-14T03:41:17.206Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-07&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1590,7 +1528,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:03.729Z",
+      "checkedAt": "2026-11-14T03:41:20.023Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1613,7 +1551,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:05.356Z",
+      "checkedAt": "2026-11-14T03:41:23.212Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-08&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1652,30 +1590,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:09.619Z",
-      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "status": "ROOM_NOT_AVAILABLE",
-      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
-      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
-      "attempts": 1
-    },
-    {
-      "hotelId": "jagat-niwas-palace",
-      "hotelName": "Jagat Niwas Palace",
-      "sourceId": "official",
-      "sourceName": "Official website",
-      "checkIn": "2026-12-09",
-      "checkOut": "2026-12-10",
-      "nights": 1,
-      "guests": {
-        "nights": 1,
-        "rooms": 1,
-        "adults": 2,
-        "children": [
-          8
-        ]
-      },
-      "checkedAt": "2026-11-13T03:42:15.495Z",
+      "checkedAt": "2026-11-14T03:41:26.348Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1698,7 +1613,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:10.908Z",
+      "checkedAt": "2026-11-14T03:41:29.199Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-09&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1726,6 +1641,29 @@
       "hotelName": "Jagat Niwas Palace",
       "sourceId": "official",
       "sourceName": "Official website",
+      "checkIn": "2026-12-09",
+      "checkOut": "2026-12-10",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-11-14T03:41:32.200Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "attempts": 1
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
       "checkIn": "2026-12-10",
       "checkOut": "2026-12-11",
       "nights": 1,
@@ -1737,7 +1675,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:22.081Z",
+      "checkedAt": "2026-11-14T03:41:38.081Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1760,7 +1698,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:21.060Z",
+      "checkedAt": "2026-11-14T03:41:35.078Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-10&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -1783,7 +1721,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:49.671Z",
+      "checkedAt": "2026-11-14T03:42:03.746Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1806,7 +1744,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:28.226Z",
+      "checkedAt": "2026-11-14T03:41:43.932Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-11&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
@@ -1829,7 +1767,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:56.034Z",
+      "checkedAt": "2026-11-14T03:42:12.646Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
@@ -1852,7 +1790,7 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:43:02.151Z",
+      "checkedAt": "2026-11-14T03:42:18.603Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-13&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "VERIFIED",
       "roomType": "FAIRMONT KING ROOM",
@@ -1871,9 +1809,9 @@
       "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-12-13&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "attempts": 1,
-      "previousAmount": null,
-      "changeAmount": null,
-      "changePercent": null
+      "previousAmount": 63425,
+      "changeAmount": 0,
+      "changePercent": 0
     },
     {
       "hotelId": "jagat-niwas-palace",
@@ -1891,12 +1829,51 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:43:07.308Z",
+      "checkedAt": "2026-11-14T03:42:24.459Z",
       "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "status": "ROOM_NOT_AVAILABLE",
       "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
       "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "attempts": 1
+    },
+    {
+      "hotelId": "fairmont-udaipur-palace",
+      "hotelName": "Fairmont Udaipur Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-12-14",
+      "checkOut": "2026-12-15",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-11-14T03:42:30.364Z",
+      "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-14&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "status": "VERIFIED",
+      "roomType": "FAIRMONT TWIN ROOM",
+      "occupancy": "3 pers. MAX",
+      "mealPlan": "Breakfast included",
+      "cancellationPolicy": "Non-refundable",
+      "guaranteePolicy": "Online payment",
+      "taxes": "INR 9675.00 (shown separately by the hotel)",
+      "taxAmount": 9675,
+      "additionalCharges": null,
+      "baseAmount": 53750,
+      "finalAmount": 63425,
+      "currency": "INR",
+      "availability": "AVAILABLE",
+      "rateName": "SAVER RATE- BREAKFAST INCLUDED",
+      "verificationMethod": "Official booking page public rate plus explicitly displayed taxes",
+      "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-12-14&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "attempts": 1,
+      "previousAmount": null,
+      "changeAmount": null,
+      "changePercent": null
     },
     {
       "hotelId": "fairmont-udaipur-palace",
@@ -1914,11 +1891,34 @@
           8
         ]
       },
-      "checkedAt": "2026-11-13T03:42:55.061Z",
+      "checkedAt": "2026-11-14T03:42:09.485Z",
       "requestedUrl": "https://permalink.fairmont.com/booking/select?dateIn=2026-12-12&lengthOfStayValue=1&client=aem.fairmont&languageCode=en&hotelCodes=B9T3&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
       "status": "PRICE_DETAILS_INCOMPLETE",
       "failureReason": "The official booking page did not return room results",
       "bookingUrl": "https://www.fairmont.com/booking/en/stay?dateIn=2026-12-12&hotelCodes=B9T3&lengthOfStayValue=1&product%5B0%5D%5BadultNumber%5D=2&product%5B0%5D%5BchildNumber%5D=1&product%5B0%5D%5BchildrenAges%5D%5B0%5D=8",
+      "attempts": 1
+    },
+    {
+      "hotelId": "jagat-niwas-palace",
+      "hotelName": "Jagat Niwas Palace",
+      "sourceId": "official",
+      "sourceName": "Official website",
+      "checkIn": "2026-12-14",
+      "checkOut": "2026-12-15",
+      "nights": 1,
+      "guests": {
+        "nights": 1,
+        "rooms": 1,
+        "adults": 2,
+        "children": [
+          8
+        ]
+      },
+      "checkedAt": "2026-11-14T03:42:36.054Z",
+      "requestedUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
+      "status": "ROOM_NOT_AVAILABLE",
+      "failureReason": "Official engine: no one-room option accommodates 2 adults and 1 child",
+      "bookingUrl": "https://www.swiftbook.io/inst/#home?propertyId=621MsdT0Mws4shJ5jBKWQQA41DH2QrpP6Emzc1OQ==&JDRN=Y",
       "attempts": 1
     }
   ]
