@@ -407,7 +407,9 @@ body.dark .btn-add-disb:hover { background: #1f3660; }
 .disb-total-wrap { display: flex; align-items: center; gap: 10px; }
 .disb-total-label { font-size: 13px; color: var(--text-secondary); }
 .disb-total-val { font-size: 17px; font-weight: 700; letter-spacing: -.02em; }
-.emi-computed { font-size: 19px; font-weight: 700; color: var(--accent); letter-spacing: -.02em; }
+.emi-computed { font-size: 19px; font-weight: 700; color: var(--accent); letter-spacing: -.02em; overflow-wrap: anywhere; }
+.emi-computed.emi-error { font-size: 13px; color: #dc2626; letter-spacing: 0; }
+.rp-field input[type="number"].rp-invalid { border-color: #dc2626; background: rgba(239,68,68,.08); }
 .emi-label { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
 .emi-box { background: var(--surface2); border-radius: 10px; padding: 13px 15px; display: flex; align-items: center; justify-content: space-between; }
 
@@ -2441,6 +2443,7 @@ function removeRateRow(id) {
   }
   recalculate();
 }
+const MAX_ROI = 50;
 function getRateChanges() {
   const changes = [];
   document.querySelectorAll('#rate-body .rate-row').forEach(row => {
@@ -2448,7 +2451,7 @@ function getRateChanges() {
     const roiInput = row.querySelector('input[type="number"]');
     if (!dateInput || !roiInput) return;
     const dateVal = dateInput.value, roiVal = parseFloat(roiInput.value);
-    if (dateVal && roiVal > 0) changes.push({ date: new Date(dateVal + 'T00:00:00'), roi: roiVal });
+    if (dateVal && roiVal > 0 && roiVal <= MAX_ROI) changes.push({ date: new Date(dateVal + 'T00:00:00'), roi: roiVal });
   });
   return changes.sort((a, b) => a.date - b.date);
 }
@@ -2548,7 +2551,12 @@ function sameMonth(a, b) { return a.getFullYear() === b.getFullYear() && a.getMo
 
 function recalculate() {
   const { roi, term, mora, inttPaid, disbursements } = getInputs();
-  if (isNaN(roi) || isNaN(term) || isNaN(mora) || disbursements.length === 0) {
+  // ROI is a yearly % — a value like 1500000 (a loan amount typed in the wrong box) gives an absurd EMI
+  const roiOutOfRange = !isNaN(roi) && (roi <= 0 || roi > MAX_ROI);
+  document.getElementById('roi').classList.toggle('rp-invalid', roiOutOfRange);
+  const emiEl = document.getElementById('emi-display');
+  emiEl.classList.toggle('emi-error', roiOutOfRange);
+  if (roiOutOfRange || isNaN(roi) || isNaN(term) || isNaN(mora) || disbursements.length === 0) {
     const tbody = document.getElementById('schedule-body');
     if (tbody) tbody.innerHTML = '';
     ['emi-display','monthly-rate-display','total-disb','s-loan','s-loan-sub',
@@ -2556,6 +2564,10 @@ function recalculate() {
       const el = document.getElementById(id);
       if (el) el.textContent = '—';
     });
+    if (roiOutOfRange) {
+      emiEl.textContent = `ROI must be between 0.01 and ${MAX_ROI}% p.a.`;
+      return; // don't overwrite the saved schedule with a bad ROI
+    }
     saveRepaymentToCloud(false);
     return;
   }
