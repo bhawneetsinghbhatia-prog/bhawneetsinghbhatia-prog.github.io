@@ -2212,9 +2212,15 @@ let debounceTimer = null;
 
 function debouncedRecalc() { clearTimeout(debounceTimer); debounceTimer = setTimeout(recalculate, 400); }
 
-// Enter in a repayment field just confirms the value (blur fires its change → recalculate)
+// Enter in a repayment field confirms the value and jumps to the next field in the same table
+// (amount → next row's date); on the last field it just confirms (blur fires change → recalculate)
 document.getElementById('repayment-section').addEventListener('keydown', e => {
-  if (e.key === 'Enter' && e.target.tagName === 'INPUT') { e.preventDefault(); e.target.blur(); }
+  if (e.key !== 'Enter' || e.target.tagName !== 'INPUT') return;
+  e.preventDefault();
+  const group = e.target.closest('#disb-body, #rate-body, .rp-card-body');
+  const fields = group ? [...group.querySelectorAll('input')] : [];
+  const next = fields[fields.indexOf(e.target) + 1];
+  if (next) next.focus(); else e.target.blur();
 });
 
 function generatePDF() {
