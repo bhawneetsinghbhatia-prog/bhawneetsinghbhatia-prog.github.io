@@ -2097,6 +2097,11 @@ function deleteRepaymentLocal() {
 async function saveRepaymentToCloud(manual = false) {
   if (!auth || !auth.currentUser) return;
   if (_rpApplying) return; // fired by onSnapshot apply — skip to avoid infinite loop
+  const roiNow = parseFloat(document.getElementById('roi').value);
+  if (roiNow <= 0 || roiNow > MAX_ROI) {
+    if (manual) showToast(`Not saved: ROI must be between 0.01 and ${MAX_ROI}%`, '#ef4444');
+    return;
+  }
   const uid = auth.currentUser.uid;
   const ts = Date.now();
   _lastRpSavedAt = ts;        // stamp BEFORE write so we can match the echo snapshot
@@ -2207,9 +2212,18 @@ let debounceTimer = null;
 
 function debouncedRecalc() { clearTimeout(debounceTimer); debounceTimer = setTimeout(recalculate, 400); }
 
+// Enter in a repayment field just confirms the value (blur fires its change → recalculate)
+document.getElementById('repayment-section').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.target.tagName === 'INPUT') { e.preventDefault(); e.target.blur(); }
+});
+
 function generatePDF() {
   if (typeof window.jspdf === 'undefined') {
     alert('PDF library is still loading. Please wait a moment and try again.');
+    return;
+  }
+  if (!document.querySelector('#schedule-body tr')) {
+    showToast('Nothing to export — fill in the loan details first', '#ef4444');
     return;
   }
   const { jsPDF } = window.jspdf;
@@ -2405,11 +2419,13 @@ function addDisbRow() {
   const container = document.getElementById('disb-body');
   const div = document.createElement('div');
   div.className = 'disb-row'; div.id = `disb-row-${disbRowCount}`;
-  div.innerHTML = `<span class="disb-no">${disbRowCount}</span>
+  div.innerHTML = `<span class="disb-no">${container.querySelectorAll('.disb-row').length + 1}</span>
     <input type="date" id="disb-date-${disbRowCount}" onchange="recalculate()">
     <input type="number" id="disb-amt-${disbRowCount}" min="0" step="1" placeholder="0" onchange="recalculate()">
     <div class="disb-del-cell"><button class="btn-remove" onclick="removeDisbRow(${disbRowCount})" title="Remove">×</button></div>`;
   container.appendChild(div);
+  // Move focus off the Add button, otherwise a later Enter "clicks" it again and adds another row
+  div.querySelector('input[type="date"]').focus();
 }
 function removeDisbRow(id) {
   const row = document.getElementById(`disb-row-${id}`);
@@ -2430,6 +2446,7 @@ function addRateRow() {
     <span class="rate-unit">% p.a.</span>
     <div class="rate-del-cell"><button class="btn-remove" onclick="removeRateRow(${rateRowCount})" title="Remove">×</button></div>`;
   container.appendChild(div);
+  div.querySelector('input[type="date"]').focus();
 }
 function removeRateRow(id) {
   const row = document.getElementById(`rate-row-${id}`);
@@ -2496,7 +2513,7 @@ function getInputs() {
 
   const roi = roiVal !== '' ? parseFloat(roiVal) : NaN;
   const term = termVal !== '' ? Math.max(1, parseInt(termVal)) : NaN;
-  const moraRaw = moraVal !== '' ? parseInt(moraVal) : 0;
+  const moraRaw = moraVal !== '' ? Math.max(0, parseInt(moraVal)) : 0;
   const mora = isNaN(term) ? moraRaw : Math.min(moraRaw, term - 1);
   const inttPaid = document.getElementById('inttPaid').value;
   const disbursements = [];
