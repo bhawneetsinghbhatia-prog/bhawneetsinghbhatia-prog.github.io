@@ -1,14 +1,9 @@
 # Udaipur hotel price tracker
 
-Checked: 2026-11-18T04:58:08.639Z · Stay: 1 night(s) · 2 adults + 1 child (age 8)
+Checked: 2026-11-19T04:42:17.636Z · Stay: 1 night(s) · 2 adults + 1 child (age 8)
 
 | Check-in | Hotel | Lowest verified final price | Best website | Change | Booking |
 |---|---|---:|---|---:|---|
-| 2026-11-18 | Fairmont Udaipur Palace | Not verified | — | — | — |
-| 2026-11-18 | Jagat Niwas Palace | Not verified | — | — | — |
-| 2026-11-18 | The Oberoi Udaivilas | Not verified | — | — | — |
-| 2026-11-18 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
-| 2026-11-18 | Trident Udaipur | Not verified | — | — | — |
 | 2026-11-19 | Fairmont Udaipur Palace | Not verified | — | — | — |
 | 2026-11-19 | Jagat Niwas Palace | Not verified | — | — | — |
 | 2026-11-19 | The Oberoi Udaivilas | Not verified | — | — | — |
@@ -159,35 +154,38 @@ Checked: 2026-11-18T04:58:08.639Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-12-18 | The Oberoi Udaivilas | Not verified | — | — | — |
 | 2026-12-18 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
 | 2026-12-18 | Trident Udaipur | Not verified | — | — | — |
+| 2026-12-19 | Fairmont Udaipur Palace | Not verified | — | — | — |
+| 2026-12-19 | Jagat Niwas Palace | Not verified | — | — | — |
+| 2026-12-19 | The Oberoi Udaivilas | Not verified | — | — | — |
+| 2026-12-19 | Wyndham Grand Udaipur Fateh Sagar Lake | Not verified | — | — | — |
+| 2026-12-19 | Trident Udaipur | Not verified | — | — | — |
 
 ## Unverified checks
 
 | Date | Hotel | Website | Status | Reason |
 |---|---|---|---|---|
-| 2026-11-18 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
-| 2026-11-18 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
-| 2026-11-19 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-19 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
-| 2026-11-20 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-11-19 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-20 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
+| 2026-11-20 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-11-21 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-11-21 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-22 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-11-22 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
-| 2026-11-23 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-23 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-11-23 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-24 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-11-24 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
-| 2026-11-25 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-25 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-11-25 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-26 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-11-26 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-27 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-11-27 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-28 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-11-28 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
-| 2026-11-29 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-29 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-11-29 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-11-30 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-11-30 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-01 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
@@ -202,8 +200,8 @@ Checked: 2026-11-18T04:58:08.639Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-12-05 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-06 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-12-06 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
-| 2026-12-07 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-07 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-12-07 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-08 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-12-08 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-09 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
@@ -214,8 +212,8 @@ Checked: 2026-11-18T04:58:08.639Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-12-11 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-12 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-12-12 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
-| 2026-12-13 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-13 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-12-13 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-14 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-12-14 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-15 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
@@ -224,7 +222,9 @@ Checked: 2026-11-18T04:58:08.639Z · Stay: 1 night(s) · 2 adults + 1 child (age
 | 2026-12-16 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 | 2026-12-17 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-12-17 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
-| 2026-12-18 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
 | 2026-12-18 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
+| 2026-12-18 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-12-19 | Jagat Niwas Palace | Official website | ROOM_NOT_AVAILABLE | Official engine: no one-room option accommodates 2 adults and 1 child |
+| 2026-12-19 | Fairmont Udaipur Palace | Official website | PRICE_DETAILS_INCOMPLETE | The official booking page did not return room results |
 
 > “Not verified” means no confirmed final payable price was obtained. Candidate or estimated prices are deliberately excluded.
